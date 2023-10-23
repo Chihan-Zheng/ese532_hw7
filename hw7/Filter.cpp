@@ -17,6 +17,37 @@ static void Filter_horizontal_SW(const unsigned char * Input,
     }
 }
 
+static void Filter_horizontal_HW(const unsigned char * Input,
+		                      unsigned char * Output)
+{
+  int X, Y, i;
+
+  #ifdef NO_SYNTH
+    unsigned int *Coefficients_local = (unsigned int*) malloc(FILTER_LENGTH * sizeof(unsigned int));
+    unsigned char *Input_local = (unsigned char*) malloc(8 * sizeof(unsigned char));
+  #else
+    unsigned int _Coefficients_local[FILTER_LENGTH];
+    unsigned char _Input_local[8];
+    unsigned int *Coefficients_local = &(_Coefficients_local[0]);
+    unsigned char *Input_local = &(_Input_local[0]);
+  #endif
+
+  for (i = 0; i < FILTER_LENGTH; i++) {Coefficients_local[i] = Coefficients[i];}
+
+  for (Y = 0; Y < SCALED_FRAME_HEIGHT; Y++)
+    for (i = 1; i < 8; i++) {Input_local[i] = Input[(Y * SCALED_FRAME_WIDTH) + i - 1];}
+    for (X = 0; X < OUTPUT_FRAME_WIDTH; X++)
+    {
+      unsigned int Sum = 0;
+      for (i = 0; i < (8 - 1); i++) {Input_local[i] = Input_local[i+1];}
+      Input_local[7] = Input[(Y * SCALED_FRAME_WIDTH) + X + FILTER_LENGTH-1];
+      for (i = 0; i < FILTER_LENGTH; i++)
+        // Sum += Coefficients[i] * Input[Y * SCALED_FRAME_WIDTH + X + i];   //SW version
+        Sum += Coefficients_local[i] * Input_local[i];
+      Output[Y * OUTPUT_FRAME_WIDTH + X] = Sum >> 8;
+    }
+}
+
 static void Filter_vertical_SW(const unsigned char * Input,
 		                    unsigned char * Output)
 {
