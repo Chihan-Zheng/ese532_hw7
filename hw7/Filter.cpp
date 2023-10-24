@@ -25,7 +25,7 @@ static void Filter_horizontal_HW(const unsigned char * Input,
 
   #ifdef NO_SYNTH
     unsigned int *Coefficients_local = (unsigned int*) malloc(FILTER_LENGTH * sizeof(unsigned int));
-    unsigned char *Input_local = (unsigned char*) malloc(8 * sizeof(unsigned char));
+    unsigned char *Input_local = (unsigned char*) malloc(INPUT_BUFFER_LENGTH * sizeof(unsigned char));
   #else
     unsigned int _Coefficients_local[FILTER_LENGTH];
     unsigned char _Input_local[INPUT_BUFFER_LENGTH];
