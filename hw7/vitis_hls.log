@@ -1,17 +1,17 @@
 INFO: Applying HLS Y2K22 patch v1.2 for IP revision
 INFO: [HLS 200-10] Running '/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'chihan' on host 'capella.seas.upenn.edu' (Linux_x86_64 version 5.14.21-150500.55.31-default) on Mon Oct 23 23:04:58 EDT 2023
+INFO: [HLS 200-10] For user 'chihan' on host 'klick.seas.upenn.edu' (Linux_x86_64 version 5.14.21-150500.55.31-default) on Tue Oct 24 10:59:02 EDT 2023
 INFO: [HLS 200-10] On os "openSUSE Leap 15.5"
 INFO: [HLS 200-10] In directory '/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7'
-Sourcing Tcl script '/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/Solution1/csim.tcl'
+Sourcing Tcl script '/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/Solution1/csynth.tcl'
 INFO: [HLS 200-1510] Running: open_project ese532_hw7 
 INFO: [HLS 200-10] Opening project '/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7'.
 INFO: [HLS 200-1510] Running: set_top Filter_horizontal_HW 
-INFO: [HLS 200-1510] Running: add_files Filter.cpp 
-INFO: [HLS 200-10] Adding design file 'Filter.cpp' to the project
 INFO: [HLS 200-1510] Running: add_files Pipeline.h 
 INFO: [HLS 200-10] Adding design file 'Pipeline.h' to the project
-INFO: [HLS 200-1510] Running: add_files -tb testbench.cpp 
+INFO: [HLS 200-1510] Running: add_files Filter.cpp 
+INFO: [HLS 200-10] Adding design file 'Filter.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb testbench.cpp -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
 INFO: [HLS 200-10] Adding test bench file 'testbench.cpp' to the project
 INFO: [HLS 200-1510] Running: open_solution Solution1 -flow_target vitis 
 INFO: [HLS 200-10] Opening solution '/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/Solution1'.
@@ -19,20 +19,82 @@ INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.667ns.
 INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-i'
 INFO: [HLS 200-1505] Using flow_target 'vitis'
 Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-1505.html
-INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
-INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
-INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
-INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_offset=slave
-INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-1464] Running solution command: config_interface -default_interface=kernel
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_offset=slave
+INFO: [HLS 200-1464] Running solution command: config_rtl -register_reset_num=3
 INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-i 
 INFO: [HLS 200-1510] Running: create_clock -period 150MHz -name default 
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.667ns.
-INFO: [HLS 200-1510] Running: csim_design -quiet 
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../Filter.cpp in debug mode
-   Generating csim.exe
-TEST PASSED
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1.06 seconds. CPU system time: 0.12 seconds. Elapsed time: 1.42 seconds; current allocated memory: 208.047 MB.
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave 
+INFO: [HLS 200-1510] Running: config_rtl -register_reset_num 3 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 208.046 MB.
+INFO: [HLS 200-10] Analyzing design file 'Filter.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.75 seconds. CPU system time: 0.26 seconds. Elapsed time: 4.97 seconds; current allocated memory: 209.316 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 214-115] Multiple burst reads of length 3 and bit width 16 has been inferred on port 'gmem' (Filter.cpp:41:22)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1.83 seconds. CPU system time: 0.28 seconds. Elapsed time: 4.36 seconds; current allocated memory: 210.933 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 210.934 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.41 seconds; current allocated memory: 212.985 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 213.067 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_45_5' (Filter.cpp:25) in function 'Filter_horizontal_HW' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_41_3' (Filter.cpp:25) in function 'Filter_horizontal_HW' automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'Filter_horizontal_HW' (Filter.cpp:22)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 234.535 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_42_4' (Filter.cpp:44:20) in function 'Filter_horizontal_HW' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_40_2' (Filter.cpp:25:10) in function 'Filter_horizontal_HW' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-960.html
+INFO: [HLS 200-472] Inferring partial write operation for '_Input_local' (Filter.cpp:41:80)
+INFO: [HLS 200-472] Inferring partial write operation for '_Input_local' (Filter.cpp:45:88)
+INFO: [HLS 200-472] Inferring partial write operation for '_Input_local' (Filter.cpp:46:44)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 228.056 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Filter_horizontal_HW' ...
+WARNING: [SYN 201-107] Renaming port name 'Filter_horizontal_HW/Input' to 'Filter_horizontal_HW/Input_r' to avoid the conflict with HDL keywords or other object names.
+WARNING: [SYN 201-107] Renaming port name 'Filter_horizontal_HW/Output' to 'Filter_horizontal_HW/Output_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Filter_horizontal_HW' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP48 latency (root=mul_ln50) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_41_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'VITIS_LOOP_41_3'
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_45_5'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'VITIS_LOOP_45_5'
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_47_6'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'VITIS_LOOP_47_6'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.2 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.38 seconds; current allocated memory: 229.124 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.41 seconds. CPU system time: 0 seconds. Elapsed time: 0.5 seconds; current allocated memory: 230.352 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Filter_horizontal_HW' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Filter_horizontal_HW/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Filter_horizontal_HW/Input_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Filter_horizontal_HW/Output_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'Filter_horizontal_HW' to 's_axilite & ap_ctrl_chain'.
+INFO: [RTGEN 206-100] Bundling port 'Input_r', 'Output_r' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_7ns_8ns_18ns_18_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Filter_horizontal_HW'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.4 seconds; current allocated memory: 233.472 MB.
+INFO: [RTMG 210-279] Implementing memory 'Filter_horizontal_HW_p_Coefficients_local_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'Filter_horizontal_HW_p_Input_local_ram (RAM)' using auto RAMs.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1.03 seconds. CPU system time: 0.1 seconds. Elapsed time: 2.31 seconds; current allocated memory: 245.042 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for Filter_horizontal_HW.
+INFO: [VLOG 209-307] Generating Verilog RTL for Filter_horizontal_HW.
+INFO: [HLS 200-1603] Design has MAXI bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 205.47 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 4.7 seconds. CPU system time: 0.67 seconds. Elapsed time: 13.85 seconds; current allocated memory: 245.468 MB.
+INFO: [HLS 200-112] Total CPU user time: 8.11 seconds. Total CPU system time: 1.59 seconds. Total elapsed time: 34.37 seconds; peak allocated memory: 245.042 MB.

@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" top="Filter_horizontal_HW" name="ese532_hw7">
+<project xmlns="com.autoesl.autopilot.project" name="ese532_hw7" top="Filter_horizontal_HW">
     <includePaths/>
     <libraryPaths/>
     <Simulation>
@@ -6,8 +6,8 @@
     </Simulation>
     <files xmlns="">
         <file name="../../testbench.cpp" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" csimflags=" -Wno-unknown-pragmas" blackbox="false"/>
-        <file name="Pipeline.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="Filter.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
+        <file name="Pipeline.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
     </files>
     <solutions xmlns="">
         <solution name="Solution1" status="active"/>
