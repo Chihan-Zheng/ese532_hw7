@@ -5,6 +5,6 @@
     <originFiles name="Filter.cpp" path="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter.cpp"/>
   </source>
   <testbench>
-    <originFiles name="testbench_vertical.cpp" path="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/testbench_vertical.cpp"/>
+    <originFiles name="testbench_Filter_HW.cpp" path="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/testbench_Filter_HW.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>
