@@ -2,8 +2,6 @@ INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling ../../../../testbench_Filter_HW.cpp in debug mode
    Generating csim.exe
-Mismatch: data index=0 dout_sw=, dout=1
-TEST FAILED
-double free or corruption (!prev)
-ERR: [SIM 100] CSim failed with errors.
+TEST PASSED
+INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

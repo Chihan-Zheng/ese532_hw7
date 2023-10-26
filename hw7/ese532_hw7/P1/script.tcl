@@ -4,7 +4,7 @@
 ## Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ############################################################
 open_project ese532_hw7
-set_top Filter_vertical_HW
+set_top Filter_HW
 add_files Filter.cpp
 add_files Pipeline.h
 add_files -tb testbench_Filter_HW.cpp

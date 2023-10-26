@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" name="ese532_hw7" top="Filter_vertical_HW">
+<project xmlns="com.autoesl.autopilot.project" name="ese532_hw7" top="Filter_HW">
     <includePaths/>
     <libraryPaths/>
     <Simulation>
@@ -11,7 +11,8 @@
     </files>
     <solutions xmlns="">
         <solution name="P1" status="inactive"/>
-        <solution name="P2" status="active"/>
+        <solution name="P2" status="inactive"/>
+        <solution name="P3" status="active"/>
     </solutions>
 </project>
 

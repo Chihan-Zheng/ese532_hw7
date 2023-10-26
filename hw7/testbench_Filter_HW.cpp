@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
   unsigned char *Input[NUM_MAT], *Output[NUM_MAT], *Output_sw[NUM_MAT];
 
   for (int m = 0; m < NUM_MAT; m++) {
-    Input[m] = (unsigned char *)malloc(OUTPUT_FRAME_WIDTH * SCALED_FRAME_HEIGHT * sizeof(unsigned char));
+    Input[m] = (unsigned char *)malloc(SCALED_FRAME_WIDTH * SCALED_FRAME_HEIGHT * sizeof(unsigned char));
     Output[m] = (unsigned char *)malloc(OUTPUT_FRAME_WIDTH * OUTPUT_FRAME_HEIGHT * sizeof(unsigned char));
     Output_sw[m] = (unsigned char *)malloc(OUTPUT_FRAME_WIDTH * OUTPUT_FRAME_HEIGHT * sizeof(unsigned char));
 
@@ -56,9 +56,9 @@ int main(int argc, char *argv[]) {
     Filter_SW(Input[i % NUM_MAT], Output_sw[i % NUM_MAT]);
   }
 
-/*   for (int i = 0; i < NUM_TESTS; i++) {
+  for (int i = 0; i < NUM_TESTS; i++) {
     Filter_HW(Input[i % NUM_MAT], Output[i % NUM_MAT]);
-  } */
+  }
 
   int failed = 0;
   for (int i = 0; !failed && i < NUM_MAT; i++)
