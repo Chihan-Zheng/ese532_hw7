@@ -68,7 +68,7 @@ void Filter_horizontal_HW(const unsigned char * Input,
 }
 
 
-static void Filter_vertical_SW(const unsigned char * Input,
+void Filter_vertical_SW(const unsigned char * Input,
 		                    unsigned char * Output)
 {
   int X, Y, i;
@@ -80,6 +80,48 @@ static void Filter_vertical_SW(const unsigned char * Input,
         Sum += Coefficients[i] * Input[(Y + i) * OUTPUT_FRAME_WIDTH + X];
       Output[Y * OUTPUT_FRAME_WIDTH + X] = Sum >> 8;
     }
+}
+
+void Filter_vertical_HW(const unsigned char * Input,
+		                    unsigned char * Output)
+{
+  int X, Y, i;
+  const char INPUT_BUFFER_LENGTH = 7;       
+
+  #ifdef NO_SYNTH
+    unsigned char *Coefficients_local = (unsigned char*) malloc(FILTER_LENGTH * sizeof(unsigned char));
+    unsigned char *Input_local = (unsigned char*) malloc(INPUT_BUFFER_LENGTH * sizeof(unsigned char));
+  #else
+    unsigned char Coefficients_local[FILTER_LENGTH];
+    unsigned char Input_local[INPUT_BUFFER_LENGTH];
+  #endif
+
+#pragma HLS ARRAY_PARTITION variable=Coefficients_local complete 
+#pragma HLS ARRAY_PARTITION variable=Input_local complete 
+
+  for (i = 0; i < FILTER_LENGTH; i++) {Coefficients_local[i] = Coefficients[i];}
+
+  for (X = 0; X < OUTPUT_FRAME_WIDTH; X++){
+    for (i = 1; i < INPUT_BUFFER_LENGTH; i++) {Input_local[i] = Input[X + OUTPUT_FRAME_WIDTH * (i-1)];}
+    for (Y = 0; Y < OUTPUT_FRAME_HEIGHT; Y++)
+    {
+#pragma HLS PIPELINE
+      unsigned int Sum = 0;
+      for (i = 0; i < (INPUT_BUFFER_LENGTH - 1); i++) {
+#pragma HLS unroll
+        Input_local[i] = Input_local[i+1];
+      }
+
+      Input_local[INPUT_BUFFER_LENGTH - 1] = Input[X + OUTPUT_FRAME_WIDTH * (Y + FILTER_LENGTH-1)];
+      for (i = 0; i < FILTER_LENGTH; i++){  
+#pragma HLS unroll
+        // Sum += Coefficients[i] * Input[OUTPUT_FRAME_WIDTH * (Y+i) + X];   //SW version
+        Sum += Coefficients_local[i] * Input_local[i];
+      }
+
+      Output[Y * OUTPUT_FRAME_WIDTH + X] = Sum >> 8;
+    }
+  }
 }
 
 void Filter_SW(const unsigned char * Input,

@@ -1,6 +1,7 @@
 #include "Pipeline.h"
 #include <stdlib.h>
-#include <hls_stream.h>
+#include <iostream>
+//#include <hls_stream.h>
 
 // #define NO_SYNTH      //define when need to do Csim and comment out when need to do synthesis
 
@@ -24,7 +25,7 @@ void Filter_horizontal_HW(const unsigned char * Input,
 		                      unsigned char * Output)
 {
   int X, Y, i;
-  const char INPUT_BUFFER_LENGTH = 7;       
+  const char INPUT_BUFFER_LENGTH = 6;       
 
   #ifdef NO_SYNTH
     unsigned char *Coefficients_local = (unsigned char*) malloc(FILTER_LENGTH * sizeof(unsigned char));
@@ -40,28 +41,32 @@ void Filter_horizontal_HW(const unsigned char * Input,
   for (i = 0; i < FILTER_LENGTH; i++) {Coefficients_local[i] = Coefficients[i];}
 
   for (Y = 0; Y < SCALED_FRAME_HEIGHT; Y++){
-    for (i = 1; i < INPUT_BUFFER_LENGTH; i++) {Input_local[i] = Input[(Y * SCALED_FRAME_WIDTH) + i - 1];}
+    for (i = 0; i < INPUT_BUFFER_LENGTH; i++) {Input_local[i] = Input[(Y * SCALED_FRAME_WIDTH) + i];}
     for (X = 0; X < OUTPUT_FRAME_WIDTH; X++)
     {
 #pragma HLS PIPELINE
       unsigned int Sum = 0;
-      for (i = 0; i < (INPUT_BUFFER_LENGTH - 1); i++) {
-#pragma HLS unroll
-        Input_local[i] = Input_local[i+1];
-        }
 
-      Input_local[INPUT_BUFFER_LENGTH - 1] = Input[(Y * SCALED_FRAME_WIDTH) + X + FILTER_LENGTH - 1];
+      //Input_local[INPUT_BUFFER_LENGTH - 1] = Input[(Y * SCALED_FRAME_WIDTH) + X + FILTER_LENGTH - 1];
       for (i = 0; i < FILTER_LENGTH; i++){
 #pragma HLS unroll
+        if(i==FILTER_LENGTH-1){
+          for (int j = 0; j < (INPUT_BUFFER_LENGTH - 1); j++) {
+#pragma HLS unroll
+            Input_local[j] = Input_local[j+1];
+          }
+          Input_local[INPUT_BUFFER_LENGTH - 1] = Input[(Y * SCALED_FRAME_WIDTH) + X + FILTER_LENGTH - 1];
+          Sum += Coefficients_local[i] * Input_local[INPUT_BUFFER_LENGTH - 1];
+        }
         // Sum += Coefficients[i] * Input[Y * SCALED_FRAME_WIDTH + X + i];   //SW version
-        Sum += Coefficients_local[i] * Input_local[i];
+        else{
+          Sum += Coefficients_local[i] * Input_local[i];
+        } 
       }
-
       Output[Y * OUTPUT_FRAME_WIDTH + X] = Sum >> 8;
     }
   }
 }
-
 
 void Filter_vertical_SW(const unsigned char * Input,
 		                    unsigned char * Output)
