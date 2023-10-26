@@ -24,17 +24,18 @@ void Filter_horizontal_HW(const unsigned char * Input,
 		                      unsigned char * Output)
 {
   int X, Y, i;
-  int INPUT_BUFFER_LENGTH = 6;
+  const char INPUT_BUFFER_LENGTH = 6;       
 
   #ifdef NO_SYNTH
-    unsigned int *Coefficients_local = (unsigned int*) malloc(FILTER_LENGTH * sizeof(unsigned int));
+    unsigned char *Coefficients_local = (unsigned char*) malloc(FILTER_LENGTH * sizeof(unsigned char));
     unsigned char *Input_local = (unsigned char*) malloc(INPUT_BUFFER_LENGTH * sizeof(unsigned char));
   #else
-    unsigned int _Coefficients_local[FILTER_LENGTH];
-    unsigned char _Input_local[INPUT_BUFFER_LENGTH];
-    unsigned int *Coefficients_local = &(_Coefficients_local[0]);
-    unsigned char *Input_local = &(_Input_local[0]);
+    unsigned char Coefficients_local[FILTER_LENGTH];
+    unsigned char Input_local[INPUT_BUFFER_LENGTH];
   #endif
+
+#pragma HLS ARRAY_PARTITION variable=Coefficients_local complete 
+#pragma HLS ARRAY_PARTITION variable=Input_local complete 
 
   for (i = 0; i < FILTER_LENGTH; i++) {Coefficients_local[i] = Coefficients[i];}
 
@@ -42,17 +43,25 @@ void Filter_horizontal_HW(const unsigned char * Input,
     for (i = 0; i < INPUT_BUFFER_LENGTH; i++) {Input_local[i] = Input[(Y * SCALED_FRAME_WIDTH) + i];}
     for (X = 0; X < OUTPUT_FRAME_WIDTH; X++)
     {
+#pragma HLS PIPELINE
       unsigned int Sum = 0;
 
+      Input_local[INPUT_BUFFER_LENGTH - 1] = Input[(Y * SCALED_FRAME_WIDTH) + X + FILTER_LENGTH - 1];
       for (i = 0; i < FILTER_LENGTH; i++){
+#pragma HLS unroll
         if(i==FILTER_LENGTH-1){
-          for (int j = 0; j < (INPUT_BUFFER_LENGTH - 1); j++) {Input_local[j] = Input_local[j+1];}
-          Input_local[INPUT_BUFFER_LENGTH - 1] = Input[(Y * SCALED_FRAME_WIDTH) + X + i];
+          for (i = 0; i < (INPUT_BUFFER_LENGTH - 1); i++) {
+#pragma HLS unroll
+            Input_local[i] = Input_local[i+1];
+          }
+          Input_local[INPUT_BUFFER_LENGTH - 1] = Input[(Y * SCALED_FRAME_WIDTH) + X + FILTER_LENGTH - 1];
+          Sum += Coefficients_local[i] * Input_local[INPUT_BUFFER_LENGTH - 1];
         }
         // Sum += Coefficients[i] * Input[Y * SCALED_FRAME_WIDTH + X + i];   //SW version
-        Sum += Coefficients_local[i] * Input_local[i];
+        else{
+          Sum += Coefficients_local[i] * Input_local[i];
+        } 
       }
-
       Output[Y * OUTPUT_FRAME_WIDTH + X] = Sum >> 8;
     }
   }
