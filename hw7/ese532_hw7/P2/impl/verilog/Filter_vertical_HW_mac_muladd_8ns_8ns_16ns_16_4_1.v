@@ -4,14 +4,14 @@
 // ==============================================================
 `timescale 1 ns / 1 ps
 
-(* use_dsp = "yes" *) module Filter_vertical_HW_mac_muladd_7ns_8ns_18ns_18_4_1_DSP48_1(
+(* use_dsp = "yes" *) module Filter_vertical_HW_mac_muladd_8ns_8ns_16ns_16_4_1_DSP48_1(
     input clk,
     input rst,
     input ce,
-    input  [7 - 1:0] in0,
+    input  [8 - 1:0] in0,
     input  [8 - 1:0] in1,
-    input  [18 - 1:0] in2,
-    output [18 - 1:0]  dout);
+    input  [16 - 1:0] in2,
+    output [16 - 1:0]  dout);
 
 wire signed [27 - 1:0]     a;
 wire signed [18 - 1:0]     b;
@@ -43,7 +43,7 @@ assign dout = p_reg;
 
 endmodule
 `timescale 1 ns / 1 ps
-module Filter_vertical_HW_mac_muladd_7ns_8ns_18ns_18_4_1(
+module Filter_vertical_HW_mac_muladd_8ns_8ns_16ns_16_4_1(
     clk,
     reset,
     ce,
@@ -68,7 +68,7 @@ output[dout_WIDTH - 1:0] dout;
 
 
 
-Filter_vertical_HW_mac_muladd_7ns_8ns_18ns_18_4_1_DSP48_1 Filter_vertical_HW_mac_muladd_7ns_8ns_18ns_18_4_1_DSP48_1_U(
+Filter_vertical_HW_mac_muladd_8ns_8ns_16ns_16_4_1_DSP48_1 Filter_vertical_HW_mac_muladd_8ns_8ns_16ns_16_4_1_DSP48_1_U(
     .clk( clk ),
     .rst( reset ),
     .ce( ce ),

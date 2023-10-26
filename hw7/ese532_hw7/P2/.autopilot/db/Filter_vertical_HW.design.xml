@@ -16,56 +16,40 @@
 <EstimatedClockPeriod>4.867</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>20436985</Best-caseLatency>
-<Average-caseLatency>20436985</Average-caseLatency>
-<Worst-caseLatency>20436985</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.136 sec</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.136 sec</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.136 sec</Worst-caseRealTimeLatency>
-<PipelineInitiationInterval>20436986</PipelineInitiationInterval>
+<Best-caseLatency>233209</Best-caseLatency>
+<Average-caseLatency>233209</Average-caseLatency>
+<Worst-caseLatency>233209</Worst-caseLatency>
+<Best-caseRealTimeLatency>1.555 ms</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>1.555 ms</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>1.555 ms</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>233210</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_93_2>
-<Name>VITIS_LOOP_93_2</Name>
+<VITIS_LOOP_100_2>
+<Name>VITIS_LOOP_100_2</Name>
 <TripCount>474</TripCount>
-<Latency>20436984</Latency>
-<AbsoluteTimeLatency>0.136 sec</AbsoluteTimeLatency>
-<IterationLatency>43116</IterationLatency>
-<PipelineDepth>43116</PipelineDepth>
-<VITIS_LOOP_94_3>
-<Name>VITIS_LOOP_94_3</Name>
+<Latency>233208</Latency>
+<AbsoluteTimeLatency>1.555 ms</AbsoluteTimeLatency>
+<IterationLatency>492</IterationLatency>
+<PipelineDepth>492</PipelineDepth>
+<VITIS_LOOP_101_3>
+<Name>VITIS_LOOP_101_3</Name>
 <TripCount>6</TripCount>
-<Latency>80</Latency>
-<AbsoluteTimeLatency>0.533 us</AbsoluteTimeLatency>
+<Latency>81</Latency>
+<AbsoluteTimeLatency>0.540 us</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>76</PipelineDepth>
-</VITIS_LOOP_94_3>
-<VITIS_LOOP_95_4>
-<Name>VITIS_LOOP_95_4</Name>
+</VITIS_LOOP_101_3>
+<VITIS_LOOP_102_4>
+<Name>VITIS_LOOP_102_4</Name>
 <TripCount>264</TripCount>
-<Latency>43032</Latency>
-<AbsoluteTimeLatency>0.287 ms</AbsoluteTimeLatency>
-<IterationLatency>163</IterationLatency>
-<PipelineDepth>163</PipelineDepth>
-<VITIS_LOOP_98_5>
-<Name>VITIS_LOOP_98_5</Name>
-<TripCount>6</TripCount>
-<Latency>6</Latency>
-<AbsoluteTimeLatency>40.002 ns</AbsoluteTimeLatency>
+<Latency>406</Latency>
+<AbsoluteTimeLatency>2.707 us</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
-<PipelineDepth>2</PipelineDepth>
-</VITIS_LOOP_98_5>
-<VITIS_LOOP_100_6>
-<Name>VITIS_LOOP_100_6</Name>
-<TripCount>7</TripCount>
-<Latency>10</Latency>
-<AbsoluteTimeLatency>66.670 ns</AbsoluteTimeLatency>
-<PipelineII>1</PipelineII>
-<PipelineDepth>5</PipelineDepth>
-</VITIS_LOOP_100_6>
-</VITIS_LOOP_95_4>
-</VITIS_LOOP_93_2>
+<PipelineDepth>144</PipelineDepth>
+</VITIS_LOOP_102_4>
+</VITIS_LOOP_100_2>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
@@ -76,10 +60,10 @@
 <DSP>2</DSP>
 <AVAIL_DSP>360</AVAIL_DSP>
 <UTIL_DSP>~0</UTIL_DSP>
-<FF>1581</FF>
+<FF>1742</FF>
 <AVAIL_FF>141120</AVAIL_FF>
 <UTIL_FF>1</UTIL_FF>
-<LUT>2669</LUT>
+<LUT>2135</LUT>
 <AVAIL_LUT>70560</AVAIL_LUT>
 <UTIL_LUT>3</UTIL_LUT>
 <URAM>0</URAM>

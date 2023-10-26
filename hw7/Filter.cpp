@@ -27,7 +27,7 @@ void Filter_horizontal_HW(const unsigned char * Input,
   const char INPUT_BUFFER_LENGTH = 7;       
 
   #ifdef NO_SYNTH
-    unsigned char *Coefficients_local = (unsigned int*) malloc(FILTER_LENGTH * sizeof(unsigned int));
+    unsigned char *Coefficients_local = (unsigned char*) malloc(FILTER_LENGTH * sizeof(unsigned char));
     unsigned char *Input_local = (unsigned char*) malloc(INPUT_BUFFER_LENGTH * sizeof(unsigned char));
   #else
     unsigned char Coefficients_local[FILTER_LENGTH];
@@ -85,7 +85,7 @@ void Filter_vertical_HW(const unsigned char * Input,
   const char INPUT_BUFFER_LENGTH = 7;       
 
   #ifdef NO_SYNTH
-    unsigned char *Coefficients_local = (unsigned int*) malloc(FILTER_LENGTH * sizeof(unsigned int));
+    unsigned char *Coefficients_local = (unsigned char*) malloc(FILTER_LENGTH * sizeof(unsigned char));
     unsigned char *Input_local = (unsigned char*) malloc(INPUT_BUFFER_LENGTH * sizeof(unsigned char));
   #else
     unsigned char Coefficients_local[FILTER_LENGTH];

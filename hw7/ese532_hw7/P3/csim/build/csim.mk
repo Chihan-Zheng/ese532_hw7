@@ -16,7 +16,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../testbench_Filter_HW.cpp ../../../../Filter.cpp
+HLS_SOURCES = ../../../../testbench_horizontal.cpp ../../../../Filter.cpp
 
 override TARGET := csim.exe
 
@@ -67,11 +67,11 @@ all: $(TARGET)
 
 
 
-$(ObjDir)/testbench_Filter_HW.o: ../../../../testbench_Filter_HW.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../testbench_Filter_HW.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/testbench_horizontal.o: ../../../../testbench_horizontal.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../testbench_horizontal.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
--include $(ObjDir)/testbench_Filter_HW.d
+-include $(ObjDir)/testbench_horizontal.d
 
 $(ObjDir)/Filter.o: ../../../../Filter.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../Filter.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)

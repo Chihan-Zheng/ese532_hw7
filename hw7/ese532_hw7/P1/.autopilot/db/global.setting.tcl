@@ -44,8 +44,8 @@ set SCTraceOption all
 set TargetInfo xczu3eg:-sbva484:-1-i
 set SourceFiles {sc {} c ../../Filter.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/Solution1/Solution1.directive
-set TBFiles {verilog ../../testbench.cpp bc ../../testbench.cpp vhdl ../../testbench.cpp sc ../../testbench.cpp cas ../../testbench.cpp c {}}
+set DirectiveFile /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P1/P1.directive
+set TBFiles {verilog ../../testbench_Filter_HW.cpp bc ../../testbench_Filter_HW.cpp vhdl ../../testbench_Filter_HW.cpp sc ../../testbench_Filter_HW.cpp cas ../../testbench_Filter_HW.cpp c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
@@ -55,7 +55,7 @@ set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set TBTVFileNotFound {}
 set AppFile ../hls.app
-set ApsFile Solution1.aps
+set ApsFile P1.aps
 set AvePath ../..
 set DefaultPlatform DefaultPlatform
 set multiClockList {}

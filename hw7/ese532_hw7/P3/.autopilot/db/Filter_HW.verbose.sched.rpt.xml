@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'Filter_HW'" level="0">
-<item name = "Date">Wed Oct 25 22:18:54 2023
+<item name = "Date">Wed Oct 25 22:38:34 2023
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">ese532_hw7</item>
@@ -35,12 +35,12 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_43_2">170370, 170370, 631, -, -, 270, no</column>
-<column name=" + VITIS_LOOP_44_3">8, 8, 3, 1, 1, 6, yes</column>
-<column name=" + VITIS_LOOP_45_4">478, 478, 6, 1, 1, 474, yes</column>
-<column name="- VITIS_LOOP_101_2">166374, 166374, 351, -, -, 474, no</column>
-<column name=" + VITIS_LOOP_102_3">10, 10, 5, 1, 1, 6, yes</column>
-<column name=" + VITIS_LOOP_103_4">336, 336, 74, 1, 1, 264, yes</column>
+<column name="- VITIS_LOOP_42_2">170370, 170370, 631, -, -, 270, no</column>
+<column name=" + VITIS_LOOP_43_3">8, 8, 3, 1, 1, 6, yes</column>
+<column name=" + VITIS_LOOP_44_4">478, 478, 6, 1, 1, 474, yes</column>
+<column name="- VITIS_LOOP_100_2">166374, 166374, 351, -, -, 474, no</column>
+<column name=" + VITIS_LOOP_101_3">10, 10, 5, 1, 1, 6, yes</column>
+<column name=" + VITIS_LOOP_102_4">336, 336, 74, 1, 1, 264, yes</column>
 </table>
 </item>
 </section>

@@ -6,22 +6,22 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity Filter_horizontal_HW_mac_muladd_7ns_8ns_18ns_18_4_1_DSP48_0 is
+entity Filter_horizontal_HW_mac_muladd_8ns_8ns_16ns_16_4_1_DSP48_0 is
 port (
     clk: in  std_logic;
     rst: in  std_logic;
     ce:  in  std_logic;
-    in0:  in  std_logic_vector(7 - 1 downto 0);
+    in0:  in  std_logic_vector(8 - 1 downto 0);
     in1:  in  std_logic_vector(8 - 1 downto 0);
-    in2:  in  std_logic_vector(18 - 1 downto 0);
-    dout: out std_logic_vector(18 - 1 downto 0));
+    in2:  in  std_logic_vector(16 - 1 downto 0);
+    dout: out std_logic_vector(16 - 1 downto 0));
 
     attribute use_dsp : string;
-    attribute use_dsp of Filter_horizontal_HW_mac_muladd_7ns_8ns_18ns_18_4_1_DSP48_0 : entity is "yes";
+    attribute use_dsp of Filter_horizontal_HW_mac_muladd_8ns_8ns_16ns_16_4_1_DSP48_0 : entity is "yes";
 
 end entity;
 
-architecture behav of Filter_horizontal_HW_mac_muladd_7ns_8ns_18ns_18_4_1_DSP48_0 is
+architecture behav of Filter_horizontal_HW_mac_muladd_8ns_8ns_16ns_16_4_1_DSP48_0 is
     signal a       : signed(27-1 downto 0);
     signal b       : signed(18-1 downto 0);
     signal c       : signed(48-1 downto 0);
@@ -50,13 +50,13 @@ process (clk) begin
     end if;
 end process;
 
-dout <= std_logic_vector(resize(unsigned(p_reg), 18));
+dout <= std_logic_vector(resize(unsigned(p_reg), 16));
 
 end architecture;
 Library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity Filter_horizontal_HW_mac_muladd_7ns_8ns_18ns_18_4_1 is
+entity Filter_horizontal_HW_mac_muladd_8ns_8ns_16ns_16_4_1 is
     generic (
         ID : INTEGER;
         NUM_STAGE : INTEGER;
@@ -74,8 +74,8 @@ entity Filter_horizontal_HW_mac_muladd_7ns_8ns_18ns_18_4_1 is
         dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
-architecture arch of Filter_horizontal_HW_mac_muladd_7ns_8ns_18ns_18_4_1 is
-    component Filter_horizontal_HW_mac_muladd_7ns_8ns_18ns_18_4_1_DSP48_0 is
+architecture arch of Filter_horizontal_HW_mac_muladd_8ns_8ns_16ns_16_4_1 is
+    component Filter_horizontal_HW_mac_muladd_8ns_8ns_16ns_16_4_1_DSP48_0 is
         port (
             clk : IN STD_LOGIC;
             rst : IN STD_LOGIC;
@@ -89,7 +89,7 @@ architecture arch of Filter_horizontal_HW_mac_muladd_7ns_8ns_18ns_18_4_1 is
 
 
 begin
-    Filter_horizontal_HW_mac_muladd_7ns_8ns_18ns_18_4_1_DSP48_0_U :  component Filter_horizontal_HW_mac_muladd_7ns_8ns_18ns_18_4_1_DSP48_0
+    Filter_horizontal_HW_mac_muladd_8ns_8ns_16ns_16_4_1_DSP48_0_U :  component Filter_horizontal_HW_mac_muladd_8ns_8ns_16ns_16_4_1_DSP48_0
     port map (
         clk => clk,
         rst => reset,

@@ -45,7 +45,7 @@ set TargetInfo xczu3eg:-sbva484:-1-i
 set SourceFiles {sc {} c ../../Filter.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P2/P2.directive
-set TBFiles {verilog ../../testbench_vertical.cpp bc ../../testbench_vertical.cpp vhdl ../../testbench_vertical.cpp sc ../../testbench_vertical.cpp cas ../../testbench_vertical.cpp c {}}
+set TBFiles {verilog ../../testbench_Filter_HW.cpp bc ../../testbench_Filter_HW.cpp vhdl ../../testbench_Filter_HW.cpp sc ../../testbench_Filter_HW.cpp cas ../../testbench_Filter_HW.cpp c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
