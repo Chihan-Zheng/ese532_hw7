@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1698373459183">
-  <ports id="1" name="aximm1" type="PortType" coreId="0" bitwidth="16" iftype="IfTypeFifo">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1698374902808">
+  <ports id="1" name="gmem" type="PortType" coreId="4294967295" bitwidth="16" iftype="IfTypeFifo">
     <dataOutputObjs>getelementptr</dataOutputObjs>
     <dataOutputObjs>getelementptr</dataOutputObjs>
   </ports>
-  <ports id="2" name="Input_r" type="PortType" coreId="52" bitwidth="64">
+  <ports id="2" name="Input_r" type="PortType" coreId="33" bitwidth="64">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="3" name="Output_r" type="PortType" coreId="49" bitwidth="64">
+  <ports id="3" name="Output_r" type="PortType" coreId="68" bitwidth="64">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="4" name="Output_out" type="PortType" coreName="FIFO_SRL" coreId="33" bitwidth="64" direction="DirOut" iftype="IfTypeRom">
+  <ports id="4" name="Output_out" type="PortType" coreName="FIFO_SRL" coreId="97" bitwidth="64" direction="DirOut" iftype="IfTypeRom">
     <dataInputObjs>write</dataInputObjs>
   </ports>
-  <ports id="6" name="tempStream" type="PortType" coreName="FIFO_SRL" coreId="68" bitwidth="8" direction="DirOut" iftype="IfTypeRom">
+  <ports id="6" name="tempStream" type="PortType" coreName="FIFO_SRL" coreId="4294967295" bitwidth="8" direction="DirOut" iftype="IfTypeRom">
     <dataInputObjs>write</dataInputObjs>
   </ports>
   <edges id="177" source_obj="//@ports.2" sink_obj="//@blocks.0/@node_objs.0"/>
@@ -305,7 +305,7 @@
       <dataInputObjs>read</dataInputObjs>
       <dataOutputObjs>Output_out</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="28" name="br_ln43" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." coreId="145" contextFuncName="Filter_horizontal_HW" opcode="br" m_display="0" m_delay="0.48" m_topoIndex="4" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="28" name="br_ln43" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." coreId="49" contextFuncName="Filter_horizontal_HW" opcode="br" m_display="0" m_delay="0.48" m_topoIndex="4" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <controlInputObjs>block_41</controlInputObjs>
     </node_objs>
@@ -320,14 +320,14 @@
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>.exit</controlOutputObjs>
     <controlOutputObjs>.split11.i.i.i</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="Input_local_6_0_i_i_i" originalName="Input_local[6]" coreId="49" bitwidth="8" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="Input_local_6_0_i_i_i" originalName="Input_local[6]" coreId="337" bitwidth="8" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>phi</dataOutputObjs>
       <controlInputObjs>entry</controlInputObjs>
       <controlInputObjs>block_172</controlInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="Input_local_5_0_i_i_i" originalName="Input_local[5]" coreId="3615969320" bitwidth="8" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="Input_local_5_0_i_i_i" originalName="Input_local[5]" coreId="49" bitwidth="8" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>phi</dataOutputObjs>
       <controlInputObjs>entry</controlInputObjs>
@@ -341,28 +341,28 @@
       <controlInputObjs>block_172</controlInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="33" name="Input_local_3_0_i_i_i" originalName="Input_local[3]" coreId="273" bitwidth="8" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="33" name="Input_local_3_0_i_i_i" originalName="Input_local[3]" coreId="132" bitwidth="8" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>phi</dataOutputObjs>
       <controlInputObjs>entry</controlInputObjs>
       <controlInputObjs>block_172</controlInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="34" name="Input_local_2_0_i_i_i" originalName="Input_local[2]" coreId="305" bitwidth="8" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="34" name="Input_local_2_0_i_i_i" originalName="Input_local[2]" coreId="25" bitwidth="8" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>phi</dataOutputObjs>
       <controlInputObjs>entry</controlInputObjs>
       <controlInputObjs>block_172</controlInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="35" name="Input_local_1_0_i_i_i" originalName="Input_local[1]" coreId="337" bitwidth="8" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="35" name="Input_local_1_0_i_i_i" originalName="Input_local[1]" coreId="833" bitwidth="8" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>phi</dataOutputObjs>
       <controlInputObjs>entry</controlInputObjs>
       <controlInputObjs>block_172</controlInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="36" name="Y" lineNumber="43" originalName="Y" fileName="Filter.cpp" fileDirectory=".." coreId="49" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="36" name="Y" lineNumber="43" originalName="Y" fileName="Filter.cpp" fileDirectory=".." coreId="289" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
@@ -379,13 +379,13 @@
       <dataOutputObjs>phi</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="38" name="icmp_ln43" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln43_fu_486_p2" opType="icmp" coreId="49" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="0.85" m_topoIndex="13" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="38" name="icmp_ln43" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln43_fu_486_p2" opType="icmp" coreId="305" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="0.85" m_topoIndex="13" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>br</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="br_ln43" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." coreId="3615770760" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="br_ln43" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." coreId="1345" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>icmp</dataInputObjs>
       <controlInputObjs>.split11.i.i.i</controlInputObjs>
@@ -408,70 +408,70 @@
     <controlOutputObjs>phi</controlOutputObjs>
     <controlOutputObjs>phi</controlOutputObjs>
     <controlOutputObjs>block_70</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="43" name="p_shl_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl_i_i_i_fu_492_p3" coreId="68" contextFuncName="Filter_horizontal_HW" bitwidth="18" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="43" name="p_shl_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl_i_i_i_fu_492_p3" coreId="0" contextFuncName="Filter_horizontal_HW" bitwidth="18" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>zext</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="p_shl_cast_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl_cast_i_i_i_fu_500_p1" coreId="49" contextFuncName="Filter_horizontal_HW" bitwidth="19" opcode="zext" nodeLabel="1.0" m_display="0" m_topoIndex="16" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="p_shl_cast_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl_cast_i_i_i_fu_500_p1" coreId="13" contextFuncName="Filter_horizontal_HW" bitwidth="19" opcode="zext" nodeLabel="1.0" m_display="0" m_topoIndex="16" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>bitconcatenate</dataInputObjs>
       <dataOutputObjs>sub</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="45" name="p_shl6_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl6_i_i_i_fu_504_p3" coreId="49" contextFuncName="Filter_horizontal_HW" bitwidth="14" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="45" name="p_shl6_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl6_i_i_i_fu_504_p3" coreId="2878270712" contextFuncName="Filter_horizontal_HW" bitwidth="14" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>zext</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="46" name="p_shl6_cast_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl6_cast_i_i_i_fu_512_p1" coreId="49" contextFuncName="Filter_horizontal_HW" bitwidth="19" opcode="zext" nodeLabel="1.0" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="46" name="p_shl6_cast_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl6_cast_i_i_i_fu_512_p1" coreId="2878275672" contextFuncName="Filter_horizontal_HW" bitwidth="19" opcode="zext" nodeLabel="1.0" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>bitconcatenate</dataInputObjs>
       <dataOutputObjs>sub</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="47" name="empty_55" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="empty_55_fu_516_p2" coreName="Adder" implIndex="fabric" control="auto" opType="sub" coreId="1" contextFuncName="Filter_horizontal_HW" bitwidth="19" opcode="sub" nodeLabel="1.0" m_display="0" m_delay="1.03" m_topoIndex="19" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="47" name="empty_54" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="empty_54_fu_516_p2" coreName="Adder" implIndex="fabric" control="auto" opType="sub" coreId="1" contextFuncName="Filter_horizontal_HW" bitwidth="19" opcode="sub" nodeLabel="1.0" m_display="0" m_delay="1.03" m_topoIndex="19" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>zext</dataInputObjs>
       <dataInputObjs>zext</dataInputObjs>
       <dataOutputObjs>sext</dataOutputObjs>
       <dataOutputObjs>or</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="p_cast_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_cast_i_i_i_fu_522_p1" coreId="497" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="sext" nodeLabel="1.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="p_cast_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_cast_i_i_i_fu_522_p1" coreId="1919905125" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="sext" nodeLabel="1.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>sub</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="49" name="empty_56" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="empty_56_fu_526_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="add" nodeLabel="1.0" m_display="0" m_delay="1.47" m_topoIndex="21" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="49" name="empty_55" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="empty_55_fu_526_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="add" nodeLabel="1.0" m_display="0" m_delay="1.47" m_topoIndex="21" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>sext</dataInputObjs>
       <dataInputObjs>read</dataInputObjs>
       <dataOutputObjs>partselect</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="50" name="trunc_ln" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="trunc_ln_fu_531_p4" coreId="132" contextFuncName="Filter_horizontal_HW" bitwidth="63" opcode="partselect" nodeLabel="1.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="50" name="trunc_ln" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="trunc_ln_fu_531_p4" coreId="1143094631" contextFuncName="Filter_horizontal_HW" bitwidth="63" opcode="partselect" nodeLabel="1.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>sext</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="sext_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="sext_ln44_fu_541_p1" coreId="4294967295" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="sext" nodeLabel="1.0" m_display="0" m_topoIndex="23" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="sext_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="sext_ln44_fu_541_p1" coreId="1295780106" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="sext" nodeLabel="1.0" m_display="0" m_topoIndex="23" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>partselect</dataInputObjs>
       <dataOutputObjs>getelementptr</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="aximm1_addr" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="0" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="getelementptr" nodeLabel="1.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="gmem_addr" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="1885548146" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="getelementptr" nodeLabel="1.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
-      <dataInputObjs>aximm1</dataInputObjs>
+      <dataInputObjs>gmem</dataInputObjs>
       <dataInputObjs>sext</dataInputObjs>
       <dataOutputObjs>readreq</dataOutputObjs>
       <dataOutputObjs>read</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="53" name="empty_57" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="auto" opType="readreq" coreId="121" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="readreq" nodeLabel="2.0" nodeLatency="69" m_display="0" m_delay="4.86" m_topoIndex="26" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="53" name="empty_56" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="auto" opType="readreq" coreId="121" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="readreq" nodeLabel="2.0" nodeLatency="69" m_display="0" m_delay="4.86" m_topoIndex="26" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>getelementptr</dataInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="54" name="br_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="68" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="71.0" m_display="0" m_delay="0.48" m_topoIndex="27" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="54" name="br_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="2878284832" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="71.0" m_display="0" m_delay="0.48" m_topoIndex="27" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <controlInputObjs>block_70</controlInputObjs>
     </node_objs>
@@ -492,47 +492,47 @@
     <controlOutputObjs>phi</controlOutputObjs>
     <controlOutputObjs>phi</controlOutputObjs>
     <controlOutputObjs>block_126</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="105" name="empty_61" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="empty_61_fu_725_p2" coreId="1769483895" contextFuncName="Filter_horizontal_HW" bitwidth="19" opcode="or" nodeLabel="75.0" m_display="0" m_topoIndex="70" m_clusterGroupNumber="8">
+    <node_objs xsi:type="cdfg:CdfgNode" id="105" name="empty_60" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="empty_60_fu_725_p2" coreId="6415" contextFuncName="Filter_horizontal_HW" bitwidth="19" opcode="or" nodeLabel="75.0" m_display="0" m_topoIndex="70" m_clusterGroupNumber="8">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>sub</dataInputObjs>
       <dataOutputObjs>sext</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="106" name="p_cast98_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_cast98_i_i_i_fu_730_p1" coreId="1953067639" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="sext" nodeLabel="75.0" m_display="0" m_topoIndex="71" m_clusterGroupNumber="8">
+    <node_objs xsi:type="cdfg:CdfgNode" id="106" name="p_cast98_i_i_i" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="p_cast98_i_i_i_fu_730_p1" coreId="6551" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="sext" nodeLabel="75.0" m_display="0" m_topoIndex="71" m_clusterGroupNumber="8">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>or</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="107" name="empty_62" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="empty_62_fu_734_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="add" nodeLabel="75.0" m_display="0" m_delay="1.47" m_topoIndex="72" m_clusterGroupNumber="8">
+    <node_objs xsi:type="cdfg:CdfgNode" id="107" name="empty_61" lineNumber="43" fileName="Filter.cpp" fileDirectory=".." rtlName="empty_61_fu_734_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="add" nodeLabel="75.0" m_display="0" m_delay="1.47" m_topoIndex="72" m_clusterGroupNumber="8">
       <inlineStackInfo fileName="Filter.cpp" linenumber="43" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>sext</dataInputObjs>
       <dataInputObjs>read</dataInputObjs>
       <dataOutputObjs>partselect</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="108" name="trunc_ln1" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." rtlName="trunc_ln1_fu_739_p4" coreId="1701273971" contextFuncName="Filter_horizontal_HW" bitwidth="63" opcode="partselect" nodeLabel="75.0" m_display="0" m_topoIndex="73" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="108" name="trunc_ln1" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." rtlName="trunc_ln1_fu_739_p4" coreId="6823" contextFuncName="Filter_horizontal_HW" bitwidth="63" opcode="partselect" nodeLabel="75.0" m_display="0" m_topoIndex="73" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="45" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>sext</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="109" name="sext_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." rtlName="sext_ln45_fu_749_p1" coreId="1414092327" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="sext" nodeLabel="75.0" m_display="0" m_topoIndex="74" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="109" name="sext_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." rtlName="sext_ln45_fu_749_p1" coreId="6959" contextFuncName="Filter_horizontal_HW" bitwidth="64" opcode="sext" nodeLabel="75.0" m_display="0" m_topoIndex="74" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="45" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>partselect</dataInputObjs>
       <dataOutputObjs>getelementptr</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="110" name="aximm1_addr_1" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." coreId="155643920" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="getelementptr" nodeLabel="75.0" m_display="0" m_topoIndex="75" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="110" name="gmem_addr_1" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." coreId="7095" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="getelementptr" nodeLabel="75.0" m_display="0" m_topoIndex="75" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="45" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
-      <dataInputObjs>aximm1</dataInputObjs>
+      <dataInputObjs>gmem</dataInputObjs>
       <dataInputObjs>sext</dataInputObjs>
       <dataOutputObjs>readreq</dataOutputObjs>
       <dataOutputObjs>read</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="111" name="empty_63" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="auto" opType="readreq" coreId="121" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="readreq" nodeLabel="76.0" nodeLatency="69" m_display="0" m_delay="4.86" m_topoIndex="76" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="111" name="empty_62" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="auto" opType="readreq" coreId="121" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="readreq" nodeLabel="76.0" nodeLatency="69" m_display="0" m_delay="4.86" m_topoIndex="76" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="45" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <dataInputObjs>getelementptr</dataInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="112" name="br_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." coreId="0" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="145.0" m_display="0" m_delay="0.48" m_topoIndex="77" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="112" name="br_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." coreId="2878317392" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="145.0" m_display="0" m_delay="0.48" m_topoIndex="77" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="Filter.cpp" linenumber="45" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
       <controlInputObjs>block_126</controlInputObjs>
     </node_objs>
@@ -559,7 +559,7 @@
   <blocks id="174" name=".exit" type="BlockType">
     <controlInputObjs>block_41</controlInputObjs>
     <controlOutputObjs>br</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="173" name="_ln0" coreId="671154691" opcode="ret" nodeLabel="1.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="173" name="_ln0" coreId="0" opcode="ret" nodeLabel="1.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1"/>
   </blocks>
   <regions anchor_node="-1" region_type="8" interval="1" typeName="Pipeline" id="1098" pipe_depth="3" RegionName="VITIS_LOOP_44_3">
     <basic_blocks id="70" name="block_70" type="BlockType">
@@ -569,7 +569,7 @@
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>block_113</controlOutputObjs>
       <controlOutputObjs>.split.i.i.i</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="56" name="Input_local_6_1_i_i_i" originalName="Input_local[6]" coreId="737" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="56" name="Input_local_6_1_i_i_i" originalName="Input_local[6]" coreId="0" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataInputObjs>select</dataInputObjs>
         <dataOutputObjs>select</dataOutputObjs>
@@ -578,7 +578,7 @@
         <controlInputObjs>.split11.i.i.i</controlInputObjs>
         <controlInputObjs>.split._crit_edge.i.i.i_ifconv</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="57" name="Input_local_5_1_i_i_i" originalName="Input_local[6]" coreId="833" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="42" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="57" name="Input_local_5_1_i_i_i" originalName="Input_local[6]" coreId="842087024" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="42" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataInputObjs>select</dataInputObjs>
         <dataOutputObjs>select</dataOutputObjs>
@@ -587,7 +587,7 @@
         <controlInputObjs>.split11.i.i.i</controlInputObjs>
         <controlInputObjs>.split._crit_edge.i.i.i_ifconv</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="58" name="Input_local_6_4" originalName="Input_local[6]" coreId="193" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="43" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="58" name="Input_local_6_4" originalName="Input_local[6]" coreId="2878287704" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="43" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataInputObjs>select</dataInputObjs>
         <dataOutputObjs>select</dataOutputObjs>
@@ -597,7 +597,7 @@
         <controlInputObjs>.split11.i.i.i</controlInputObjs>
         <controlInputObjs>.split._crit_edge.i.i.i_ifconv</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="59" name="Input_local_6_6" originalName="Input_local[6]" coreId="3616823616" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="44" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="59" name="Input_local_6_6" originalName="Input_local[6]" coreId="2878153728" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="44" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataInputObjs>select</dataInputObjs>
         <dataOutputObjs>select</dataOutputObjs>
@@ -606,7 +606,7 @@
         <controlInputObjs>.split11.i.i.i</controlInputObjs>
         <controlInputObjs>.split._crit_edge.i.i.i_ifconv</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="60" name="Input_local_6_8" originalName="Input_local[6]" coreId="3616053136" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="45" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="60" name="Input_local_6_8" originalName="Input_local[6]" coreId="49" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="45" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataInputObjs>select</dataInputObjs>
         <dataOutputObjs>select</dataOutputObjs>
@@ -615,7 +615,7 @@
         <controlInputObjs>.split11.i.i.i</controlInputObjs>
         <controlInputObjs>.split._crit_edge.i.i.i_ifconv</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="61" name="Input_local_6_11" originalName="Input_local[6]" coreId="68" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="46" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="61" name="Input_local_6_11" originalName="Input_local[6]" coreId="1397508130" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="46" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataInputObjs>select</dataInputObjs>
         <dataOutputObjs>select</dataOutputObjs>
@@ -623,7 +623,7 @@
         <controlInputObjs>.split11.i.i.i</controlInputObjs>
         <controlInputObjs>.split._crit_edge.i.i.i_ifconv</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="62" name="indvar_i_i_i" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="3616551568" contextFuncName="Filter_horizontal_HW" bitwidth="3" opcode="phi" nodeLabel="72.0" m_display="0" m_topoIndex="28" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="62" name="indvar_i_i_i" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="1945553" contextFuncName="Filter_horizontal_HW" bitwidth="3" opcode="phi" nodeLabel="72.0" m_display="0" m_topoIndex="28" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>add</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
@@ -632,7 +632,7 @@
         <controlInputObjs>.split._crit_edge.i.i.i_ifconv</controlInputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="63" name="i" lineNumber="44" originalName="i" fileName="Filter.cpp" fileDirectory=".." coreId="4294967295" contextFuncName="Filter_horizontal_HW" bitwidth="3" opcode="phi" nodeLabel="72.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="63" name="i" lineNumber="44" originalName="i" fileName="Filter.cpp" fileDirectory=".." coreId="1667855474" contextFuncName="Filter_horizontal_HW" bitwidth="3" opcode="phi" nodeLabel="72.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>add</dataInputObjs>
         <dataOutputObjs>icmp</dataOutputObjs>
@@ -646,7 +646,7 @@
         <controlInputObjs>.split._crit_edge.i.i.i_ifconv</controlInputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="64" name="shiftreg15_i_i_i" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="4294967295" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="47" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="64" name="shiftreg15_i_i_i" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="132" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="47" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>partselect</dataInputObjs>
         <dataOutputObjs>zext</dataOutputObjs>
@@ -660,13 +660,13 @@
         <dataOutputObjs>phi</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="67" name="icmp_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_fu_557_p2" opType="icmp" coreId="1818321775" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="31" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="67" name="icmp_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_fu_557_p2" opType="icmp" coreId="12" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="31" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>br</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="69" name="br_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="1784835872" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="72.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="69" name="br_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="2878294736" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="72.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>icmp</dataInputObjs>
         <controlInputObjs>.split.i.i.i</controlInputObjs>
@@ -682,17 +682,17 @@
       <controlOutputObjs>phi</controlOutputObjs>
       <controlOutputObjs>.split._crit_edge.i.i.i_ifconv</controlOutputObjs>
       <controlOutputObjs>block_78</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="71" name="shiftreg15_cast_i_i_i" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="shiftreg15_cast_i_i_i_fu_603_p1" coreId="574454132" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="zext" nodeLabel="74.0" m_display="0" m_topoIndex="48" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="71" name="shiftreg15_cast_i_i_i" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="shiftreg15_cast_i_i_i_fu_603_p1" coreId="0" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="zext" nodeLabel="74.0" m_display="0" m_topoIndex="48" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="72" name="empty_59" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="empty_59_fu_563_p1" coreId="1702128745" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="trunc" nodeLabel="72.0" m_display="0" m_topoIndex="33" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="72" name="empty_58" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="empty_58_fu_563_p1" coreId="2878297320" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="trunc" nodeLabel="72.0" m_display="0" m_topoIndex="33" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>br</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="74" name="br_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="1126185587" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="74.0" m_display="0" m_delay="0.48" m_topoIndex="49" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="74" name="br_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="0" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="74.0" m_display="0" m_delay="0.48" m_topoIndex="49" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>trunc</dataInputObjs>
         <controlInputObjs>block_78</controlInputObjs>
@@ -707,12 +707,12 @@
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>phi</controlOutputObjs>
       <controlOutputObjs>.split._crit_edge.i.i.i_ifconv</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="76" name="aximm1_addr_read" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreName="m_axi" implIndex="UNSUPPORTED" control="auto" coreId="121" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="read" nodeLabel="73.0" m_display="0" m_delay="4.86" m_topoIndex="40" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="76" name="gmem_addr_read" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreName="m_axi" implIndex="UNSUPPORTED" control="auto" coreId="121" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="read" nodeLabel="73.0" m_display="0" m_delay="4.86" m_topoIndex="40" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>getelementptr</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="77" name="br_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="1679845230" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="74.0" m_display="0" m_delay="0.48" m_topoIndex="50" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="77" name="br_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="268435584" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="74.0" m_display="0" m_delay="0.48" m_topoIndex="50" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <controlInputObjs>.split._crit_edge.i.i.i_ifconv</controlInputObjs>
       </node_objs>
@@ -735,7 +735,7 @@
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>block_70</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="79" name="empty_60" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="540024890" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="51" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="79" name="empty_59" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." coreId="1919950882" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="phi" nodeLabel="74.0" m_display="0" m_topoIndex="51" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>read</dataInputObjs>
         <dataInputObjs>zext</dataInputObjs>
@@ -744,7 +744,7 @@
         <controlInputObjs>block_78</controlInputObjs>
         <controlInputObjs>.split.i.i.i</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="80" name="Input_local_1_2" lineNumber="44" originalName="Input_local[1]" fileName="Filter.cpp" fileDirectory=".." rtlName="Input_local_1_2_fu_608_p1" coreId="1965581684" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="trunc" nodeLabel="74.0" m_display="0" m_topoIndex="52" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="80" name="Input_local_1_2" lineNumber="44" originalName="Input_local[1]" fileName="Filter.cpp" fileDirectory=".." rtlName="Input_local_1_2_fu_608_p1" coreId="2037672306" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="trunc" nodeLabel="74.0" m_display="0" m_topoIndex="52" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>select</dataOutputObjs>
@@ -754,41 +754,26 @@
         <dataOutputObjs>select</dataOutputObjs>
         <dataOutputObjs>select</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="81" name="trunc_ln44_2" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="shiftreg15_i_i_i_reg_352" coreId="1007225406" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="partselect" nodeLabel="74.0" m_display="0" m_topoIndex="53" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="81" name="trunc_ln44_2" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="shiftreg15_i_i_i_reg_352" coreId="1881154119" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="partselect" nodeLabel="74.0" m_display="0" m_topoIndex="53" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="82" name="icmp_ln44_1" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_1_fu_567_p2" opType="icmp" coreId="840979276" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="34" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="82" name="icmp_ln44_1" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_1_fu_567_p2" opType="icmp" coreId="1031365995" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="34" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>select</dataOutputObjs>
         <dataOutputObjs>select</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="83" name="icmp_ln44_2" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_2_fu_573_p2" opType="icmp" coreId="1128351314" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="35" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
-        <dataInputObjs>phi</dataInputObjs>
-        <dataOutputObjs>or</dataOutputObjs>
-        <constName>empty</constName>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="84" name="icmp_ln44_3" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_3_fu_579_p2" opType="icmp" coreId="540700271" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="36" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="83" name="icmp_ln44_2" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_2_fu_573_p2" opType="icmp" coreId="1768715620" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="35" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>or</dataOutputObjs>
-        <dataOutputObjs>select</dataOutputObjs>
-        <dataOutputObjs>select</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="85" name="icmp_ln44_4" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_4_fu_585_p2" opType="icmp" coreId="1918986339" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="37" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
-        <dataInputObjs>phi</dataInputObjs>
-        <dataOutputObjs>or</dataOutputObjs>
-        <dataOutputObjs>select</dataOutputObjs>
-        <constName>empty</constName>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="86" name="icmp_ln44_5" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_5_fu_591_p2" opType="icmp" coreId="1701978146" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="38" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="84" name="icmp_ln44_3" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_3_fu_579_p2" opType="icmp" coreId="539767584" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="36" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>or</dataOutputObjs>
@@ -796,7 +781,22 @@
         <dataOutputObjs>select</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="87" name="or_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="or_ln44_fu_622_p2" opType="or" coreId="1330007625" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="or" nodeLabel="74.0" m_display="0" m_delay="0.33" m_topoIndex="54" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="85" name="icmp_ln44_4" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_4_fu_585_p2" opType="icmp" coreId="1852402805" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="37" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
+        <dataInputObjs>phi</dataInputObjs>
+        <dataOutputObjs>or</dataOutputObjs>
+        <dataOutputObjs>select</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="86" name="icmp_ln44_5" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln44_5_fu_591_p2" opType="icmp" coreId="1701669236" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="72.0" m_display="0" m_delay="0.69" m_topoIndex="38" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
+        <dataInputObjs>phi</dataInputObjs>
+        <dataOutputObjs>or</dataOutputObjs>
+        <dataOutputObjs>select</dataOutputObjs>
+        <dataOutputObjs>select</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="87" name="or_ln44" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="or_ln44_fu_622_p2" opType="or" coreId="1881154127" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="or" nodeLabel="74.0" m_display="0" m_delay="0.33" m_topoIndex="54" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>icmp</dataInputObjs>
         <dataInputObjs>icmp</dataInputObjs>
@@ -804,7 +804,7 @@
         <dataOutputObjs>select</dataOutputObjs>
         <dataOutputObjs>select</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="88" name="or_ln44_1" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="or_ln44_1_fu_626_p2" opType="or" coreId="1734439968" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="or" nodeLabel="74.0" m_display="0" m_topoIndex="55" m_clusterGroupNumber="1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="88" name="or_ln44_1" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="or_ln44_1_fu_626_p2" opType="or" coreId="544108393" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="or" nodeLabel="74.0" m_display="0" m_topoIndex="55" m_clusterGroupNumber="1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>icmp</dataInputObjs>
         <dataInputObjs>icmp</dataInputObjs>
@@ -817,7 +817,7 @@
         <dataInputObjs>trunc</dataInputObjs>
         <dataOutputObjs>select</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="90" name="or_ln44_2" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="or_ln44_2_fu_637_p2" opType="or" coreId="1279810338" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="or" nodeLabel="74.0" m_display="0" m_delay="0.33" m_topoIndex="57" m_clusterGroupNumber="1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="90" name="or_ln44_2" lineNumber="44" fileName="Filter.cpp" fileDirectory=".." rtlName="or_ln44_2_fu_637_p2" opType="or" coreId="1835491698" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="or" nodeLabel="74.0" m_display="0" m_delay="0.33" m_topoIndex="57" m_clusterGroupNumber="1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="44" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>or</dataInputObjs>
         <dataInputObjs>or</dataInputObjs>
@@ -908,7 +908,7 @@
         <dataOutputObjs>phi</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="103" name="br_ln0" coreId="1936018748" opcode="br" nodeLabel="74.0" m_display="0" m_topoIndex="69" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="103" name="br_ln0" coreId="6163" opcode="br" nodeLabel="74.0" m_display="0" m_topoIndex="69" m_clusterGroupNumber="-1">
         <controlInputObjs>block_70</controlInputObjs>
       </node_objs>
       <fileValidLineNumbers fileName="Filter.cpp">
@@ -924,7 +924,7 @@
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>block_172</controlOutputObjs>
       <controlOutputObjs>.split9.i.i.i</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="114" name="X" lineNumber="45" originalName="X" fileName="Filter.cpp" fileDirectory=".." coreId="1240" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="phi" nodeLabel="146.0" m_display="0" m_topoIndex="78" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="114" name="X" lineNumber="45" originalName="X" fileName="Filter.cpp" fileDirectory=".." coreId="2878318264" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="phi" nodeLabel="146.0" m_display="0" m_topoIndex="78" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="45" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>add</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
@@ -934,7 +934,7 @@
         <controlInputObjs>block_113</controlInputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="115" name="Input_local_6" lineNumber="54" originalName="Input_local[6]" fileName="Filter.cpp" fileDirectory=".." coreId="1444" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="84" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="115" name="Input_local_6" lineNumber="54" originalName="Input_local[6]" fileName="Filter.cpp" fileDirectory=".." coreId="2878317264" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="84" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="54" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>trunc</dataInputObjs>
         <dataInputObjs>phi</dataInputObjs>
@@ -953,7 +953,7 @@
         <controlInputObjs>.split9._crit_edge.i.i.i</controlInputObjs>
         <controlInputObjs>block_113</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="117" name="Input_local_4" originalName="Input_local[5]" coreId="3615680704" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="86" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="117" name="Input_local_4" originalName="Input_local[5]" coreId="0" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="86" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
@@ -962,7 +962,7 @@
         <controlInputObjs>.split9._crit_edge.i.i.i</controlInputObjs>
         <controlInputObjs>block_113</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="118" name="Input_local_3" originalName="Input_local[4]" coreId="4294967295" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="87" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="118" name="Input_local_3" originalName="Input_local[4]" coreId="0" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="87" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
@@ -971,7 +971,7 @@
         <controlInputObjs>.split9._crit_edge.i.i.i</controlInputObjs>
         <controlInputObjs>block_113</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="119" name="Input_local_2" originalName="Input_local[3]" coreId="3615804640" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="88" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="119" name="Input_local_2" originalName="Input_local[3]" coreId="2878320992" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="88" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
@@ -980,7 +980,7 @@
         <controlInputObjs>.split9._crit_edge.i.i.i</controlInputObjs>
         <controlInputObjs>block_113</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="120" name="Input_local_1" originalName="Input_local[2]" coreId="4294967295" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="89" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="120" name="Input_local_1" originalName="Input_local[2]" coreId="8" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="89" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
@@ -988,7 +988,7 @@
         <controlInputObjs>.split9._crit_edge.i.i.i</controlInputObjs>
         <controlInputObjs>block_113</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="121" name="shiftreg_i_i_i" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." coreId="3616215664" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="90" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="121" name="shiftreg_i_i_i" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." coreId="11" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="90" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="58" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>partselect</dataInputObjs>
         <dataOutputObjs>zext</dataOutputObjs>
@@ -1002,13 +1002,13 @@
         <dataOutputObjs>phi</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="123" name="icmp_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln45_fu_765_p2" opType="icmp" coreId="3616370368" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="146.0" m_display="0" m_delay="0.85" m_topoIndex="80" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="123" name="icmp_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." rtlName="icmp_ln45_fu_765_p2" opType="icmp" coreId="2878325216" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="icmp" nodeLabel="146.0" m_display="0" m_delay="0.85" m_topoIndex="80" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="45" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>br</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="125" name="br_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." coreId="3616061264" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="146.0" m_display="0" m_topoIndex="81" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="125" name="br_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." coreId="0" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="146.0" m_display="0" m_topoIndex="81" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="45" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>icmp</dataInputObjs>
         <controlInputObjs>.split9.i.i.i</controlInputObjs>
@@ -1026,17 +1026,17 @@
       <controlOutputObjs>phi</controlOutputObjs>
       <controlOutputObjs>.split9._crit_edge.i.i.i</controlOutputObjs>
       <controlOutputObjs>block_135</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="127" name="zext_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." rtlName="zext_ln45_fu_775_p1" coreId="3616001952" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="91" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="127" name="zext_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." rtlName="zext_ln45_fu_775_p1" coreId="132" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="91" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="45" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="128" name="trunc_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." rtlName="trunc_ln45_fu_771_p1" coreId="4294967295" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="trunc" nodeLabel="146.0" m_display="0" m_topoIndex="82" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="128" name="trunc_ln45" lineNumber="45" fileName="Filter.cpp" fileDirectory=".." rtlName="trunc_ln45_fu_771_p1" coreId="0" contextFuncName="Filter_horizontal_HW" bitwidth="1" opcode="trunc" nodeLabel="146.0" m_display="0" m_topoIndex="82" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="45" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>br</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="131" name="br_ln54" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." coreId="3615994448" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="148.0" m_display="0" m_delay="0.48" m_topoIndex="92" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="131" name="br_ln54" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." coreId="0" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="148.0" m_display="0" m_delay="0.48" m_topoIndex="92" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="54" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>trunc</dataInputObjs>
         <controlInputObjs>block_135</controlInputObjs>
@@ -1052,12 +1052,12 @@
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>phi</controlOutputObjs>
       <controlOutputObjs>.split9._crit_edge.i.i.i</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="133" name="aximm1_addr_1_read" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." coreName="m_axi" implIndex="UNSUPPORTED" control="auto" coreId="121" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="read" nodeLabel="147.0" m_display="0" m_delay="4.86" m_topoIndex="83" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="133" name="gmem_addr_1_read" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." coreName="m_axi" implIndex="UNSUPPORTED" control="auto" coreId="121" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="read" nodeLabel="147.0" m_display="0" m_delay="4.86" m_topoIndex="83" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="54" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>getelementptr</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="134" name="br_ln54" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." coreId="0" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="148.0" m_display="0" m_delay="0.48" m_topoIndex="93" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="134" name="br_ln54" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." coreId="2878327496" contextFuncName="Filter_horizontal_HW" opcode="br" nodeLabel="148.0" m_display="0" m_delay="0.48" m_topoIndex="93" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="54" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <controlInputObjs>.split9._crit_edge.i.i.i</controlInputObjs>
       </node_objs>
@@ -1079,7 +1079,7 @@
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>block_126</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="136" name="empty_65" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." coreId="1422" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="94" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="136" name="empty_64" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." coreId="0" contextFuncName="Filter_horizontal_HW" bitwidth="16" opcode="phi" nodeLabel="148.0" m_display="0" m_topoIndex="94" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="54" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>read</dataInputObjs>
         <dataInputObjs>zext</dataInputObjs>
@@ -1088,29 +1088,29 @@
         <controlInputObjs>block_135</controlInputObjs>
         <controlInputObjs>.split9.i.i.i</controlInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="137" name="trunc_ln54" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." rtlName="trunc_ln54_fu_780_p1" coreId="3616078592" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="trunc" nodeLabel="148.0" m_display="0" m_topoIndex="95" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="137" name="trunc_ln54" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." rtlName="trunc_ln54_fu_780_p1" coreId="2878328904" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="trunc" nodeLabel="148.0" m_display="0" m_topoIndex="95" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="54" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
         <dataOutputObjs>zext</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="138" name="trunc_ln3" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="shiftreg_i_i_i_reg_460" coreId="4294967295" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="partselect" nodeLabel="148.0" m_display="0" m_topoIndex="96" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="138" name="trunc_ln3" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="shiftreg_i_i_i_reg_460" coreId="132" contextFuncName="Filter_horizontal_HW" bitwidth="8" opcode="partselect" nodeLabel="148.0" m_display="0" m_topoIndex="96" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="58" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="139" name="zext_ln58" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="zext_ln58_fu_794_p1" coreId="3615947616" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="97" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="139" name="zext_ln58" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="zext_ln58_fu_794_p1" coreId="0" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="97" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="58" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="140" name="zext_ln58_1" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="zext_ln58_1_fu_798_p1" coreId="3615917632" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="98" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="140" name="zext_ln58_1" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="zext_ln58_1_fu_798_p1" coreId="2878331848" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="98" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="58" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="141" name="zext_ln58_2" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="grp_fu_931_p00" coreId="3616073824" contextFuncName="Filter_horizontal_HW" bitwidth="15" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="99" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="141" name="zext_ln58_2" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="grp_fu_931_p00" coreId="2878331744" contextFuncName="Filter_horizontal_HW" bitwidth="15" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="99" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="58" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>mul</dataOutputObjs>
@@ -1126,22 +1126,22 @@
         <dataInputObjs>mul</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="144" name="zext_ln48" lineNumber="48" fileName="Filter.cpp" fileDirectory=".." rtlName="zext_ln48_fu_806_p1" coreId="4294967295" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="101" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="144" name="zext_ln48" lineNumber="48" fileName="Filter.cpp" fileDirectory=".." rtlName="zext_ln48_fu_806_p1" coreId="0" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="101" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="48" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="145" name="zext_ln48_1" lineNumber="48" fileName="Filter.cpp" fileDirectory=".." rtlName="zext_ln48_1_fu_810_p1" coreId="4294967295" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="102" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="145" name="zext_ln48_1" lineNumber="48" fileName="Filter.cpp" fileDirectory=".." rtlName="zext_ln48_1_fu_810_p1" coreId="2878335328" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="102" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="48" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="146" name="Input_local_1_1_cast_i_i_i" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." rtlName="Input_local_1_1_cast_i_i_i_fu_814_p1" coreId="1265" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="103" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="146" name="Input_local_1_1_cast_i_i_i" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." rtlName="Input_local_1_1_cast_i_i_i_fu_814_p1" coreId="8" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="103" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="54" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="147" name="trunc_ln54_cast_i_i_i" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." rtlName="trunc_ln54_cast_i_i_i_fu_818_p1" coreId="0" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="104" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="147" name="trunc_ln54_cast_i_i_i" lineNumber="54" fileName="Filter.cpp" fileDirectory=".." rtlName="trunc_ln54_cast_i_i_i_fu_818_p1" coreId="12" contextFuncName="Filter_horizontal_HW" bitwidth="9" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="104" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="54" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>trunc</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
@@ -1210,13 +1210,13 @@
         <dataInputObjs>add</dataInputObjs>
         <dataOutputObjs>sub</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="159" name="p_shl7_i_i_i" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl7_i_i_i_fu_856_p3" coreId="598" contextFuncName="Filter_horizontal_HW" bitwidth="13" opcode="bitconcatenate" nodeLabel="148.0" m_display="0" m_topoIndex="111" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="159" name="p_shl7_i_i_i" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl7_i_i_i_fu_856_p3" coreId="0" contextFuncName="Filter_horizontal_HW" bitwidth="13" opcode="bitconcatenate" nodeLabel="148.0" m_display="0" m_topoIndex="111" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="58" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>add</dataInputObjs>
         <dataOutputObjs>zext</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="160" name="p_shl7_cast_i_i_i" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl7_cast_i_i_i_fu_864_p1" coreId="660" contextFuncName="Filter_horizontal_HW" bitwidth="14" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="112" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="160" name="p_shl7_cast_i_i_i" lineNumber="58" fileName="Filter.cpp" fileDirectory=".." rtlName="p_shl7_cast_i_i_i_fu_864_p1" coreId="0" contextFuncName="Filter_horizontal_HW" bitwidth="14" opcode="zext" nodeLabel="148.0" m_display="0" m_topoIndex="112" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="Filter.cpp" linenumber="58" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="Filter_horizontal_HW"/>
         <dataInputObjs>bitconcatenate</dataInputObjs>
         <dataOutputObjs>sub</dataOutputObjs>
@@ -1442,8 +1442,8 @@
   <regnodes realName="Input_local_4_reg_408">
     <nodeIds>117</nodeIds>
   </regnodes>
-  <regnodes realName="aximm1_addr_1_reg_1054">
-    <nodeIds>110</nodeIds>
+  <regnodes realName="gmem_addr_read_reg_1014">
+    <nodeIds>76</nodeIds>
   </regnodes>
   <regnodes realName="Input_local_3_reg_421">
     <nodeIds>118</nodeIds>
@@ -1472,6 +1472,9 @@
   <regnodes realName="Input_local_6_7_reg_1039">
     <nodeIds>98</nodeIds>
   </regnodes>
+  <regnodes realName="gmem_addr_reg_959">
+    <nodeIds>52</nodeIds>
+  </regnodes>
   <regnodes realName="Input_local_6_10_reg_1044">
     <nodeIds>100</nodeIds>
   </regnodes>
@@ -1484,9 +1487,6 @@
   <regnodes realName="icmp_ln44_2_reg_984">
     <nodeIds>83</nodeIds>
   </regnodes>
-  <regnodes realName="aximm1_addr_read_reg_1014">
-    <nodeIds>76</nodeIds>
-  </regnodes>
   <regnodes realName="trunc_ln45_reg_1069">
     <nodeIds>128</nodeIds>
   </regnodes>
@@ -1498,12 +1498,6 @@
   </regnodes>
   <regnodes realName="Y_reg_253">
     <nodeIds>36</nodeIds>
-  </regnodes>
-  <regnodes realName="empty_59_reg_974">
-    <nodeIds>72</nodeIds>
-  </regnodes>
-  <regnodes realName="empty_65_reg_471">
-    <nodeIds>136</nodeIds>
   </regnodes>
   <regnodes realName="add_ln43_reg_946">
     <nodeIds>37</nodeIds>
@@ -1526,6 +1520,9 @@
   <regnodes realName="Input_local_5_1_i_i_i_reg_297">
     <nodeIds>57</nodeIds>
   </regnodes>
+  <regnodes realName="gmem_addr_1_reg_1054">
+    <nodeIds>110</nodeIds>
+  </regnodes>
   <regnodes realName="Input_local_6_5_reg_1034">
     <nodeIds>96</nodeIds>
   </regnodes>
@@ -1547,9 +1544,6 @@
   <regnodes realName="Input_local_1_0_i_i_i_reg_241">
     <nodeIds>35</nodeIds>
   </regnodes>
-  <regnodes realName="empty_55_reg_954">
-    <nodeIds>47</nodeIds>
-  </regnodes>
   <regnodes realName="icmp_ln44_reg_970">
     <nodeIds>67</nodeIds>
   </regnodes>
@@ -1568,17 +1562,17 @@
   <regnodes realName="Input_local_6_2_reg_1024">
     <nodeIds>91</nodeIds>
   </regnodes>
-  <regnodes realName="aximm1_addr_1_read_reg_1073">
-    <nodeIds>133</nodeIds>
-  </regnodes>
   <regnodes realName="trunc_ln3_reg_1083">
     <nodeIds>138</nodeIds>
   </regnodes>
   <regnodes realName="icmp_ln44_3_reg_989">
     <nodeIds>84</nodeIds>
   </regnodes>
-  <regnodes realName="aximm1_addr_reg_959">
-    <nodeIds>52</nodeIds>
+  <regnodes realName="empty_54_reg_954">
+    <nodeIds>47</nodeIds>
+  </regnodes>
+  <regnodes realName="empty_58_reg_974">
+    <nodeIds>72</nodeIds>
   </regnodes>
   <regnodes realName="icmp_ln45_reg_1065">
     <nodeIds>123</nodeIds>
@@ -1586,11 +1580,17 @@
   <regnodes realName="Input_read_reg_940">
     <nodeIds>17</nodeIds>
   </regnodes>
+  <regnodes realName="gmem_addr_1_read_reg_1073">
+    <nodeIds>133</nodeIds>
+  </regnodes>
   <regnodes realName="X_reg_372">
     <nodeIds>114</nodeIds>
   </regnodes>
   <regnodes realName="add_ln44_1_reg_965">
     <nodeIds>65</nodeIds>
+  </regnodes>
+  <regnodes realName="empty_59_reg_363">
+    <nodeIds>79</nodeIds>
   </regnodes>
   <regnodes realName="tmp3_i_i_i_reg_1104">
     <nodeIds>156</nodeIds>
@@ -1598,14 +1598,14 @@
   <regnodes realName="Input_local_6_reg_383">
     <nodeIds>115</nodeIds>
   </regnodes>
+  <regnodes realName="empty_64_reg_471">
+    <nodeIds>136</nodeIds>
+  </regnodes>
   <regnodes realName="shiftreg_i_i_i_reg_460">
     <nodeIds>121</nodeIds>
   </regnodes>
   <regnodes realName="Input_local_6_6_reg_319">
     <nodeIds>59</nodeIds>
-  </regnodes>
-  <regnodes realName="empty_60_reg_363">
-    <nodeIds>79</nodeIds>
   </regnodes>
   <expressionNodes realName="icmp_ln45_fu_765">
     <nodeIds>123</nodeIds>
@@ -1616,7 +1616,7 @@
   <expressionNodes realName="shiftreg15_cast_i_i_i_fu_603">
     <nodeIds>71</nodeIds>
   </expressionNodes>
-  <expressionNodes realName="empty_61_fu_725">
+  <expressionNodes realName="empty_60_fu_725">
     <nodeIds>105</nodeIds>
   </expressionNodes>
   <expressionNodes realName="select_ln44_7_fu_689">
@@ -1636,9 +1636,6 @@
   </expressionNodes>
   <expressionNodes realName="add_ln44_1_fu_551">
     <nodeIds>65</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="aximm1_addr_fu_545">
-    <nodeIds>52</nodeIds>
   </expressionNodes>
   <expressionNodes realName="Input_local_5_0_i_i_i_phi_fu_197">
     <nodeIds>31</nodeIds>
@@ -1664,6 +1661,9 @@
   <expressionNodes realName="Input_local_6_1_i_i_i_phi_fu_289">
     <nodeIds>56</nodeIds>
   </expressionNodes>
+  <expressionNodes realName="empty_61_fu_734">
+    <nodeIds>107</nodeIds>
+  </expressionNodes>
   <expressionNodes realName="zext_ln58_1_fu_798">
     <nodeIds>140</nodeIds>
   </expressionNodes>
@@ -1673,9 +1673,6 @@
   <expressionNodes realName="tmp5_i_i_i_fu_868">
     <nodeIds>161</nodeIds>
   </expressionNodes>
-  <expressionNodes realName="empty_56_fu_526">
-    <nodeIds>49</nodeIds>
-  </expressionNodes>
   <expressionNodes realName="add_ln58_1_fu_878">
     <nodeIds>164</nodeIds>
   </expressionNodes>
@@ -1684,9 +1681,6 @@
   </expressionNodes>
   <expressionNodes realName="sext_ln44_fu_541">
     <nodeIds>51</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="empty_65_phi_fu_474">
-    <nodeIds>136</nodeIds>
   </expressionNodes>
   <expressionNodes realName="Input_local_6_8_phi_fu_333">
     <nodeIds>60</nodeIds>
@@ -1706,11 +1700,14 @@
   <expressionNodes realName="select_ln44_4_fu_666">
     <nodeIds>94</nodeIds>
   </expressionNodes>
+  <expressionNodes realName="empty_58_fu_563">
+    <nodeIds>72</nodeIds>
+  </expressionNodes>
   <expressionNodes realName="shiftreg_i_i_i_phi_fu_464">
     <nodeIds>121</nodeIds>
   </expressionNodes>
-  <expressionNodes realName="empty_59_fu_563">
-    <nodeIds>72</nodeIds>
+  <expressionNodes realName="empty_64_phi_fu_474">
+    <nodeIds>136</nodeIds>
   </expressionNodes>
   <expressionNodes realName="trunc_ln4_fu_920">
     <nodeIds>167</nodeIds>
@@ -1727,8 +1724,8 @@
   <expressionNodes realName="i_phi_fu_279">
     <nodeIds>63</nodeIds>
   </expressionNodes>
-  <expressionNodes realName="empty_62_fu_734">
-    <nodeIds>107</nodeIds>
+  <expressionNodes realName="gmem_addr_1_fu_753">
+    <nodeIds>110</nodeIds>
   </expressionNodes>
   <expressionNodes realName="Input_local_6_7_fu_696">
     <nodeIds>98</nodeIds>
@@ -1742,9 +1739,6 @@
   <expressionNodes realName="zext_ln48_fu_806">
     <nodeIds>144</nodeIds>
   </expressionNodes>
-  <expressionNodes realName="aximm1_addr_1_fu_753">
-    <nodeIds>110</nodeIds>
-  </expressionNodes>
   <expressionNodes realName="p_shl6_i_i_i_fu_504">
     <nodeIds>45</nodeIds>
   </expressionNodes>
@@ -1756,9 +1750,6 @@
   </expressionNodes>
   <expressionNodes realName="Input_local_3_phi_fu_425">
     <nodeIds>118</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="empty_60_phi_fu_366">
-    <nodeIds>79</nodeIds>
   </expressionNodes>
   <expressionNodes realName="icmp_ln43_fu_486">
     <nodeIds>38</nodeIds>
@@ -1796,6 +1787,9 @@
   <expressionNodes realName="tmp3_i_i_i_fu_906">
     <nodeIds>156</nodeIds>
   </expressionNodes>
+  <expressionNodes realName="gmem_addr_fu_545">
+    <nodeIds>52</nodeIds>
+  </expressionNodes>
   <expressionNodes realName="icmp_ln44_fu_557">
     <nodeIds>67</nodeIds>
   </expressionNodes>
@@ -1813,9 +1807,6 @@
   </expressionNodes>
   <expressionNodes realName="Input_local_6_9_fu_704">
     <nodeIds>99</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="empty_55_fu_516">
-    <nodeIds>47</nodeIds>
   </expressionNodes>
   <expressionNodes realName="trunc_ln_fu_531">
     <nodeIds>50</nodeIds>
@@ -1871,6 +1862,9 @@
   <expressionNodes realName="sext_ln45_fu_749">
     <nodeIds>109</nodeIds>
   </expressionNodes>
+  <expressionNodes realName="empty_55_fu_526">
+    <nodeIds>49</nodeIds>
+  </expressionNodes>
   <expressionNodes realName="Input_local_6_4_phi_fu_311">
     <nodeIds>58</nodeIds>
   </expressionNodes>
@@ -1898,6 +1892,9 @@
   <expressionNodes realName="Input_local_6_10_fu_711">
     <nodeIds>100</nodeIds>
   </expressionNodes>
+  <expressionNodes realName="empty_59_phi_fu_366">
+    <nodeIds>79</nodeIds>
+  </expressionNodes>
   <expressionNodes realName="p_cast_i_i_i_fu_522">
     <nodeIds>48</nodeIds>
   </expressionNodes>
@@ -1906,6 +1903,9 @@
   </expressionNodes>
   <expressionNodes realName="p_shl7_cast_i_i_i_fu_864">
     <nodeIds>160</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="empty_54_fu_516">
+    <nodeIds>47</nodeIds>
   </expressionNodes>
   <expressionNodes realName="p_shl_i_i_i_fu_492">
     <nodeIds>43</nodeIds>
@@ -1921,7 +1921,7 @@
     <nodeIds>143</nodeIds>
     <nodeIds>163</nodeIds>
   </moduleNodes>
-  <ioNodes realName="aximm1_addr_read_read_fu_157">
+  <ioNodes realName="gmem_addr_read_read_fu_157">
     <nodeIds>76</nodeIds>
   </ioNodes>
   <ioNodes realName="Output_read_read_fu_130">
@@ -1933,11 +1933,11 @@
   <ioNodes realName="Input_read_read_fu_136">
     <nodeIds>17</nodeIds>
   </ioNodes>
+  <ioNodes realName="gmem_addr_1_read_read_fu_169">
+    <nodeIds>133</nodeIds>
+  </ioNodes>
   <ioNodes realName="grp_readreq_fu_162">
     <nodeIds>111</nodeIds>
-  </ioNodes>
-  <ioNodes realName="aximm1_addr_1_read_read_fu_169">
-    <nodeIds>133</nodeIds>
   </ioNodes>
   <ioNodes realName="grp_readreq_fu_150">
     <nodeIds>53</nodeIds>
@@ -1960,7 +1960,7 @@
       <nodeIds>16</nodeIds>
     </contents>
   </ioPorts>
-  <ioPorts name="aximm1"/>
+  <ioPorts name="gmem"/>
   <ioPorts name="tempStream">
     <contents name="write">
       <nodeIds>168</nodeIds>

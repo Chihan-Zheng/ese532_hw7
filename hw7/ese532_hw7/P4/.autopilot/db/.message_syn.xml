@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 208.306 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;Filter.cpp&apos; ..." resolution=""/>
+	<Message severity="ERROR" prefix="[HLS 214-124]" key="HLS 214-124" tag="" content="use of undeclared identifier &apos;SCALED_FRAME_HEIGHT&apos;: Filter.cpp:27" resolution=""/>
+	<Message severity="ERROR" prefix="[HLS 214-124]" key="HLS 214-124" tag="" content="use of undeclared identifier &apos;SCALED_FRAME_WIDTH&apos;: Filter.cpp:27" resolution=""/>
+	<Message severity="ERROR" prefix="[HLS 214-124]" key="HLS 214-124" tag="" content="use of undeclared identifier &apos;OUTPUT_FRAME_HEIGHT&apos;: Filter.cpp:154" resolution=""/>
+	<Message severity="ERROR" prefix="[HLS 214-124]" key="HLS 214-124" tag="" content="use of undeclared identifier &apos;OUTPUT_FRAME_WIDTH&apos;: Filter.cpp:154" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Command csynth_design CPU user time: 0.16 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.31 seconds; current allocated memory: 209.718 MB." resolution=""/>
+</Messages>

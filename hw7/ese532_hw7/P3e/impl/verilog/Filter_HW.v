@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="Filter_HW_Filter_HW,hls_ip_2020_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu3eg-sbva484-1-i,HLS_INPUT_CLOCK=6.667000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.866910,HLS_SYN_LAT=310255,HLS_SYN_TPT=170372,HLS_SYN_MEM=11,HLS_SYN_DSP=0,HLS_SYN_FF=7299,HLS_SYN_LUT=42426,HLS_VERSION=2020_2}" *)
+(* CORE_GENERATION_INFO="Filter_HW_Filter_HW,hls_ip_2020_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu3eg-sbva484-1-i,HLS_INPUT_CLOCK=6.667000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.866910,HLS_SYN_LAT=308473,HLS_SYN_TPT=170372,HLS_SYN_MEM=9,HLS_SYN_DSP=0,HLS_SYN_FF=2319,HLS_SYN_LUT=4259,HLS_VERSION=2020_2}" *)
 
 module Filter_HW (
         s_axi_control_AWVALID,
@@ -30,113 +30,68 @@ module Filter_HW (
         ap_clk,
         ap_rst_n,
         interrupt,
-        m_axi_aximm1_AWVALID,
-        m_axi_aximm1_AWREADY,
-        m_axi_aximm1_AWADDR,
-        m_axi_aximm1_AWID,
-        m_axi_aximm1_AWLEN,
-        m_axi_aximm1_AWSIZE,
-        m_axi_aximm1_AWBURST,
-        m_axi_aximm1_AWLOCK,
-        m_axi_aximm1_AWCACHE,
-        m_axi_aximm1_AWPROT,
-        m_axi_aximm1_AWQOS,
-        m_axi_aximm1_AWREGION,
-        m_axi_aximm1_AWUSER,
-        m_axi_aximm1_WVALID,
-        m_axi_aximm1_WREADY,
-        m_axi_aximm1_WDATA,
-        m_axi_aximm1_WSTRB,
-        m_axi_aximm1_WLAST,
-        m_axi_aximm1_WID,
-        m_axi_aximm1_WUSER,
-        m_axi_aximm1_ARVALID,
-        m_axi_aximm1_ARREADY,
-        m_axi_aximm1_ARADDR,
-        m_axi_aximm1_ARID,
-        m_axi_aximm1_ARLEN,
-        m_axi_aximm1_ARSIZE,
-        m_axi_aximm1_ARBURST,
-        m_axi_aximm1_ARLOCK,
-        m_axi_aximm1_ARCACHE,
-        m_axi_aximm1_ARPROT,
-        m_axi_aximm1_ARQOS,
-        m_axi_aximm1_ARREGION,
-        m_axi_aximm1_ARUSER,
-        m_axi_aximm1_RVALID,
-        m_axi_aximm1_RREADY,
-        m_axi_aximm1_RDATA,
-        m_axi_aximm1_RLAST,
-        m_axi_aximm1_RID,
-        m_axi_aximm1_RUSER,
-        m_axi_aximm1_RRESP,
-        m_axi_aximm1_BVALID,
-        m_axi_aximm1_BREADY,
-        m_axi_aximm1_BRESP,
-        m_axi_aximm1_BID,
-        m_axi_aximm1_BUSER,
-        m_axi_aximm2_AWVALID,
-        m_axi_aximm2_AWREADY,
-        m_axi_aximm2_AWADDR,
-        m_axi_aximm2_AWID,
-        m_axi_aximm2_AWLEN,
-        m_axi_aximm2_AWSIZE,
-        m_axi_aximm2_AWBURST,
-        m_axi_aximm2_AWLOCK,
-        m_axi_aximm2_AWCACHE,
-        m_axi_aximm2_AWPROT,
-        m_axi_aximm2_AWQOS,
-        m_axi_aximm2_AWREGION,
-        m_axi_aximm2_AWUSER,
-        m_axi_aximm2_WVALID,
-        m_axi_aximm2_WREADY,
-        m_axi_aximm2_WDATA,
-        m_axi_aximm2_WSTRB,
-        m_axi_aximm2_WLAST,
-        m_axi_aximm2_WID,
-        m_axi_aximm2_WUSER,
-        m_axi_aximm2_ARVALID,
-        m_axi_aximm2_ARREADY,
-        m_axi_aximm2_ARADDR,
-        m_axi_aximm2_ARID,
-        m_axi_aximm2_ARLEN,
-        m_axi_aximm2_ARSIZE,
-        m_axi_aximm2_ARBURST,
-        m_axi_aximm2_ARLOCK,
-        m_axi_aximm2_ARCACHE,
-        m_axi_aximm2_ARPROT,
-        m_axi_aximm2_ARQOS,
-        m_axi_aximm2_ARREGION,
-        m_axi_aximm2_ARUSER,
-        m_axi_aximm2_RVALID,
-        m_axi_aximm2_RREADY,
-        m_axi_aximm2_RDATA,
-        m_axi_aximm2_RLAST,
-        m_axi_aximm2_RID,
-        m_axi_aximm2_RUSER,
-        m_axi_aximm2_RRESP,
-        m_axi_aximm2_BVALID,
-        m_axi_aximm2_BREADY,
-        m_axi_aximm2_BRESP,
-        m_axi_aximm2_BID,
-        m_axi_aximm2_BUSER
+        m_axi_gmem_AWVALID,
+        m_axi_gmem_AWREADY,
+        m_axi_gmem_AWADDR,
+        m_axi_gmem_AWID,
+        m_axi_gmem_AWLEN,
+        m_axi_gmem_AWSIZE,
+        m_axi_gmem_AWBURST,
+        m_axi_gmem_AWLOCK,
+        m_axi_gmem_AWCACHE,
+        m_axi_gmem_AWPROT,
+        m_axi_gmem_AWQOS,
+        m_axi_gmem_AWREGION,
+        m_axi_gmem_AWUSER,
+        m_axi_gmem_WVALID,
+        m_axi_gmem_WREADY,
+        m_axi_gmem_WDATA,
+        m_axi_gmem_WSTRB,
+        m_axi_gmem_WLAST,
+        m_axi_gmem_WID,
+        m_axi_gmem_WUSER,
+        m_axi_gmem_ARVALID,
+        m_axi_gmem_ARREADY,
+        m_axi_gmem_ARADDR,
+        m_axi_gmem_ARID,
+        m_axi_gmem_ARLEN,
+        m_axi_gmem_ARSIZE,
+        m_axi_gmem_ARBURST,
+        m_axi_gmem_ARLOCK,
+        m_axi_gmem_ARCACHE,
+        m_axi_gmem_ARPROT,
+        m_axi_gmem_ARQOS,
+        m_axi_gmem_ARREGION,
+        m_axi_gmem_ARUSER,
+        m_axi_gmem_RVALID,
+        m_axi_gmem_RREADY,
+        m_axi_gmem_RDATA,
+        m_axi_gmem_RLAST,
+        m_axi_gmem_RID,
+        m_axi_gmem_RUSER,
+        m_axi_gmem_RRESP,
+        m_axi_gmem_BVALID,
+        m_axi_gmem_BREADY,
+        m_axi_gmem_BRESP,
+        m_axi_gmem_BID,
+        m_axi_gmem_BUSER
 );
 
 parameter    C_S_AXI_CONTROL_DATA_WIDTH = 32;
 parameter    C_S_AXI_CONTROL_ADDR_WIDTH = 6;
 parameter    C_S_AXI_DATA_WIDTH = 32;
 parameter    C_S_AXI_ADDR_WIDTH = 32;
-parameter    C_M_AXI_AXIMM1_ID_WIDTH = 1;
-parameter    C_M_AXI_AXIMM1_ADDR_WIDTH = 64;
-parameter    C_M_AXI_AXIMM1_DATA_WIDTH = 32;
-parameter    C_M_AXI_AXIMM1_AWUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM1_ARUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM1_WUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM1_RUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM1_BUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM1_USER_VALUE = 0;
-parameter    C_M_AXI_AXIMM1_PROT_VALUE = 0;
-parameter    C_M_AXI_AXIMM1_CACHE_VALUE = 3;
+parameter    C_M_AXI_GMEM_ID_WIDTH = 1;
+parameter    C_M_AXI_GMEM_ADDR_WIDTH = 64;
+parameter    C_M_AXI_GMEM_DATA_WIDTH = 32;
+parameter    C_M_AXI_GMEM_AWUSER_WIDTH = 1;
+parameter    C_M_AXI_GMEM_ARUSER_WIDTH = 1;
+parameter    C_M_AXI_GMEM_WUSER_WIDTH = 1;
+parameter    C_M_AXI_GMEM_RUSER_WIDTH = 1;
+parameter    C_M_AXI_GMEM_BUSER_WIDTH = 1;
+parameter    C_M_AXI_GMEM_USER_VALUE = 0;
+parameter    C_M_AXI_GMEM_PROT_VALUE = 0;
+parameter    C_M_AXI_GMEM_CACHE_VALUE = 3;
 parameter    C_M_AXI_ID_WIDTH = 1;
 parameter    C_M_AXI_ADDR_WIDTH = 64;
 parameter    C_M_AXI_DATA_WIDTH = 32;
@@ -145,23 +100,11 @@ parameter    C_M_AXI_ARUSER_WIDTH = 1;
 parameter    C_M_AXI_WUSER_WIDTH = 1;
 parameter    C_M_AXI_RUSER_WIDTH = 1;
 parameter    C_M_AXI_BUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM2_ID_WIDTH = 1;
-parameter    C_M_AXI_AXIMM2_ADDR_WIDTH = 64;
-parameter    C_M_AXI_AXIMM2_DATA_WIDTH = 32;
-parameter    C_M_AXI_AXIMM2_AWUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM2_ARUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM2_WUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM2_RUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM2_BUSER_WIDTH = 1;
-parameter    C_M_AXI_AXIMM2_USER_VALUE = 0;
-parameter    C_M_AXI_AXIMM2_PROT_VALUE = 0;
-parameter    C_M_AXI_AXIMM2_CACHE_VALUE = 3;
 
 parameter C_S_AXI_CONTROL_WSTRB_WIDTH = (32 / 8);
 parameter C_S_AXI_WSTRB_WIDTH = (32 / 8);
-parameter C_M_AXI_AXIMM1_WSTRB_WIDTH = (32 / 8);
+parameter C_M_AXI_GMEM_WSTRB_WIDTH = (32 / 8);
 parameter C_M_AXI_WSTRB_WIDTH = (32 / 8);
-parameter C_M_AXI_AXIMM2_WSTRB_WIDTH = (32 / 8);
 
 input   s_axi_control_AWVALID;
 output   s_axi_control_AWREADY;
@@ -183,96 +126,51 @@ output  [1:0] s_axi_control_BRESP;
 input   ap_clk;
 input   ap_rst_n;
 output   interrupt;
-output   m_axi_aximm1_AWVALID;
-input   m_axi_aximm1_AWREADY;
-output  [C_M_AXI_AXIMM1_ADDR_WIDTH - 1:0] m_axi_aximm1_AWADDR;
-output  [C_M_AXI_AXIMM1_ID_WIDTH - 1:0] m_axi_aximm1_AWID;
-output  [7:0] m_axi_aximm1_AWLEN;
-output  [2:0] m_axi_aximm1_AWSIZE;
-output  [1:0] m_axi_aximm1_AWBURST;
-output  [1:0] m_axi_aximm1_AWLOCK;
-output  [3:0] m_axi_aximm1_AWCACHE;
-output  [2:0] m_axi_aximm1_AWPROT;
-output  [3:0] m_axi_aximm1_AWQOS;
-output  [3:0] m_axi_aximm1_AWREGION;
-output  [C_M_AXI_AXIMM1_AWUSER_WIDTH - 1:0] m_axi_aximm1_AWUSER;
-output   m_axi_aximm1_WVALID;
-input   m_axi_aximm1_WREADY;
-output  [C_M_AXI_AXIMM1_DATA_WIDTH - 1:0] m_axi_aximm1_WDATA;
-output  [C_M_AXI_AXIMM1_WSTRB_WIDTH - 1:0] m_axi_aximm1_WSTRB;
-output   m_axi_aximm1_WLAST;
-output  [C_M_AXI_AXIMM1_ID_WIDTH - 1:0] m_axi_aximm1_WID;
-output  [C_M_AXI_AXIMM1_WUSER_WIDTH - 1:0] m_axi_aximm1_WUSER;
-output   m_axi_aximm1_ARVALID;
-input   m_axi_aximm1_ARREADY;
-output  [C_M_AXI_AXIMM1_ADDR_WIDTH - 1:0] m_axi_aximm1_ARADDR;
-output  [C_M_AXI_AXIMM1_ID_WIDTH - 1:0] m_axi_aximm1_ARID;
-output  [7:0] m_axi_aximm1_ARLEN;
-output  [2:0] m_axi_aximm1_ARSIZE;
-output  [1:0] m_axi_aximm1_ARBURST;
-output  [1:0] m_axi_aximm1_ARLOCK;
-output  [3:0] m_axi_aximm1_ARCACHE;
-output  [2:0] m_axi_aximm1_ARPROT;
-output  [3:0] m_axi_aximm1_ARQOS;
-output  [3:0] m_axi_aximm1_ARREGION;
-output  [C_M_AXI_AXIMM1_ARUSER_WIDTH - 1:0] m_axi_aximm1_ARUSER;
-input   m_axi_aximm1_RVALID;
-output   m_axi_aximm1_RREADY;
-input  [C_M_AXI_AXIMM1_DATA_WIDTH - 1:0] m_axi_aximm1_RDATA;
-input   m_axi_aximm1_RLAST;
-input  [C_M_AXI_AXIMM1_ID_WIDTH - 1:0] m_axi_aximm1_RID;
-input  [C_M_AXI_AXIMM1_RUSER_WIDTH - 1:0] m_axi_aximm1_RUSER;
-input  [1:0] m_axi_aximm1_RRESP;
-input   m_axi_aximm1_BVALID;
-output   m_axi_aximm1_BREADY;
-input  [1:0] m_axi_aximm1_BRESP;
-input  [C_M_AXI_AXIMM1_ID_WIDTH - 1:0] m_axi_aximm1_BID;
-input  [C_M_AXI_AXIMM1_BUSER_WIDTH - 1:0] m_axi_aximm1_BUSER;
-output   m_axi_aximm2_AWVALID;
-input   m_axi_aximm2_AWREADY;
-output  [C_M_AXI_AXIMM2_ADDR_WIDTH - 1:0] m_axi_aximm2_AWADDR;
-output  [C_M_AXI_AXIMM2_ID_WIDTH - 1:0] m_axi_aximm2_AWID;
-output  [7:0] m_axi_aximm2_AWLEN;
-output  [2:0] m_axi_aximm2_AWSIZE;
-output  [1:0] m_axi_aximm2_AWBURST;
-output  [1:0] m_axi_aximm2_AWLOCK;
-output  [3:0] m_axi_aximm2_AWCACHE;
-output  [2:0] m_axi_aximm2_AWPROT;
-output  [3:0] m_axi_aximm2_AWQOS;
-output  [3:0] m_axi_aximm2_AWREGION;
-output  [C_M_AXI_AXIMM2_AWUSER_WIDTH - 1:0] m_axi_aximm2_AWUSER;
-output   m_axi_aximm2_WVALID;
-input   m_axi_aximm2_WREADY;
-output  [C_M_AXI_AXIMM2_DATA_WIDTH - 1:0] m_axi_aximm2_WDATA;
-output  [C_M_AXI_AXIMM2_WSTRB_WIDTH - 1:0] m_axi_aximm2_WSTRB;
-output   m_axi_aximm2_WLAST;
-output  [C_M_AXI_AXIMM2_ID_WIDTH - 1:0] m_axi_aximm2_WID;
-output  [C_M_AXI_AXIMM2_WUSER_WIDTH - 1:0] m_axi_aximm2_WUSER;
-output   m_axi_aximm2_ARVALID;
-input   m_axi_aximm2_ARREADY;
-output  [C_M_AXI_AXIMM2_ADDR_WIDTH - 1:0] m_axi_aximm2_ARADDR;
-output  [C_M_AXI_AXIMM2_ID_WIDTH - 1:0] m_axi_aximm2_ARID;
-output  [7:0] m_axi_aximm2_ARLEN;
-output  [2:0] m_axi_aximm2_ARSIZE;
-output  [1:0] m_axi_aximm2_ARBURST;
-output  [1:0] m_axi_aximm2_ARLOCK;
-output  [3:0] m_axi_aximm2_ARCACHE;
-output  [2:0] m_axi_aximm2_ARPROT;
-output  [3:0] m_axi_aximm2_ARQOS;
-output  [3:0] m_axi_aximm2_ARREGION;
-output  [C_M_AXI_AXIMM2_ARUSER_WIDTH - 1:0] m_axi_aximm2_ARUSER;
-input   m_axi_aximm2_RVALID;
-output   m_axi_aximm2_RREADY;
-input  [C_M_AXI_AXIMM2_DATA_WIDTH - 1:0] m_axi_aximm2_RDATA;
-input   m_axi_aximm2_RLAST;
-input  [C_M_AXI_AXIMM2_ID_WIDTH - 1:0] m_axi_aximm2_RID;
-input  [C_M_AXI_AXIMM2_RUSER_WIDTH - 1:0] m_axi_aximm2_RUSER;
-input  [1:0] m_axi_aximm2_RRESP;
-input   m_axi_aximm2_BVALID;
-output   m_axi_aximm2_BREADY;
-input  [1:0] m_axi_aximm2_BRESP;
-input  [C_M_AXI_AXIMM2_ID_WIDTH - 1:0] m_axi_aximm2_BID;
-input  [C_M_AXI_AXIMM2_BUSER_WIDTH - 1:0] m_axi_aximm2_BUSER;
+output   m_axi_gmem_AWVALID;
+input   m_axi_gmem_AWREADY;
+output  [C_M_AXI_GMEM_ADDR_WIDTH - 1:0] m_axi_gmem_AWADDR;
+output  [C_M_AXI_GMEM_ID_WIDTH - 1:0] m_axi_gmem_AWID;
+output  [7:0] m_axi_gmem_AWLEN;
+output  [2:0] m_axi_gmem_AWSIZE;
+output  [1:0] m_axi_gmem_AWBURST;
+output  [1:0] m_axi_gmem_AWLOCK;
+output  [3:0] m_axi_gmem_AWCACHE;
+output  [2:0] m_axi_gmem_AWPROT;
+output  [3:0] m_axi_gmem_AWQOS;
+output  [3:0] m_axi_gmem_AWREGION;
+output  [C_M_AXI_GMEM_AWUSER_WIDTH - 1:0] m_axi_gmem_AWUSER;
+output   m_axi_gmem_WVALID;
+input   m_axi_gmem_WREADY;
+output  [C_M_AXI_GMEM_DATA_WIDTH - 1:0] m_axi_gmem_WDATA;
+output  [C_M_AXI_GMEM_WSTRB_WIDTH - 1:0] m_axi_gmem_WSTRB;
+output   m_axi_gmem_WLAST;
+output  [C_M_AXI_GMEM_ID_WIDTH - 1:0] m_axi_gmem_WID;
+output  [C_M_AXI_GMEM_WUSER_WIDTH - 1:0] m_axi_gmem_WUSER;
+output   m_axi_gmem_ARVALID;
+input   m_axi_gmem_ARREADY;
+output  [C_M_AXI_GMEM_ADDR_WIDTH - 1:0] m_axi_gmem_ARADDR;
+output  [C_M_AXI_GMEM_ID_WIDTH - 1:0] m_axi_gmem_ARID;
+output  [7:0] m_axi_gmem_ARLEN;
+output  [2:0] m_axi_gmem_ARSIZE;
+output  [1:0] m_axi_gmem_ARBURST;
+output  [1:0] m_axi_gmem_ARLOCK;
+output  [3:0] m_axi_gmem_ARCACHE;
+output  [2:0] m_axi_gmem_ARPROT;
+output  [3:0] m_axi_gmem_ARQOS;
+output  [3:0] m_axi_gmem_ARREGION;
+output  [C_M_AXI_GMEM_ARUSER_WIDTH - 1:0] m_axi_gmem_ARUSER;
+input   m_axi_gmem_RVALID;
+output   m_axi_gmem_RREADY;
+input  [C_M_AXI_GMEM_DATA_WIDTH - 1:0] m_axi_gmem_RDATA;
+input   m_axi_gmem_RLAST;
+input  [C_M_AXI_GMEM_ID_WIDTH - 1:0] m_axi_gmem_RID;
+input  [C_M_AXI_GMEM_RUSER_WIDTH - 1:0] m_axi_gmem_RUSER;
+input  [1:0] m_axi_gmem_RRESP;
+input   m_axi_gmem_BVALID;
+output   m_axi_gmem_BREADY;
+input  [1:0] m_axi_gmem_BRESP;
+input  [C_M_AXI_GMEM_ID_WIDTH - 1:0] m_axi_gmem_BID;
+input  [C_M_AXI_GMEM_BUSER_WIDTH - 1:0] m_axi_gmem_BUSER;
 
 (* shreg_extract = "no" *) reg    ap_rst_reg_2;
 (* shreg_extract = "no" *) reg    ap_rst_reg_1;
@@ -284,32 +182,19 @@ wire    ap_ready;
 wire    ap_done;
 wire    ap_continue;
 wire    ap_idle;
-wire    aximm1_AWREADY;
-wire    aximm1_WREADY;
-wire    aximm1_ARREADY;
-wire    aximm1_RVALID;
-wire   [15:0] aximm1_RDATA;
-wire    aximm1_RLAST;
-wire   [0:0] aximm1_RID;
-wire   [0:0] aximm1_RUSER;
-wire   [1:0] aximm1_RRESP;
-wire    aximm1_BVALID;
-wire   [1:0] aximm1_BRESP;
-wire   [0:0] aximm1_BID;
-wire   [0:0] aximm1_BUSER;
-wire    aximm2_AWREADY;
-wire    aximm2_WREADY;
-wire    aximm2_ARREADY;
-wire    aximm2_RVALID;
-wire   [15:0] aximm2_RDATA;
-wire    aximm2_RLAST;
-wire   [0:0] aximm2_RID;
-wire   [0:0] aximm2_RUSER;
-wire   [1:0] aximm2_RRESP;
-wire    aximm2_BVALID;
-wire   [1:0] aximm2_BRESP;
-wire   [0:0] aximm2_BID;
-wire   [0:0] aximm2_BUSER;
+wire    gmem_AWREADY;
+wire    gmem_WREADY;
+wire    gmem_ARREADY;
+wire    gmem_RVALID;
+wire   [15:0] gmem_RDATA;
+wire    gmem_RLAST;
+wire   [0:0] gmem_RID;
+wire   [0:0] gmem_RUSER;
+wire   [1:0] gmem_RRESP;
+wire    gmem_BVALID;
+wire   [1:0] gmem_BRESP;
+wire   [0:0] gmem_BID;
+wire   [0:0] gmem_BUSER;
 wire    Filter_horizontal_HW3_U0_ap_start;
 wire    Filter_horizontal_HW3_U0_ap_done;
 wire    Filter_horizontal_HW3_U0_ap_continue;
@@ -317,38 +202,38 @@ wire    Filter_horizontal_HW3_U0_ap_idle;
 wire    Filter_horizontal_HW3_U0_ap_ready;
 wire    Filter_horizontal_HW3_U0_start_out;
 wire    Filter_horizontal_HW3_U0_start_write;
-wire    Filter_horizontal_HW3_U0_m_axi_aximm1_AWVALID;
-wire   [63:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWADDR;
-wire   [0:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWID;
-wire   [31:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWLEN;
-wire   [2:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWSIZE;
-wire   [1:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWBURST;
-wire   [1:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWLOCK;
-wire   [3:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWCACHE;
-wire   [2:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWPROT;
-wire   [3:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWQOS;
-wire   [3:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWREGION;
-wire   [0:0] Filter_horizontal_HW3_U0_m_axi_aximm1_AWUSER;
-wire    Filter_horizontal_HW3_U0_m_axi_aximm1_WVALID;
-wire   [15:0] Filter_horizontal_HW3_U0_m_axi_aximm1_WDATA;
-wire   [1:0] Filter_horizontal_HW3_U0_m_axi_aximm1_WSTRB;
-wire    Filter_horizontal_HW3_U0_m_axi_aximm1_WLAST;
-wire   [0:0] Filter_horizontal_HW3_U0_m_axi_aximm1_WID;
-wire   [0:0] Filter_horizontal_HW3_U0_m_axi_aximm1_WUSER;
-wire    Filter_horizontal_HW3_U0_m_axi_aximm1_ARVALID;
-wire   [63:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARADDR;
-wire   [0:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARID;
-wire   [31:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARLEN;
-wire   [2:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARSIZE;
-wire   [1:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARBURST;
-wire   [1:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARLOCK;
-wire   [3:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARCACHE;
-wire   [2:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARPROT;
-wire   [3:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARQOS;
-wire   [3:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARREGION;
-wire   [0:0] Filter_horizontal_HW3_U0_m_axi_aximm1_ARUSER;
-wire    Filter_horizontal_HW3_U0_m_axi_aximm1_RREADY;
-wire    Filter_horizontal_HW3_U0_m_axi_aximm1_BREADY;
+wire    Filter_horizontal_HW3_U0_m_axi_gmem_AWVALID;
+wire   [63:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWADDR;
+wire   [0:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWID;
+wire   [31:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWLEN;
+wire   [2:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWSIZE;
+wire   [1:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWBURST;
+wire   [1:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWLOCK;
+wire   [3:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWCACHE;
+wire   [2:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWPROT;
+wire   [3:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWQOS;
+wire   [3:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWREGION;
+wire   [0:0] Filter_horizontal_HW3_U0_m_axi_gmem_AWUSER;
+wire    Filter_horizontal_HW3_U0_m_axi_gmem_WVALID;
+wire   [15:0] Filter_horizontal_HW3_U0_m_axi_gmem_WDATA;
+wire   [1:0] Filter_horizontal_HW3_U0_m_axi_gmem_WSTRB;
+wire    Filter_horizontal_HW3_U0_m_axi_gmem_WLAST;
+wire   [0:0] Filter_horizontal_HW3_U0_m_axi_gmem_WID;
+wire   [0:0] Filter_horizontal_HW3_U0_m_axi_gmem_WUSER;
+wire    Filter_horizontal_HW3_U0_m_axi_gmem_ARVALID;
+wire   [63:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARADDR;
+wire   [0:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARID;
+wire   [31:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARLEN;
+wire   [2:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARSIZE;
+wire   [1:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARBURST;
+wire   [1:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARLOCK;
+wire   [3:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARCACHE;
+wire   [2:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARPROT;
+wire   [3:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARQOS;
+wire   [3:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARREGION;
+wire   [0:0] Filter_horizontal_HW3_U0_m_axi_gmem_ARUSER;
+wire    Filter_horizontal_HW3_U0_m_axi_gmem_RREADY;
+wire    Filter_horizontal_HW3_U0_m_axi_gmem_BREADY;
 wire   [63:0] Filter_horizontal_HW3_U0_Output_out_din;
 wire    Filter_horizontal_HW3_U0_Output_out_write;
 wire   [7:0] Filter_horizontal_HW3_U0_tempStream_din;
@@ -358,38 +243,38 @@ wire    Filter_vertical_HW_U0_ap_done;
 wire    Filter_vertical_HW_U0_ap_continue;
 wire    Filter_vertical_HW_U0_ap_idle;
 wire    Filter_vertical_HW_U0_ap_ready;
-wire    Filter_vertical_HW_U0_m_axi_aximm2_AWVALID;
-wire   [63:0] Filter_vertical_HW_U0_m_axi_aximm2_AWADDR;
-wire   [0:0] Filter_vertical_HW_U0_m_axi_aximm2_AWID;
-wire   [31:0] Filter_vertical_HW_U0_m_axi_aximm2_AWLEN;
-wire   [2:0] Filter_vertical_HW_U0_m_axi_aximm2_AWSIZE;
-wire   [1:0] Filter_vertical_HW_U0_m_axi_aximm2_AWBURST;
-wire   [1:0] Filter_vertical_HW_U0_m_axi_aximm2_AWLOCK;
-wire   [3:0] Filter_vertical_HW_U0_m_axi_aximm2_AWCACHE;
-wire   [2:0] Filter_vertical_HW_U0_m_axi_aximm2_AWPROT;
-wire   [3:0] Filter_vertical_HW_U0_m_axi_aximm2_AWQOS;
-wire   [3:0] Filter_vertical_HW_U0_m_axi_aximm2_AWREGION;
-wire   [0:0] Filter_vertical_HW_U0_m_axi_aximm2_AWUSER;
-wire    Filter_vertical_HW_U0_m_axi_aximm2_WVALID;
-wire   [15:0] Filter_vertical_HW_U0_m_axi_aximm2_WDATA;
-wire   [1:0] Filter_vertical_HW_U0_m_axi_aximm2_WSTRB;
-wire    Filter_vertical_HW_U0_m_axi_aximm2_WLAST;
-wire   [0:0] Filter_vertical_HW_U0_m_axi_aximm2_WID;
-wire   [0:0] Filter_vertical_HW_U0_m_axi_aximm2_WUSER;
-wire    Filter_vertical_HW_U0_m_axi_aximm2_ARVALID;
-wire   [63:0] Filter_vertical_HW_U0_m_axi_aximm2_ARADDR;
-wire   [0:0] Filter_vertical_HW_U0_m_axi_aximm2_ARID;
-wire   [31:0] Filter_vertical_HW_U0_m_axi_aximm2_ARLEN;
-wire   [2:0] Filter_vertical_HW_U0_m_axi_aximm2_ARSIZE;
-wire   [1:0] Filter_vertical_HW_U0_m_axi_aximm2_ARBURST;
-wire   [1:0] Filter_vertical_HW_U0_m_axi_aximm2_ARLOCK;
-wire   [3:0] Filter_vertical_HW_U0_m_axi_aximm2_ARCACHE;
-wire   [2:0] Filter_vertical_HW_U0_m_axi_aximm2_ARPROT;
-wire   [3:0] Filter_vertical_HW_U0_m_axi_aximm2_ARQOS;
-wire   [3:0] Filter_vertical_HW_U0_m_axi_aximm2_ARREGION;
-wire   [0:0] Filter_vertical_HW_U0_m_axi_aximm2_ARUSER;
-wire    Filter_vertical_HW_U0_m_axi_aximm2_RREADY;
-wire    Filter_vertical_HW_U0_m_axi_aximm2_BREADY;
+wire    Filter_vertical_HW_U0_m_axi_gmem_AWVALID;
+wire   [63:0] Filter_vertical_HW_U0_m_axi_gmem_AWADDR;
+wire   [0:0] Filter_vertical_HW_U0_m_axi_gmem_AWID;
+wire   [31:0] Filter_vertical_HW_U0_m_axi_gmem_AWLEN;
+wire   [2:0] Filter_vertical_HW_U0_m_axi_gmem_AWSIZE;
+wire   [1:0] Filter_vertical_HW_U0_m_axi_gmem_AWBURST;
+wire   [1:0] Filter_vertical_HW_U0_m_axi_gmem_AWLOCK;
+wire   [3:0] Filter_vertical_HW_U0_m_axi_gmem_AWCACHE;
+wire   [2:0] Filter_vertical_HW_U0_m_axi_gmem_AWPROT;
+wire   [3:0] Filter_vertical_HW_U0_m_axi_gmem_AWQOS;
+wire   [3:0] Filter_vertical_HW_U0_m_axi_gmem_AWREGION;
+wire   [0:0] Filter_vertical_HW_U0_m_axi_gmem_AWUSER;
+wire    Filter_vertical_HW_U0_m_axi_gmem_WVALID;
+wire   [15:0] Filter_vertical_HW_U0_m_axi_gmem_WDATA;
+wire   [1:0] Filter_vertical_HW_U0_m_axi_gmem_WSTRB;
+wire    Filter_vertical_HW_U0_m_axi_gmem_WLAST;
+wire   [0:0] Filter_vertical_HW_U0_m_axi_gmem_WID;
+wire   [0:0] Filter_vertical_HW_U0_m_axi_gmem_WUSER;
+wire    Filter_vertical_HW_U0_m_axi_gmem_ARVALID;
+wire   [63:0] Filter_vertical_HW_U0_m_axi_gmem_ARADDR;
+wire   [0:0] Filter_vertical_HW_U0_m_axi_gmem_ARID;
+wire   [31:0] Filter_vertical_HW_U0_m_axi_gmem_ARLEN;
+wire   [2:0] Filter_vertical_HW_U0_m_axi_gmem_ARSIZE;
+wire   [1:0] Filter_vertical_HW_U0_m_axi_gmem_ARBURST;
+wire   [1:0] Filter_vertical_HW_U0_m_axi_gmem_ARLOCK;
+wire   [3:0] Filter_vertical_HW_U0_m_axi_gmem_ARCACHE;
+wire   [2:0] Filter_vertical_HW_U0_m_axi_gmem_ARPROT;
+wire   [3:0] Filter_vertical_HW_U0_m_axi_gmem_ARQOS;
+wire   [3:0] Filter_vertical_HW_U0_m_axi_gmem_ARREGION;
+wire   [0:0] Filter_vertical_HW_U0_m_axi_gmem_ARUSER;
+wire    Filter_vertical_HW_U0_m_axi_gmem_RREADY;
+wire    Filter_vertical_HW_U0_m_axi_gmem_BREADY;
 wire    Filter_vertical_HW_U0_Output_r_read;
 wire    Filter_vertical_HW_U0_tempStream_read;
 wire    ap_sync_continue;
@@ -449,7 +334,7 @@ control_s_axi_U(
     .ap_idle(ap_idle)
 );
 
-Filter_HW_aximm1_m_axi #(
+Filter_HW_gmem_m_axi #(
     .CONSERVATIVE( 0 ),
     .USER_DW( 16 ),
     .USER_AW( 64 ),
@@ -458,227 +343,111 @@ Filter_HW_aximm1_m_axi #(
     .NUM_WRITE_OUTSTANDING( 16 ),
     .MAX_READ_BURST_LENGTH( 16 ),
     .MAX_WRITE_BURST_LENGTH( 16 ),
-    .C_M_AXI_ID_WIDTH( C_M_AXI_AXIMM1_ID_WIDTH ),
-    .C_M_AXI_ADDR_WIDTH( C_M_AXI_AXIMM1_ADDR_WIDTH ),
-    .C_M_AXI_DATA_WIDTH( C_M_AXI_AXIMM1_DATA_WIDTH ),
-    .C_M_AXI_AWUSER_WIDTH( C_M_AXI_AXIMM1_AWUSER_WIDTH ),
-    .C_M_AXI_ARUSER_WIDTH( C_M_AXI_AXIMM1_ARUSER_WIDTH ),
-    .C_M_AXI_WUSER_WIDTH( C_M_AXI_AXIMM1_WUSER_WIDTH ),
-    .C_M_AXI_RUSER_WIDTH( C_M_AXI_AXIMM1_RUSER_WIDTH ),
-    .C_M_AXI_BUSER_WIDTH( C_M_AXI_AXIMM1_BUSER_WIDTH ),
-    .C_USER_VALUE( C_M_AXI_AXIMM1_USER_VALUE ),
-    .C_PROT_VALUE( C_M_AXI_AXIMM1_PROT_VALUE ),
-    .C_CACHE_VALUE( C_M_AXI_AXIMM1_CACHE_VALUE ))
-aximm1_m_axi_U(
-    .AWVALID(m_axi_aximm1_AWVALID),
-    .AWREADY(m_axi_aximm1_AWREADY),
-    .AWADDR(m_axi_aximm1_AWADDR),
-    .AWID(m_axi_aximm1_AWID),
-    .AWLEN(m_axi_aximm1_AWLEN),
-    .AWSIZE(m_axi_aximm1_AWSIZE),
-    .AWBURST(m_axi_aximm1_AWBURST),
-    .AWLOCK(m_axi_aximm1_AWLOCK),
-    .AWCACHE(m_axi_aximm1_AWCACHE),
-    .AWPROT(m_axi_aximm1_AWPROT),
-    .AWQOS(m_axi_aximm1_AWQOS),
-    .AWREGION(m_axi_aximm1_AWREGION),
-    .AWUSER(m_axi_aximm1_AWUSER),
-    .WVALID(m_axi_aximm1_WVALID),
-    .WREADY(m_axi_aximm1_WREADY),
-    .WDATA(m_axi_aximm1_WDATA),
-    .WSTRB(m_axi_aximm1_WSTRB),
-    .WLAST(m_axi_aximm1_WLAST),
-    .WID(m_axi_aximm1_WID),
-    .WUSER(m_axi_aximm1_WUSER),
-    .ARVALID(m_axi_aximm1_ARVALID),
-    .ARREADY(m_axi_aximm1_ARREADY),
-    .ARADDR(m_axi_aximm1_ARADDR),
-    .ARID(m_axi_aximm1_ARID),
-    .ARLEN(m_axi_aximm1_ARLEN),
-    .ARSIZE(m_axi_aximm1_ARSIZE),
-    .ARBURST(m_axi_aximm1_ARBURST),
-    .ARLOCK(m_axi_aximm1_ARLOCK),
-    .ARCACHE(m_axi_aximm1_ARCACHE),
-    .ARPROT(m_axi_aximm1_ARPROT),
-    .ARQOS(m_axi_aximm1_ARQOS),
-    .ARREGION(m_axi_aximm1_ARREGION),
-    .ARUSER(m_axi_aximm1_ARUSER),
-    .RVALID(m_axi_aximm1_RVALID),
-    .RREADY(m_axi_aximm1_RREADY),
-    .RDATA(m_axi_aximm1_RDATA),
-    .RLAST(m_axi_aximm1_RLAST),
-    .RID(m_axi_aximm1_RID),
-    .RUSER(m_axi_aximm1_RUSER),
-    .RRESP(m_axi_aximm1_RRESP),
-    .BVALID(m_axi_aximm1_BVALID),
-    .BREADY(m_axi_aximm1_BREADY),
-    .BRESP(m_axi_aximm1_BRESP),
-    .BID(m_axi_aximm1_BID),
-    .BUSER(m_axi_aximm1_BUSER),
+    .C_M_AXI_ID_WIDTH( C_M_AXI_GMEM_ID_WIDTH ),
+    .C_M_AXI_ADDR_WIDTH( C_M_AXI_GMEM_ADDR_WIDTH ),
+    .C_M_AXI_DATA_WIDTH( C_M_AXI_GMEM_DATA_WIDTH ),
+    .C_M_AXI_AWUSER_WIDTH( C_M_AXI_GMEM_AWUSER_WIDTH ),
+    .C_M_AXI_ARUSER_WIDTH( C_M_AXI_GMEM_ARUSER_WIDTH ),
+    .C_M_AXI_WUSER_WIDTH( C_M_AXI_GMEM_WUSER_WIDTH ),
+    .C_M_AXI_RUSER_WIDTH( C_M_AXI_GMEM_RUSER_WIDTH ),
+    .C_M_AXI_BUSER_WIDTH( C_M_AXI_GMEM_BUSER_WIDTH ),
+    .C_USER_VALUE( C_M_AXI_GMEM_USER_VALUE ),
+    .C_PROT_VALUE( C_M_AXI_GMEM_PROT_VALUE ),
+    .C_CACHE_VALUE( C_M_AXI_GMEM_CACHE_VALUE ))
+gmem_m_axi_U(
+    .AWVALID(m_axi_gmem_AWVALID),
+    .AWREADY(m_axi_gmem_AWREADY),
+    .AWADDR(m_axi_gmem_AWADDR),
+    .AWID(m_axi_gmem_AWID),
+    .AWLEN(m_axi_gmem_AWLEN),
+    .AWSIZE(m_axi_gmem_AWSIZE),
+    .AWBURST(m_axi_gmem_AWBURST),
+    .AWLOCK(m_axi_gmem_AWLOCK),
+    .AWCACHE(m_axi_gmem_AWCACHE),
+    .AWPROT(m_axi_gmem_AWPROT),
+    .AWQOS(m_axi_gmem_AWQOS),
+    .AWREGION(m_axi_gmem_AWREGION),
+    .AWUSER(m_axi_gmem_AWUSER),
+    .WVALID(m_axi_gmem_WVALID),
+    .WREADY(m_axi_gmem_WREADY),
+    .WDATA(m_axi_gmem_WDATA),
+    .WSTRB(m_axi_gmem_WSTRB),
+    .WLAST(m_axi_gmem_WLAST),
+    .WID(m_axi_gmem_WID),
+    .WUSER(m_axi_gmem_WUSER),
+    .ARVALID(m_axi_gmem_ARVALID),
+    .ARREADY(m_axi_gmem_ARREADY),
+    .ARADDR(m_axi_gmem_ARADDR),
+    .ARID(m_axi_gmem_ARID),
+    .ARLEN(m_axi_gmem_ARLEN),
+    .ARSIZE(m_axi_gmem_ARSIZE),
+    .ARBURST(m_axi_gmem_ARBURST),
+    .ARLOCK(m_axi_gmem_ARLOCK),
+    .ARCACHE(m_axi_gmem_ARCACHE),
+    .ARPROT(m_axi_gmem_ARPROT),
+    .ARQOS(m_axi_gmem_ARQOS),
+    .ARREGION(m_axi_gmem_ARREGION),
+    .ARUSER(m_axi_gmem_ARUSER),
+    .RVALID(m_axi_gmem_RVALID),
+    .RREADY(m_axi_gmem_RREADY),
+    .RDATA(m_axi_gmem_RDATA),
+    .RLAST(m_axi_gmem_RLAST),
+    .RID(m_axi_gmem_RID),
+    .RUSER(m_axi_gmem_RUSER),
+    .RRESP(m_axi_gmem_RRESP),
+    .BVALID(m_axi_gmem_BVALID),
+    .BREADY(m_axi_gmem_BREADY),
+    .BRESP(m_axi_gmem_BRESP),
+    .BID(m_axi_gmem_BID),
+    .BUSER(m_axi_gmem_BUSER),
     .ACLK(ap_clk),
     .ARESET(ap_rst_n_inv),
     .ACLK_EN(1'b1),
-    .I_ARVALID(Filter_horizontal_HW3_U0_m_axi_aximm1_ARVALID),
-    .I_ARREADY(aximm1_ARREADY),
-    .I_ARADDR(Filter_horizontal_HW3_U0_m_axi_aximm1_ARADDR),
-    .I_ARID(Filter_horizontal_HW3_U0_m_axi_aximm1_ARID),
-    .I_ARLEN(Filter_horizontal_HW3_U0_m_axi_aximm1_ARLEN),
-    .I_ARSIZE(Filter_horizontal_HW3_U0_m_axi_aximm1_ARSIZE),
-    .I_ARLOCK(Filter_horizontal_HW3_U0_m_axi_aximm1_ARLOCK),
-    .I_ARCACHE(Filter_horizontal_HW3_U0_m_axi_aximm1_ARCACHE),
-    .I_ARQOS(Filter_horizontal_HW3_U0_m_axi_aximm1_ARQOS),
-    .I_ARPROT(Filter_horizontal_HW3_U0_m_axi_aximm1_ARPROT),
-    .I_ARUSER(Filter_horizontal_HW3_U0_m_axi_aximm1_ARUSER),
-    .I_ARBURST(Filter_horizontal_HW3_U0_m_axi_aximm1_ARBURST),
-    .I_ARREGION(Filter_horizontal_HW3_U0_m_axi_aximm1_ARREGION),
-    .I_RVALID(aximm1_RVALID),
-    .I_RREADY(Filter_horizontal_HW3_U0_m_axi_aximm1_RREADY),
-    .I_RDATA(aximm1_RDATA),
-    .I_RID(aximm1_RID),
-    .I_RUSER(aximm1_RUSER),
-    .I_RRESP(aximm1_RRESP),
-    .I_RLAST(aximm1_RLAST),
-    .I_AWVALID(1'b0),
-    .I_AWREADY(aximm1_AWREADY),
-    .I_AWADDR(64'd0),
-    .I_AWID(1'd0),
-    .I_AWLEN(32'd0),
-    .I_AWSIZE(3'd0),
-    .I_AWLOCK(2'd0),
-    .I_AWCACHE(4'd0),
-    .I_AWQOS(4'd0),
-    .I_AWPROT(3'd0),
-    .I_AWUSER(1'd0),
-    .I_AWBURST(2'd0),
-    .I_AWREGION(4'd0),
-    .I_WVALID(1'b0),
-    .I_WREADY(aximm1_WREADY),
-    .I_WDATA(16'd0),
-    .I_WID(1'd0),
-    .I_WUSER(1'd0),
-    .I_WLAST(1'b0),
-    .I_WSTRB(2'd0),
-    .I_BVALID(aximm1_BVALID),
-    .I_BREADY(1'b0),
-    .I_BRESP(aximm1_BRESP),
-    .I_BID(aximm1_BID),
-    .I_BUSER(aximm1_BUSER)
-);
-
-Filter_HW_aximm2_m_axi #(
-    .CONSERVATIVE( 0 ),
-    .USER_DW( 16 ),
-    .USER_AW( 64 ),
-    .USER_MAXREQS( 69 ),
-    .NUM_READ_OUTSTANDING( 16 ),
-    .NUM_WRITE_OUTSTANDING( 16 ),
-    .MAX_READ_BURST_LENGTH( 16 ),
-    .MAX_WRITE_BURST_LENGTH( 16 ),
-    .C_M_AXI_ID_WIDTH( C_M_AXI_AXIMM2_ID_WIDTH ),
-    .C_M_AXI_ADDR_WIDTH( C_M_AXI_AXIMM2_ADDR_WIDTH ),
-    .C_M_AXI_DATA_WIDTH( C_M_AXI_AXIMM2_DATA_WIDTH ),
-    .C_M_AXI_AWUSER_WIDTH( C_M_AXI_AXIMM2_AWUSER_WIDTH ),
-    .C_M_AXI_ARUSER_WIDTH( C_M_AXI_AXIMM2_ARUSER_WIDTH ),
-    .C_M_AXI_WUSER_WIDTH( C_M_AXI_AXIMM2_WUSER_WIDTH ),
-    .C_M_AXI_RUSER_WIDTH( C_M_AXI_AXIMM2_RUSER_WIDTH ),
-    .C_M_AXI_BUSER_WIDTH( C_M_AXI_AXIMM2_BUSER_WIDTH ),
-    .C_USER_VALUE( C_M_AXI_AXIMM2_USER_VALUE ),
-    .C_PROT_VALUE( C_M_AXI_AXIMM2_PROT_VALUE ),
-    .C_CACHE_VALUE( C_M_AXI_AXIMM2_CACHE_VALUE ))
-aximm2_m_axi_U(
-    .AWVALID(m_axi_aximm2_AWVALID),
-    .AWREADY(m_axi_aximm2_AWREADY),
-    .AWADDR(m_axi_aximm2_AWADDR),
-    .AWID(m_axi_aximm2_AWID),
-    .AWLEN(m_axi_aximm2_AWLEN),
-    .AWSIZE(m_axi_aximm2_AWSIZE),
-    .AWBURST(m_axi_aximm2_AWBURST),
-    .AWLOCK(m_axi_aximm2_AWLOCK),
-    .AWCACHE(m_axi_aximm2_AWCACHE),
-    .AWPROT(m_axi_aximm2_AWPROT),
-    .AWQOS(m_axi_aximm2_AWQOS),
-    .AWREGION(m_axi_aximm2_AWREGION),
-    .AWUSER(m_axi_aximm2_AWUSER),
-    .WVALID(m_axi_aximm2_WVALID),
-    .WREADY(m_axi_aximm2_WREADY),
-    .WDATA(m_axi_aximm2_WDATA),
-    .WSTRB(m_axi_aximm2_WSTRB),
-    .WLAST(m_axi_aximm2_WLAST),
-    .WID(m_axi_aximm2_WID),
-    .WUSER(m_axi_aximm2_WUSER),
-    .ARVALID(m_axi_aximm2_ARVALID),
-    .ARREADY(m_axi_aximm2_ARREADY),
-    .ARADDR(m_axi_aximm2_ARADDR),
-    .ARID(m_axi_aximm2_ARID),
-    .ARLEN(m_axi_aximm2_ARLEN),
-    .ARSIZE(m_axi_aximm2_ARSIZE),
-    .ARBURST(m_axi_aximm2_ARBURST),
-    .ARLOCK(m_axi_aximm2_ARLOCK),
-    .ARCACHE(m_axi_aximm2_ARCACHE),
-    .ARPROT(m_axi_aximm2_ARPROT),
-    .ARQOS(m_axi_aximm2_ARQOS),
-    .ARREGION(m_axi_aximm2_ARREGION),
-    .ARUSER(m_axi_aximm2_ARUSER),
-    .RVALID(m_axi_aximm2_RVALID),
-    .RREADY(m_axi_aximm2_RREADY),
-    .RDATA(m_axi_aximm2_RDATA),
-    .RLAST(m_axi_aximm2_RLAST),
-    .RID(m_axi_aximm2_RID),
-    .RUSER(m_axi_aximm2_RUSER),
-    .RRESP(m_axi_aximm2_RRESP),
-    .BVALID(m_axi_aximm2_BVALID),
-    .BREADY(m_axi_aximm2_BREADY),
-    .BRESP(m_axi_aximm2_BRESP),
-    .BID(m_axi_aximm2_BID),
-    .BUSER(m_axi_aximm2_BUSER),
-    .ACLK(ap_clk),
-    .ARESET(ap_rst_n_inv),
-    .ACLK_EN(1'b1),
-    .I_ARVALID(1'b0),
-    .I_ARREADY(aximm2_ARREADY),
-    .I_ARADDR(64'd0),
-    .I_ARID(1'd0),
-    .I_ARLEN(32'd0),
-    .I_ARSIZE(3'd0),
-    .I_ARLOCK(2'd0),
-    .I_ARCACHE(4'd0),
-    .I_ARQOS(4'd0),
-    .I_ARPROT(3'd0),
-    .I_ARUSER(1'd0),
-    .I_ARBURST(2'd0),
-    .I_ARREGION(4'd0),
-    .I_RVALID(aximm2_RVALID),
-    .I_RREADY(1'b0),
-    .I_RDATA(aximm2_RDATA),
-    .I_RID(aximm2_RID),
-    .I_RUSER(aximm2_RUSER),
-    .I_RRESP(aximm2_RRESP),
-    .I_RLAST(aximm2_RLAST),
-    .I_AWVALID(Filter_vertical_HW_U0_m_axi_aximm2_AWVALID),
-    .I_AWREADY(aximm2_AWREADY),
-    .I_AWADDR(Filter_vertical_HW_U0_m_axi_aximm2_AWADDR),
-    .I_AWID(Filter_vertical_HW_U0_m_axi_aximm2_AWID),
-    .I_AWLEN(Filter_vertical_HW_U0_m_axi_aximm2_AWLEN),
-    .I_AWSIZE(Filter_vertical_HW_U0_m_axi_aximm2_AWSIZE),
-    .I_AWLOCK(Filter_vertical_HW_U0_m_axi_aximm2_AWLOCK),
-    .I_AWCACHE(Filter_vertical_HW_U0_m_axi_aximm2_AWCACHE),
-    .I_AWQOS(Filter_vertical_HW_U0_m_axi_aximm2_AWQOS),
-    .I_AWPROT(Filter_vertical_HW_U0_m_axi_aximm2_AWPROT),
-    .I_AWUSER(Filter_vertical_HW_U0_m_axi_aximm2_AWUSER),
-    .I_AWBURST(Filter_vertical_HW_U0_m_axi_aximm2_AWBURST),
-    .I_AWREGION(Filter_vertical_HW_U0_m_axi_aximm2_AWREGION),
-    .I_WVALID(Filter_vertical_HW_U0_m_axi_aximm2_WVALID),
-    .I_WREADY(aximm2_WREADY),
-    .I_WDATA(Filter_vertical_HW_U0_m_axi_aximm2_WDATA),
-    .I_WID(Filter_vertical_HW_U0_m_axi_aximm2_WID),
-    .I_WUSER(Filter_vertical_HW_U0_m_axi_aximm2_WUSER),
-    .I_WLAST(Filter_vertical_HW_U0_m_axi_aximm2_WLAST),
-    .I_WSTRB(Filter_vertical_HW_U0_m_axi_aximm2_WSTRB),
-    .I_BVALID(aximm2_BVALID),
-    .I_BREADY(Filter_vertical_HW_U0_m_axi_aximm2_BREADY),
-    .I_BRESP(aximm2_BRESP),
-    .I_BID(aximm2_BID),
-    .I_BUSER(aximm2_BUSER)
+    .I_ARVALID(Filter_horizontal_HW3_U0_m_axi_gmem_ARVALID),
+    .I_ARREADY(gmem_ARREADY),
+    .I_ARADDR(Filter_horizontal_HW3_U0_m_axi_gmem_ARADDR),
+    .I_ARID(Filter_horizontal_HW3_U0_m_axi_gmem_ARID),
+    .I_ARLEN(Filter_horizontal_HW3_U0_m_axi_gmem_ARLEN),
+    .I_ARSIZE(Filter_horizontal_HW3_U0_m_axi_gmem_ARSIZE),
+    .I_ARLOCK(Filter_horizontal_HW3_U0_m_axi_gmem_ARLOCK),
+    .I_ARCACHE(Filter_horizontal_HW3_U0_m_axi_gmem_ARCACHE),
+    .I_ARQOS(Filter_horizontal_HW3_U0_m_axi_gmem_ARQOS),
+    .I_ARPROT(Filter_horizontal_HW3_U0_m_axi_gmem_ARPROT),
+    .I_ARUSER(Filter_horizontal_HW3_U0_m_axi_gmem_ARUSER),
+    .I_ARBURST(Filter_horizontal_HW3_U0_m_axi_gmem_ARBURST),
+    .I_ARREGION(Filter_horizontal_HW3_U0_m_axi_gmem_ARREGION),
+    .I_RVALID(gmem_RVALID),
+    .I_RREADY(Filter_horizontal_HW3_U0_m_axi_gmem_RREADY),
+    .I_RDATA(gmem_RDATA),
+    .I_RID(gmem_RID),
+    .I_RUSER(gmem_RUSER),
+    .I_RRESP(gmem_RRESP),
+    .I_RLAST(gmem_RLAST),
+    .I_AWVALID(Filter_vertical_HW_U0_m_axi_gmem_AWVALID),
+    .I_AWREADY(gmem_AWREADY),
+    .I_AWADDR(Filter_vertical_HW_U0_m_axi_gmem_AWADDR),
+    .I_AWID(Filter_vertical_HW_U0_m_axi_gmem_AWID),
+    .I_AWLEN(Filter_vertical_HW_U0_m_axi_gmem_AWLEN),
+    .I_AWSIZE(Filter_vertical_HW_U0_m_axi_gmem_AWSIZE),
+    .I_AWLOCK(Filter_vertical_HW_U0_m_axi_gmem_AWLOCK),
+    .I_AWCACHE(Filter_vertical_HW_U0_m_axi_gmem_AWCACHE),
+    .I_AWQOS(Filter_vertical_HW_U0_m_axi_gmem_AWQOS),
+    .I_AWPROT(Filter_vertical_HW_U0_m_axi_gmem_AWPROT),
+    .I_AWUSER(Filter_vertical_HW_U0_m_axi_gmem_AWUSER),
+    .I_AWBURST(Filter_vertical_HW_U0_m_axi_gmem_AWBURST),
+    .I_AWREGION(Filter_vertical_HW_U0_m_axi_gmem_AWREGION),
+    .I_WVALID(Filter_vertical_HW_U0_m_axi_gmem_WVALID),
+    .I_WREADY(gmem_WREADY),
+    .I_WDATA(Filter_vertical_HW_U0_m_axi_gmem_WDATA),
+    .I_WID(Filter_vertical_HW_U0_m_axi_gmem_WID),
+    .I_WUSER(Filter_vertical_HW_U0_m_axi_gmem_WUSER),
+    .I_WLAST(Filter_vertical_HW_U0_m_axi_gmem_WLAST),
+    .I_WSTRB(Filter_vertical_HW_U0_m_axi_gmem_WSTRB),
+    .I_BVALID(gmem_BVALID),
+    .I_BREADY(Filter_vertical_HW_U0_m_axi_gmem_BREADY),
+    .I_BRESP(gmem_BRESP),
+    .I_BID(gmem_BID),
+    .I_BUSER(gmem_BUSER)
 );
 
 Filter_HW_Filter_horizontal_HW3 Filter_horizontal_HW3_U0(
@@ -692,51 +461,51 @@ Filter_HW_Filter_horizontal_HW3 Filter_horizontal_HW3_U0(
     .ap_ready(Filter_horizontal_HW3_U0_ap_ready),
     .start_out(Filter_horizontal_HW3_U0_start_out),
     .start_write(Filter_horizontal_HW3_U0_start_write),
-    .m_axi_aximm1_AWVALID(Filter_horizontal_HW3_U0_m_axi_aximm1_AWVALID),
-    .m_axi_aximm1_AWREADY(1'b0),
-    .m_axi_aximm1_AWADDR(Filter_horizontal_HW3_U0_m_axi_aximm1_AWADDR),
-    .m_axi_aximm1_AWID(Filter_horizontal_HW3_U0_m_axi_aximm1_AWID),
-    .m_axi_aximm1_AWLEN(Filter_horizontal_HW3_U0_m_axi_aximm1_AWLEN),
-    .m_axi_aximm1_AWSIZE(Filter_horizontal_HW3_U0_m_axi_aximm1_AWSIZE),
-    .m_axi_aximm1_AWBURST(Filter_horizontal_HW3_U0_m_axi_aximm1_AWBURST),
-    .m_axi_aximm1_AWLOCK(Filter_horizontal_HW3_U0_m_axi_aximm1_AWLOCK),
-    .m_axi_aximm1_AWCACHE(Filter_horizontal_HW3_U0_m_axi_aximm1_AWCACHE),
-    .m_axi_aximm1_AWPROT(Filter_horizontal_HW3_U0_m_axi_aximm1_AWPROT),
-    .m_axi_aximm1_AWQOS(Filter_horizontal_HW3_U0_m_axi_aximm1_AWQOS),
-    .m_axi_aximm1_AWREGION(Filter_horizontal_HW3_U0_m_axi_aximm1_AWREGION),
-    .m_axi_aximm1_AWUSER(Filter_horizontal_HW3_U0_m_axi_aximm1_AWUSER),
-    .m_axi_aximm1_WVALID(Filter_horizontal_HW3_U0_m_axi_aximm1_WVALID),
-    .m_axi_aximm1_WREADY(1'b0),
-    .m_axi_aximm1_WDATA(Filter_horizontal_HW3_U0_m_axi_aximm1_WDATA),
-    .m_axi_aximm1_WSTRB(Filter_horizontal_HW3_U0_m_axi_aximm1_WSTRB),
-    .m_axi_aximm1_WLAST(Filter_horizontal_HW3_U0_m_axi_aximm1_WLAST),
-    .m_axi_aximm1_WID(Filter_horizontal_HW3_U0_m_axi_aximm1_WID),
-    .m_axi_aximm1_WUSER(Filter_horizontal_HW3_U0_m_axi_aximm1_WUSER),
-    .m_axi_aximm1_ARVALID(Filter_horizontal_HW3_U0_m_axi_aximm1_ARVALID),
-    .m_axi_aximm1_ARREADY(aximm1_ARREADY),
-    .m_axi_aximm1_ARADDR(Filter_horizontal_HW3_U0_m_axi_aximm1_ARADDR),
-    .m_axi_aximm1_ARID(Filter_horizontal_HW3_U0_m_axi_aximm1_ARID),
-    .m_axi_aximm1_ARLEN(Filter_horizontal_HW3_U0_m_axi_aximm1_ARLEN),
-    .m_axi_aximm1_ARSIZE(Filter_horizontal_HW3_U0_m_axi_aximm1_ARSIZE),
-    .m_axi_aximm1_ARBURST(Filter_horizontal_HW3_U0_m_axi_aximm1_ARBURST),
-    .m_axi_aximm1_ARLOCK(Filter_horizontal_HW3_U0_m_axi_aximm1_ARLOCK),
-    .m_axi_aximm1_ARCACHE(Filter_horizontal_HW3_U0_m_axi_aximm1_ARCACHE),
-    .m_axi_aximm1_ARPROT(Filter_horizontal_HW3_U0_m_axi_aximm1_ARPROT),
-    .m_axi_aximm1_ARQOS(Filter_horizontal_HW3_U0_m_axi_aximm1_ARQOS),
-    .m_axi_aximm1_ARREGION(Filter_horizontal_HW3_U0_m_axi_aximm1_ARREGION),
-    .m_axi_aximm1_ARUSER(Filter_horizontal_HW3_U0_m_axi_aximm1_ARUSER),
-    .m_axi_aximm1_RVALID(aximm1_RVALID),
-    .m_axi_aximm1_RREADY(Filter_horizontal_HW3_U0_m_axi_aximm1_RREADY),
-    .m_axi_aximm1_RDATA(aximm1_RDATA),
-    .m_axi_aximm1_RLAST(aximm1_RLAST),
-    .m_axi_aximm1_RID(aximm1_RID),
-    .m_axi_aximm1_RUSER(aximm1_RUSER),
-    .m_axi_aximm1_RRESP(aximm1_RRESP),
-    .m_axi_aximm1_BVALID(1'b0),
-    .m_axi_aximm1_BREADY(Filter_horizontal_HW3_U0_m_axi_aximm1_BREADY),
-    .m_axi_aximm1_BRESP(2'd0),
-    .m_axi_aximm1_BID(1'd0),
-    .m_axi_aximm1_BUSER(1'd0),
+    .m_axi_gmem_AWVALID(Filter_horizontal_HW3_U0_m_axi_gmem_AWVALID),
+    .m_axi_gmem_AWREADY(1'b0),
+    .m_axi_gmem_AWADDR(Filter_horizontal_HW3_U0_m_axi_gmem_AWADDR),
+    .m_axi_gmem_AWID(Filter_horizontal_HW3_U0_m_axi_gmem_AWID),
+    .m_axi_gmem_AWLEN(Filter_horizontal_HW3_U0_m_axi_gmem_AWLEN),
+    .m_axi_gmem_AWSIZE(Filter_horizontal_HW3_U0_m_axi_gmem_AWSIZE),
+    .m_axi_gmem_AWBURST(Filter_horizontal_HW3_U0_m_axi_gmem_AWBURST),
+    .m_axi_gmem_AWLOCK(Filter_horizontal_HW3_U0_m_axi_gmem_AWLOCK),
+    .m_axi_gmem_AWCACHE(Filter_horizontal_HW3_U0_m_axi_gmem_AWCACHE),
+    .m_axi_gmem_AWPROT(Filter_horizontal_HW3_U0_m_axi_gmem_AWPROT),
+    .m_axi_gmem_AWQOS(Filter_horizontal_HW3_U0_m_axi_gmem_AWQOS),
+    .m_axi_gmem_AWREGION(Filter_horizontal_HW3_U0_m_axi_gmem_AWREGION),
+    .m_axi_gmem_AWUSER(Filter_horizontal_HW3_U0_m_axi_gmem_AWUSER),
+    .m_axi_gmem_WVALID(Filter_horizontal_HW3_U0_m_axi_gmem_WVALID),
+    .m_axi_gmem_WREADY(1'b0),
+    .m_axi_gmem_WDATA(Filter_horizontal_HW3_U0_m_axi_gmem_WDATA),
+    .m_axi_gmem_WSTRB(Filter_horizontal_HW3_U0_m_axi_gmem_WSTRB),
+    .m_axi_gmem_WLAST(Filter_horizontal_HW3_U0_m_axi_gmem_WLAST),
+    .m_axi_gmem_WID(Filter_horizontal_HW3_U0_m_axi_gmem_WID),
+    .m_axi_gmem_WUSER(Filter_horizontal_HW3_U0_m_axi_gmem_WUSER),
+    .m_axi_gmem_ARVALID(Filter_horizontal_HW3_U0_m_axi_gmem_ARVALID),
+    .m_axi_gmem_ARREADY(gmem_ARREADY),
+    .m_axi_gmem_ARADDR(Filter_horizontal_HW3_U0_m_axi_gmem_ARADDR),
+    .m_axi_gmem_ARID(Filter_horizontal_HW3_U0_m_axi_gmem_ARID),
+    .m_axi_gmem_ARLEN(Filter_horizontal_HW3_U0_m_axi_gmem_ARLEN),
+    .m_axi_gmem_ARSIZE(Filter_horizontal_HW3_U0_m_axi_gmem_ARSIZE),
+    .m_axi_gmem_ARBURST(Filter_horizontal_HW3_U0_m_axi_gmem_ARBURST),
+    .m_axi_gmem_ARLOCK(Filter_horizontal_HW3_U0_m_axi_gmem_ARLOCK),
+    .m_axi_gmem_ARCACHE(Filter_horizontal_HW3_U0_m_axi_gmem_ARCACHE),
+    .m_axi_gmem_ARPROT(Filter_horizontal_HW3_U0_m_axi_gmem_ARPROT),
+    .m_axi_gmem_ARQOS(Filter_horizontal_HW3_U0_m_axi_gmem_ARQOS),
+    .m_axi_gmem_ARREGION(Filter_horizontal_HW3_U0_m_axi_gmem_ARREGION),
+    .m_axi_gmem_ARUSER(Filter_horizontal_HW3_U0_m_axi_gmem_ARUSER),
+    .m_axi_gmem_RVALID(gmem_RVALID),
+    .m_axi_gmem_RREADY(Filter_horizontal_HW3_U0_m_axi_gmem_RREADY),
+    .m_axi_gmem_RDATA(gmem_RDATA),
+    .m_axi_gmem_RLAST(gmem_RLAST),
+    .m_axi_gmem_RID(gmem_RID),
+    .m_axi_gmem_RUSER(gmem_RUSER),
+    .m_axi_gmem_RRESP(gmem_RRESP),
+    .m_axi_gmem_BVALID(1'b0),
+    .m_axi_gmem_BREADY(Filter_horizontal_HW3_U0_m_axi_gmem_BREADY),
+    .m_axi_gmem_BRESP(2'd0),
+    .m_axi_gmem_BID(1'd0),
+    .m_axi_gmem_BUSER(1'd0),
     .Input_r(Input_r),
     .Output_r(Output_r),
     .Output_out_din(Filter_horizontal_HW3_U0_Output_out_din),
@@ -755,51 +524,51 @@ Filter_HW_Filter_vertical_HW Filter_vertical_HW_U0(
     .ap_continue(Filter_vertical_HW_U0_ap_continue),
     .ap_idle(Filter_vertical_HW_U0_ap_idle),
     .ap_ready(Filter_vertical_HW_U0_ap_ready),
-    .m_axi_aximm2_AWVALID(Filter_vertical_HW_U0_m_axi_aximm2_AWVALID),
-    .m_axi_aximm2_AWREADY(aximm2_AWREADY),
-    .m_axi_aximm2_AWADDR(Filter_vertical_HW_U0_m_axi_aximm2_AWADDR),
-    .m_axi_aximm2_AWID(Filter_vertical_HW_U0_m_axi_aximm2_AWID),
-    .m_axi_aximm2_AWLEN(Filter_vertical_HW_U0_m_axi_aximm2_AWLEN),
-    .m_axi_aximm2_AWSIZE(Filter_vertical_HW_U0_m_axi_aximm2_AWSIZE),
-    .m_axi_aximm2_AWBURST(Filter_vertical_HW_U0_m_axi_aximm2_AWBURST),
-    .m_axi_aximm2_AWLOCK(Filter_vertical_HW_U0_m_axi_aximm2_AWLOCK),
-    .m_axi_aximm2_AWCACHE(Filter_vertical_HW_U0_m_axi_aximm2_AWCACHE),
-    .m_axi_aximm2_AWPROT(Filter_vertical_HW_U0_m_axi_aximm2_AWPROT),
-    .m_axi_aximm2_AWQOS(Filter_vertical_HW_U0_m_axi_aximm2_AWQOS),
-    .m_axi_aximm2_AWREGION(Filter_vertical_HW_U0_m_axi_aximm2_AWREGION),
-    .m_axi_aximm2_AWUSER(Filter_vertical_HW_U0_m_axi_aximm2_AWUSER),
-    .m_axi_aximm2_WVALID(Filter_vertical_HW_U0_m_axi_aximm2_WVALID),
-    .m_axi_aximm2_WREADY(aximm2_WREADY),
-    .m_axi_aximm2_WDATA(Filter_vertical_HW_U0_m_axi_aximm2_WDATA),
-    .m_axi_aximm2_WSTRB(Filter_vertical_HW_U0_m_axi_aximm2_WSTRB),
-    .m_axi_aximm2_WLAST(Filter_vertical_HW_U0_m_axi_aximm2_WLAST),
-    .m_axi_aximm2_WID(Filter_vertical_HW_U0_m_axi_aximm2_WID),
-    .m_axi_aximm2_WUSER(Filter_vertical_HW_U0_m_axi_aximm2_WUSER),
-    .m_axi_aximm2_ARVALID(Filter_vertical_HW_U0_m_axi_aximm2_ARVALID),
-    .m_axi_aximm2_ARREADY(1'b0),
-    .m_axi_aximm2_ARADDR(Filter_vertical_HW_U0_m_axi_aximm2_ARADDR),
-    .m_axi_aximm2_ARID(Filter_vertical_HW_U0_m_axi_aximm2_ARID),
-    .m_axi_aximm2_ARLEN(Filter_vertical_HW_U0_m_axi_aximm2_ARLEN),
-    .m_axi_aximm2_ARSIZE(Filter_vertical_HW_U0_m_axi_aximm2_ARSIZE),
-    .m_axi_aximm2_ARBURST(Filter_vertical_HW_U0_m_axi_aximm2_ARBURST),
-    .m_axi_aximm2_ARLOCK(Filter_vertical_HW_U0_m_axi_aximm2_ARLOCK),
-    .m_axi_aximm2_ARCACHE(Filter_vertical_HW_U0_m_axi_aximm2_ARCACHE),
-    .m_axi_aximm2_ARPROT(Filter_vertical_HW_U0_m_axi_aximm2_ARPROT),
-    .m_axi_aximm2_ARQOS(Filter_vertical_HW_U0_m_axi_aximm2_ARQOS),
-    .m_axi_aximm2_ARREGION(Filter_vertical_HW_U0_m_axi_aximm2_ARREGION),
-    .m_axi_aximm2_ARUSER(Filter_vertical_HW_U0_m_axi_aximm2_ARUSER),
-    .m_axi_aximm2_RVALID(1'b0),
-    .m_axi_aximm2_RREADY(Filter_vertical_HW_U0_m_axi_aximm2_RREADY),
-    .m_axi_aximm2_RDATA(16'd0),
-    .m_axi_aximm2_RLAST(1'b0),
-    .m_axi_aximm2_RID(1'd0),
-    .m_axi_aximm2_RUSER(1'd0),
-    .m_axi_aximm2_RRESP(2'd0),
-    .m_axi_aximm2_BVALID(aximm2_BVALID),
-    .m_axi_aximm2_BREADY(Filter_vertical_HW_U0_m_axi_aximm2_BREADY),
-    .m_axi_aximm2_BRESP(aximm2_BRESP),
-    .m_axi_aximm2_BID(aximm2_BID),
-    .m_axi_aximm2_BUSER(aximm2_BUSER),
+    .m_axi_gmem_AWVALID(Filter_vertical_HW_U0_m_axi_gmem_AWVALID),
+    .m_axi_gmem_AWREADY(gmem_AWREADY),
+    .m_axi_gmem_AWADDR(Filter_vertical_HW_U0_m_axi_gmem_AWADDR),
+    .m_axi_gmem_AWID(Filter_vertical_HW_U0_m_axi_gmem_AWID),
+    .m_axi_gmem_AWLEN(Filter_vertical_HW_U0_m_axi_gmem_AWLEN),
+    .m_axi_gmem_AWSIZE(Filter_vertical_HW_U0_m_axi_gmem_AWSIZE),
+    .m_axi_gmem_AWBURST(Filter_vertical_HW_U0_m_axi_gmem_AWBURST),
+    .m_axi_gmem_AWLOCK(Filter_vertical_HW_U0_m_axi_gmem_AWLOCK),
+    .m_axi_gmem_AWCACHE(Filter_vertical_HW_U0_m_axi_gmem_AWCACHE),
+    .m_axi_gmem_AWPROT(Filter_vertical_HW_U0_m_axi_gmem_AWPROT),
+    .m_axi_gmem_AWQOS(Filter_vertical_HW_U0_m_axi_gmem_AWQOS),
+    .m_axi_gmem_AWREGION(Filter_vertical_HW_U0_m_axi_gmem_AWREGION),
+    .m_axi_gmem_AWUSER(Filter_vertical_HW_U0_m_axi_gmem_AWUSER),
+    .m_axi_gmem_WVALID(Filter_vertical_HW_U0_m_axi_gmem_WVALID),
+    .m_axi_gmem_WREADY(gmem_WREADY),
+    .m_axi_gmem_WDATA(Filter_vertical_HW_U0_m_axi_gmem_WDATA),
+    .m_axi_gmem_WSTRB(Filter_vertical_HW_U0_m_axi_gmem_WSTRB),
+    .m_axi_gmem_WLAST(Filter_vertical_HW_U0_m_axi_gmem_WLAST),
+    .m_axi_gmem_WID(Filter_vertical_HW_U0_m_axi_gmem_WID),
+    .m_axi_gmem_WUSER(Filter_vertical_HW_U0_m_axi_gmem_WUSER),
+    .m_axi_gmem_ARVALID(Filter_vertical_HW_U0_m_axi_gmem_ARVALID),
+    .m_axi_gmem_ARREADY(1'b0),
+    .m_axi_gmem_ARADDR(Filter_vertical_HW_U0_m_axi_gmem_ARADDR),
+    .m_axi_gmem_ARID(Filter_vertical_HW_U0_m_axi_gmem_ARID),
+    .m_axi_gmem_ARLEN(Filter_vertical_HW_U0_m_axi_gmem_ARLEN),
+    .m_axi_gmem_ARSIZE(Filter_vertical_HW_U0_m_axi_gmem_ARSIZE),
+    .m_axi_gmem_ARBURST(Filter_vertical_HW_U0_m_axi_gmem_ARBURST),
+    .m_axi_gmem_ARLOCK(Filter_vertical_HW_U0_m_axi_gmem_ARLOCK),
+    .m_axi_gmem_ARCACHE(Filter_vertical_HW_U0_m_axi_gmem_ARCACHE),
+    .m_axi_gmem_ARPROT(Filter_vertical_HW_U0_m_axi_gmem_ARPROT),
+    .m_axi_gmem_ARQOS(Filter_vertical_HW_U0_m_axi_gmem_ARQOS),
+    .m_axi_gmem_ARREGION(Filter_vertical_HW_U0_m_axi_gmem_ARREGION),
+    .m_axi_gmem_ARUSER(Filter_vertical_HW_U0_m_axi_gmem_ARUSER),
+    .m_axi_gmem_RVALID(1'b0),
+    .m_axi_gmem_RREADY(Filter_vertical_HW_U0_m_axi_gmem_RREADY),
+    .m_axi_gmem_RDATA(16'd0),
+    .m_axi_gmem_RLAST(1'b0),
+    .m_axi_gmem_RID(1'd0),
+    .m_axi_gmem_RUSER(1'd0),
+    .m_axi_gmem_RRESP(2'd0),
+    .m_axi_gmem_BVALID(gmem_BVALID),
+    .m_axi_gmem_BREADY(Filter_vertical_HW_U0_m_axi_gmem_BREADY),
+    .m_axi_gmem_BRESP(gmem_BRESP),
+    .m_axi_gmem_BID(gmem_BID),
+    .m_axi_gmem_BUSER(gmem_BUSER),
     .Output_r_dout(Output_c_dout),
     .Output_r_empty_n(Output_c_empty_n),
     .Output_r_read(Filter_vertical_HW_U0_Output_r_read),

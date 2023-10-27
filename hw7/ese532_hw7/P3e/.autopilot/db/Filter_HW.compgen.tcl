@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
 # FIFO definition:
-set ID 13
+set ID 14
 set FifoName Filter_HW_fifo_w64_d2_S
 set InstName Output_c_U
 set CoreName ap_simcore_fifo
@@ -76,7 +76,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 14
+set ID 15
 set FifoName Filter_HW_fifo_w8_d2_S
 set InstName tempStream_U
 set CoreName ap_simcore_fifo
@@ -151,7 +151,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your pl
 
 
 # FIFO definition:
-set ID 15
+set ID 16
 set FifoName Filter_HW_start_for_Filter_vertical_HW_U0
 set InstName start_for_Filter_vertical_HW_U0_U
 set CoreName ap_simcore_fifo
@@ -263,7 +263,7 @@ dict set axilite_register_dict control $port_control
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 16 \
+			id 17 \
 			corename Filter_HW_control_axilite \
 			name Filter_HW_control_s_axi \
 			ports {$port_control} \
@@ -284,42 +284,21 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
 eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
-    id 17 \
-    corename {m_axi} \
-    op interface \
-    max_latency -1 \ 
-    delay_budget 4.86691 \ 
-    is_flushable 0 \ 
-    name {Filter_HW_aximm1_m_axi} \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find AXI interface model in the library. Ignored generation of AXI interface for 'aximm1'"
-}
-}
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler Filter_HW_aximm1_m_axi
-}
-
-# Native M_AXI:
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
-eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
     id 18 \
     corename {m_axi} \
     op interface \
     max_latency -1 \ 
     delay_budget 4.86691 \ 
     is_flushable 0 \ 
-    name {Filter_HW_aximm2_m_axi} \
+    name {Filter_HW_gmem_m_axi} \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find AXI interface model in the library. Ignored generation of AXI interface for 'aximm2'"
+puts "@W \[IMPL-110\] Cannot find AXI interface model in the library. Ignored generation of AXI interface for 'gmem'"
 }
 }
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler Filter_HW_aximm2_m_axi
+	::AP::rtl_comp_handler Filter_HW_gmem_m_axi
 }
 
 

@@ -1214,3 +1214,125 @@ INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
 INFO: [HLS 200-111] Finished Binding: CPU user time: 0.12 seconds. CPU system time: 0 seconds. Elapsed time: 0.27 seconds; current allocated memory: 348.864 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.667ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+INFO: [HLS 200-1464] Running solution command: config_interface -default_interface=kernel
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_offset=slave
+INFO: [HLS 200-1464] Running solution command: config_rtl -register_reset_num=3
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 150MHz -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave 
+INFO: [HLS 200-1510] Running: config_rtl -register_reset_num 3 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 208.201 MB.
+INFO: [HLS 200-10] Analyzing design file 'Filter.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.15 seconds. CPU system time: 0.08 seconds. Elapsed time: 0.33 seconds; current allocated memory: 209.565 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 214-131] Inlining function 'hls::stream<unsigned char, 0>::write(unsigned char const&)' into 'Filter_horizontal_HW(unsigned char const*, hls::stream<unsigned char, 0>&)' (Filter.cpp:62:17)
+INFO: [HLS 214-131] Inlining function 'hls::stream<unsigned char, 0>::read(unsigned char&)' into 'hls::stream<unsigned char, 0>::read()' (/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:156:9)
+INFO: [HLS 214-131] Inlining function 'hls::stream<unsigned char, 0>::read()' into 'Filter_vertical_HW(hls::stream<unsigned char, 0>&, unsigned char*)' (Filter.cpp:99:36)
+INFO: [HLS 214-131] Inlining function 'hls::stream<unsigned char, 0>::read()' into 'Filter_vertical_HW(hls::stream<unsigned char, 0>&, unsigned char*)' (Filter.cpp:124:58)
+INFO: [HLS 214-131] Inlining function 'hls::stream<unsigned char, 0>::stream(char const*)' into 'Filter_HW' (Filter.cpp:142:37)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_49_5' (Filter.cpp:49:24) in function 'Filter_horizontal_HW' completely with a factor of 6 (Filter.cpp:49:24)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_55_6' (Filter.cpp:55:24) in function 'Filter_horizontal_HW' completely with a factor of 7 (Filter.cpp:55:24)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_109_6' (Filter.cpp:109:25) in function 'Filter_vertical_HW' completely with a factor of 7 (Filter.cpp:109:25)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_120_8' (Filter.cpp:120:20) in function 'Filter_vertical_HW' completely with a factor of 6 (Filter.cpp:120:20)
+INFO: [HLS 214-115] Multiple burst reads of length 3 and bit width 16 has been inferred on port 'gmem' (Filter.cpp:44:22)
+INFO: [HLS 214-115] Multiple burst reads of length 237 and bit width 16 has been inferred on port 'gmem' (Filter.cpp:45:22)
+INFO: [HLS 214-115] Multiple burst writes of length 237 and bit width 16 has been inferred on port 'gmem' (Filter.cpp:104:23)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1.97 seconds. CPU system time: 0.17 seconds. Elapsed time: 2.48 seconds; current allocated memory: 211.800 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 211.801 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 213.343 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 212.685 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_44_3' (Filter.cpp:27) in function 'Filter_horizontal_HW' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_98_3' (/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h:0) in function 'Filter_vertical_HW' automatically.
+INFO: [XFORM 203-101] Partitioning array 'Input_local' (Filter.cpp:91) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'Input_local' (Filter.cpp:35) in dimension 1 completely.
+WARNING: [HLS 200-805] An internal stream 'tempStream' with default size can result in deadlock. Please consider resizing the stream using the directive 'set_directive_stream' or the 'HLS stream' pragma.
+INFO: [XFORM 203-712] Applying dataflow to function 'Filter_HW' (Filter.cpp:139), detected/extracted 2 process function(s): 
+	 'Filter_horizontal_HW3'
+	 'Filter_vertical_HW'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (Filter.cpp:44:82) in function 'Filter_horizontal_HW3'... converting 7 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'Filter_vertical_HW' (Filter.cpp:0:67)...3 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'Filter_horizontal_HW3' (Filter.cpp:27:46)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.25 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.3 seconds; current allocated memory: 233.833 MB.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_97_2' (Filter.cpp:87:16) in function 'Filter_vertical_HW'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_103_4' (Filter.cpp:87:10) in function 'Filter_vertical_HW' more than one sub loop.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_43_2' (Filter.cpp:27:10) in function 'Filter_horizontal_HW3' more than one sub loop.
+INFO: [HLS 200-472] Inferring partial write operation for 'Input_local[0]' (Filter.cpp:122:20)
+INFO: [HLS 200-472] Inferring partial write operation for 'Input_local[6]' (Filter.cpp:124:47)
+INFO: [HLS 200-472] Inferring partial write operation for 'Input_local[0]' (Filter.cpp:99:25)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.19 seconds. CPU system time: 0 seconds. Elapsed time: 0.22 seconds; current allocated memory: 247.068 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Filter_HW' ...
+WARNING: [SYN 201-107] Renaming port name 'Filter_HW/Input' to 'Filter_HW/Input_r' to avoid the conflict with HDL keywords or other object names.
+WARNING: [SYN 201-107] Renaming port name 'Filter_HW/Output' to 'Filter_HW/Output_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Filter_horizontal_HW3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP48 latency (root=mul_ln58) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_44_3'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'VITIS_LOOP_44_3'
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_45_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 6, loop 'VITIS_LOOP_45_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 248.029 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================

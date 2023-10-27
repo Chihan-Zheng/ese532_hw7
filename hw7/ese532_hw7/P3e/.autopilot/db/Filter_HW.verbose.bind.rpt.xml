@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'Filter_HW'" level="0">
-<item name = "Date">Thu Oct 26 22:24:18 2023
+<item name = "Date">Thu Oct 26 22:48:22 2023
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">ese532_hw7</item>
@@ -24,15 +24,15 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">175810, 445724, 1.172 ms, 2.972 ms, 170372, 275913, dataflow</column>
+<column name="">174162, 443808, 1.161 ms, 2.959 ms, 170372, 273993, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_Filter_vertical_HW_fu_92">Filter_vertical_HW, 5998, 275912, 39.989 us, 1.840 ms, 5998, 275912, none</column>
-<column name="grp_Filter_horizontal_HW3_fu_101">Filter_horizontal_HW3, 170371, 170371, 1.136 ms, 1.136 ms, 170371, 170371, none</column>
+<column name="grp_Filter_vertical_HW_fu_88">Filter_vertical_HW, 4346, 273992, 28.975 us, 1.827 ms, 4346, 273992, none</column>
+<column name="grp_Filter_horizontal_HW3_fu_97">Filter_horizontal_HW3, 170371, 170371, 1.136 ms, 1.136 ms, 170371, 170371, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

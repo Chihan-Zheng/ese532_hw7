@@ -1,7 +1,6 @@
 #include "Pipeline.h"
 #include <stdlib.h>
 #include <hls_stream.h>
-#include <stdio.h>
 
 // #define NO_SYNTH      //define when need to do Csim and comment out when need to do synthesis
 
@@ -21,7 +20,19 @@ void Filter_horizontal_SW(const unsigned char * Input,
     }
 }
 
-void Filter_horizontal_HW(const unsigned char * Input,
+void read_input(const unsigned char *Input, hls::stream<unsigned char>& inStream) {
+  mem_rd:
+    for (int i = 0; i < (SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH); i++){
+#pragma HLS LOOP_TRIPCOUNT min = (SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH) max = (SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH)
+#pragma HLS PIPELINE
+// #pragma HLS array_partition variable=A block factor=32 dim=0
+// #pragma HLS array_partition variable=B block factor=32 dim=0
+    inStream << Input[i];
+    }
+}
+
+
+void Filter_horizontal_HW(hls::stream<unsigned char>& inStream,
 		                      hls::stream<unsigned char>& outStream)
 {
   int X, Y, i;
@@ -41,7 +52,7 @@ void Filter_horizontal_HW(const unsigned char * Input,
   for (i = 0; i < FILTER_LENGTH; i++) {Coefficients_local[i] = Coefficients[i];}
 
   for (Y = 0; Y < SCALED_FRAME_HEIGHT; Y++){
-    for (i = 1; i < INPUT_BUFFER_LENGTH; i++) {Input_local[i] = Input[(Y * SCALED_FRAME_WIDTH) + i - 1];}
+    for (i = 1; i < INPUT_BUFFER_LENGTH; i++) {Input_local[i] = inStream.read();}
     for (X = 0; X < OUTPUT_FRAME_WIDTH; X++)
     {
       #pragma HLS PIPELINE
@@ -51,7 +62,7 @@ void Filter_horizontal_HW(const unsigned char * Input,
         Input_local[i] = Input_local[i+1];
       }
 
-      Input_local[INPUT_BUFFER_LENGTH - 1] = Input[(Y * SCALED_FRAME_WIDTH) + X + FILTER_LENGTH - 1];
+      Input_local[INPUT_BUFFER_LENGTH - 1] = inStream.read();
       for (i = 0; i < FILTER_LENGTH; i++){
         #pragma HLS unroll
         // Sum += Coefficients[i] * Input[Y * SCALED_FRAME_WIDTH + X + i];   //SW version
@@ -82,7 +93,7 @@ void Filter_vertical_SW(const unsigned char * Input,
 
 
 void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
-		                    unsigned char * Output)
+		                    hls::stream<unsigned char>& outStream)
 {
   int X, Y, i, j;
   const char INPUT_BUFFER_LENGTH = 7;       
@@ -111,7 +122,7 @@ void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
         // Sum += Coefficients[i] * Input[OUTPUT_FRAME_WIDTH * (Y+i) + X];   //SW version
         Sum += Coefficients_local[i] * Input_local[X][i];
       }
-      Output[Y * OUTPUT_FRAME_WIDTH + X] = Sum >> 8;
+      outStream << (Sum >> 8);
     }
 
     if (Y == (OUTPUT_FRAME_HEIGHT - 1)) {return;}
@@ -123,6 +134,25 @@ void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
       } 
       Input_local[i][INPUT_BUFFER_LENGTH - 1] = inStream.read();
     }
+  }
+}
+
+void compute_filter(hls::stream<unsigned char>& inStream,
+                    hls::stream<unsigned char>& outStream){
+  static hls::stream<unsigned char> tempStream("Temp");
+  #pragma HLS STREAM variable=tempStream
+  #pragma HLS dataflow
+ 
+  Filter_horizontal_HW(inStream, tempStream);
+  Filter_vertical_HW(tempStream, outStream);
+}
+
+void write_result(unsigned char *Output, hls::stream<unsigned char>& outStream){
+mem_wr:
+  for (int i = 0; i < (OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH); i++){
+    #pragma HLS LOOP_TRIPCOUNT min = (OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH) max = (OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH)
+    #pragma HLS PIPELINE
+    Output[i] = outStream.read();
   }
 }
 
@@ -139,12 +169,13 @@ void Filter_SW(const unsigned char * Input,
 void Filter_HW(const unsigned char * Input,
 	           unsigned char * Output)
 {
-  static hls::stream<unsigned char> tempStream("Temp");
-  #pragma HLS STREAM variable=tempStream
+  static hls::stream<unsigned char> inStream("Input_stream");
+  static hls::stream<unsigned char> outStream("Output_stream");
+  #pragma HLS STREAM variable = inStream
+  #pragma HLS STREAM variable = outStream
   #pragma HLS dataflow
-  #pragma HLS INTERFACE m_axi port=Input bundle=aximm1
-  #pragma HLS INTERFACE m_axi port=Output bundle=aximm2
-  Filter_horizontal_HW(Input, tempStream);
-  Filter_vertical_HW(tempStream, Output);
 
+  read_input(Input, inStream);
+  compute_filter(inStream, outStream);
+  write_result(Output, outStream);
 }
