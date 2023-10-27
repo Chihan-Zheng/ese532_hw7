@@ -1,3 +1,5 @@
+#include <hls_stream.h>
+
 #ifndef SRC_APP_H_
 #define SRC_APP_H_
 
@@ -17,6 +19,7 @@
 #define OUTPUT_FRAME_SIZE (OUTPUT_FRAME_WIDTH * OUTPUT_FRAME_HEIGHT)
 
 #define FRAMES (10)
+#define FRAME_SIZE (INPUT_FRAME_HEIGHT * INPUT_FRAME_WIDTH)
 
 #define STAGES (4)
 
@@ -29,10 +32,15 @@ void Differentiate_SW(const unsigned char * Input, unsigned char * Output);
 int Compress_SW(const unsigned char * Input, unsigned char * Output);
 
 void Filter_horizontal_SW(const unsigned char * Input, unsigned char * Output);
-void Filter_horizontal_HW(const unsigned char * Input, unsigned char * Output);
+// void Filter_horizontal_HW(const unsigned char * Input, unsigned char * Output);
+void Filter_horizontal_HW(hls::stream<unsigned char>& inStream, hls::stream<unsigned char>& outStream);
 void Filter_vertical_SW(const unsigned char * Input, unsigned char * Output);
-void Filter_vertical_HW(const unsigned char * Input, unsigned char * Output);
+// void Filter_vertical_HW(const unsigned char * Input, unsigned char * Output);
+void Filter_vertical_HW(hls::stream<unsigned char>& inStream, hls::stream<unsigned char>& outStream);
 void Filter_HW(const unsigned char * Input, unsigned char * Output);
+void read_input(const unsigned char *Input, hls::stream<unsigned char>& inStream);
+void compute_filter(hls::stream<unsigned char>& inStream, hls::stream<unsigned char>& outStream);
+void write_result(unsigned char *Output, hls::stream<unsigned char>& outStream);
 
 }
 

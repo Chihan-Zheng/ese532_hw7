@@ -52,6 +52,16 @@
 			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3/.tcls</location>
 		</link>
 		<link>
+			<name>P3e/constraints</name>
+			<type>2</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3e/.tcls</location>
+		</link>
+		<link>
+			<name>P4/constraints</name>
+			<type>2</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P4/.tcls</location>
+		</link>
+		<link>
 			<name>source/Filter.cpp</name>
 			<type>1</type>
 			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter.cpp</location>
@@ -110,6 +120,36 @@
 			<name>P3/constraints/script.tcl</name>
 			<type>1</type>
 			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3/script.tcl</location>
+		</link>
+		<link>
+			<name>P3e/constraints/.xml.directive</name>
+			<type>1</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3e/P3e.directive</location>
+		</link>
+		<link>
+			<name>P3e/constraints/directives.tcl</name>
+			<type>1</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3e/directives.tcl</location>
+		</link>
+		<link>
+			<name>P3e/constraints/script.tcl</name>
+			<type>1</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3e/script.tcl</location>
+		</link>
+		<link>
+			<name>P4/constraints/.xml.directive</name>
+			<type>1</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P4/P4.directive</location>
+		</link>
+		<link>
+			<name>P4/constraints/directives.tcl</name>
+			<type>1</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P4/directives.tcl</location>
+		</link>
+		<link>
+			<name>P4/constraints/script.tcl</name>
+			<type>1</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P4/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

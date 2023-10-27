@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1698436274977">
+  <ports id="2" name="inStream" type="PortType" coreName="FIFO_SRL" coreId="1868701812" bitwidth="8" iftype="IfTypeRom">
+    <dataOutputObjs>call</dataOutputObjs>
+  </ports>
+  <ports id="4" name="outStream" type="PortType" coreName="FIFO_SRL" coreId="3800654592" bitwidth="8" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <edges id="22" source_obj="//@ports.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="23" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="24" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <edges id="25" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@ports.1"/>
+  <edges id="172" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <edges id="173" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <regions anchor_node="-1" region_type="16" typeName="Dataflow" id="57" RegionName="compute_filter.1">
+    <basic_blocks id="17" name="compute_filter.1" type="BlockType">
+      <node_objs xsi:type="cdfg:CdfgNode" id="14" name="_ln151" lineNumber="151" fileName="Filter.cpp" fileDirectory=".." rtlName="Filter_horizontal_HW_1_U0" coreId="0" contextFuncName="compute_filter" opcode="call" nodeLatency="1" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Filter.cpp" linenumber="151" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="compute_filter"/>
+        <dataInputObjs>inStream</dataInputObjs>
+        <constName>Filter_horizontal_HW_1</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="15" name="_ln152" lineNumber="152" fileName="Filter.cpp" fileDirectory=".." rtlName="Filter_vertical_HW_1_U0" coreId="113" contextFuncName="compute_filter" opcode="call" nodeLabel="2.0" nodeLatency="1" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Filter.cpp" linenumber="152" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="compute_filter"/>
+        <dataOutputObjs>outStream</dataOutputObjs>
+        <constName>Filter_vertical_HW_1</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="16" name="_ln145" lineNumber="145" fileName="Filter.cpp" fileDirectory=".." coreId="113" contextFuncName="compute_filter" opcode="ret" nodeLabel="3.0" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Filter.cpp" linenumber="145" fileDirectory="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7" functionName="compute_filter"/>
+      </node_objs>
+      <fileValidLineNumbers fileName="Filter.cpp">
+        <validLinenumbers>151</validLinenumbers>
+        <validLinenumbers>152</validLinenumbers>
+        <validLinenumbers>145</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+  </regions>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <ScheduleInfo time="2"/>
+  <ScheduleInfo time="3"/>
+  <moduleNodes realName="grp_Filter_vertical_HW_1_fu_32">
+    <nodeIds>15</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_Filter_horizontal_HW_1_fu_40">
+    <nodeIds>14</nodeIds>
+  </moduleNodes>
+  <ioPorts name="inStream">
+    <contents name="call">
+      <nodeIds>14</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="outStream">
+    <contents name="call">
+      <nodeIds>15</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="14" stage="2" latency="2"/>
+    </states>
+    <states id="2">
+      <operations id="14" stage="1" latency="2"/>
+    </states>
+    <states id="3">
+      <operations id="15" stage="2" latency="2"/>
+    </states>
+    <states id="4">
+      <operations id="5" stage="1" latency="1"/>
+      <operations id="6" stage="1" latency="1"/>
+      <operations id="7" stage="1" latency="1"/>
+      <operations id="8" stage="1" latency="1"/>
+      <operations id="9" stage="1" latency="1"/>
+      <operations id="10" stage="1" latency="1"/>
+      <operations id="11" stage="1" latency="1"/>
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="15" stage="1" latency="2"/>
+      <operations id="16" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="3">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="3" outState="4">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="compute_filter_1" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="134747" mMaxLatency="386178" mIsDfPipe="true">
+      <basicBlocks>17</basicBlocks>
+      <mDfPipe allPipePinInst="//@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.0/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.1/@pins.0/@inst">
+        <processe_list name="Filter_horizontal_HW_1_U0" ssdmobj_id="14">
+          <pins>
+            <port name="inStream" top_port_object_id="" top_port_object_id_reference="_19" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="Filter_horizontal_HW_1_U0" ssdmobj_id="14" object_id="_24"/>
+          </pins>
+        </processe_list>
+        <processe_list name="Filter_vertical_HW_1_U0" ssdmobj_id="15">
+          <pins>
+            <port name="outStream" dir="DirOut" top_port_object_id="" top_port_object_id_reference="_20" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="Filter_vertical_HW_1_U0" ssdmobj_id="15" object_id="_28"/>
+          </pins>
+        </processe_list>
+        <channel_list depth="2" bitwidth="8" suggested_type="0" suggested_depth="2" name="tempStream" ssdmobj_id="3">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="Filter_horizontal_HW_1_U0" ssdmobj_id="14" object_id="_24"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="Filter_vertical_HW_1_U0" ssdmobj_id="15" object_id="_28"/>
+          </sink>
+        </channel_list>
+      </mDfPipe>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

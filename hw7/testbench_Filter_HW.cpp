@@ -6,7 +6,7 @@
 #include <fstream>
 
 #define NUM_MAT (5)
-#define NUM_TESTS (255)
+#define NUM_TESTS (256)
 
 static void init_arrays(unsigned char *Input[NUM_MAT]) {
   for (int m = 0; m < NUM_MAT; m++) {

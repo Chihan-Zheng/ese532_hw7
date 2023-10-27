@@ -5,6 +5,17 @@
     <downStreamTool>
         <DownStreamTool name="vivado"/>
     </downStreamTool>
+    <targetInfo>
+        <TargetInfo value="xczu3eg:-sbva484:-1-i"/>
+    </targetInfo>
+    <libraryList>
+        <library name="DefaultPlatform" value="xilinx/zynquplus/zynquplus"/>
+        <library name="DefaultPlatform" value="xilinx/zynquplus/zynquplus_fpv7"/>
+    </libraryList>
+    <flowTarget value="vitis"/>
+    <clockList>
+        <clock default="false" name="default" period="150MHz"/>
+    </clockList>
     <config>
         <config_interface default_interface="kernel" m_axi_alignment_byte_size="64" m_axi_latency="64" m_axi_max_widen_bitwidth="512" m_axi_offset="slave"/>
         <config_rtl register_reset_num="3"/>
@@ -56,18 +67,6 @@
             <Rtl active="false" name="vhdl"/>
         </SimFlow>
     </Simulation>
-    <flowTarget value="vitis"/>
-    <targetInfo>
-        <TargetInfo value="xczu3eg:-sbva484:-1-i"/>
-    </targetInfo>
-    <libraryList>
-        <library name="DefaultPlatform" value="xilinx/zynquplus/zynquplus"/>
-        <library name="DefaultPlatform" value="xilinx/zynquplus/zynquplus_fpv7"/>
-        <library value="xilinx/zynquplus/zynquplus" name="DefaultPlatform"/>
-    </libraryList>
-    <clockList>
-        <clock name="default" default="false" period="150MHz"/>
-    </clockList>
     <name>
         <value string="P1"/>
     </name>

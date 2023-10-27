@@ -1,0 +1,49 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'Filter_vertical_HW'" level="0">
+<item name = "Date">Thu Oct 26 22:48:21 2023
+</item>
+<item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
+<item name = "Project">ese532_hw7</item>
+<item name = "Solution">P3e (Vitis Kernel Flow Target)</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu3eg-sbva484-1-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">6.67 ns, 4.867 ns, 1.80 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">4346, 273992, 28.975 us, 1.827 ms, 4346, 273992, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_97_2_VITIS_LOOP_98_3">3318, 3318, 2, 1, 1, 3318, yes</column>
+<column name="- VITIS_LOOP_103_4">1025, 270670, 1025, -, -, 1 ~ 264, no</column>
+<column name=" + VITIS_LOOP_104_5">478, 478, 6, 1, 1, 474, yes</column>
+<column name=" + VITIS_LOOP_118_7">474, 474, 2, 1, 1, 474, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>
