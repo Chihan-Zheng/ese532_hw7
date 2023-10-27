@@ -1,6 +1,7 @@
 #include "Pipeline.h"
 #include <stdlib.h>
 #include <hls_stream.h>
+#include <stdio.h>
 
 // #define NO_SYNTH      //define when need to do Csim and comment out when need to do synthesis
 
@@ -25,6 +26,7 @@ void Filter_horizontal_HW(const unsigned char * Input,
 {
   int X, Y, i;
   const char INPUT_BUFFER_LENGTH = 7;       
+  int result;
 
   #ifdef NO_SYNTH
     unsigned char *Coefficients_local = (unsigned char*) malloc(FILTER_LENGTH * sizeof(unsigned char));
@@ -58,8 +60,10 @@ void Filter_horizontal_HW(const unsigned char * Input,
       }
 
       // Output[Y * OUTPUT_FRAME_WIDTH + X] = Sum >> 8;   //original version
-      outStream << (Sum >> 8);
+      result = Sum >> 8;
+      outStream.write(Sum >> 8);
     }
+    printf("Result, Y: %0x, %0d\n", result, Y);
   }
 }
 
@@ -92,8 +96,8 @@ void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
   #pragma HLS ARRAY_PARTITION variable=Input_local complete 
 
   for (i = 0; i < FILTER_LENGTH; i++) {Coefficients_local[i] = Coefficients[i];}
-  for (i = 0; i < INPUT_BUFFER_LENGTH; i++) {
-    for (j = 0; j < OUTPUT_FRAME_WIDTH; j++){
+  for (j = 0; j < INPUT_BUFFER_LENGTH; j++) {
+    for (i = 0; i < OUTPUT_FRAME_WIDTH; i++){
       Input_local[i][j] = inStream.read();
     }
   }

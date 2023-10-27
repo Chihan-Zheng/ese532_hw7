@@ -52,6 +52,11 @@
 			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3/.tcls</location>
 		</link>
 		<link>
+			<name>P3b/constraints</name>
+			<type>2</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3b/.tcls</location>
+		</link>
+		<link>
 			<name>source/Filter.cpp</name>
 			<type>1</type>
 			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter.cpp</location>
@@ -110,6 +115,21 @@
 			<name>P3/constraints/script.tcl</name>
 			<type>1</type>
 			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3/script.tcl</location>
+		</link>
+		<link>
+			<name>P3b/constraints/.xml.directive</name>
+			<type>1</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3b/P3b.directive</location>
+		</link>
+		<link>
+			<name>P3b/constraints/directives.tcl</name>
+			<type>1</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3b/directives.tcl</location>
+		</link>
+		<link>
+			<name>P3b/constraints/script.tcl</name>
+			<type>1</type>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P3b/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

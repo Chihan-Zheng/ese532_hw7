@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="Pipeline.h" path="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Pipeline.h"/>
     <originFiles name="Filter.cpp" path="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter.cpp"/>
+    <originFiles name="Pipeline.h" path="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Pipeline.h"/>
   </source>
   <testbench>
     <originFiles name="testbench_Filter_HW.cpp" path="/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/testbench_Filter_HW.cpp"/>
