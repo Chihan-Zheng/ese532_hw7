@@ -163,7 +163,7 @@ void Filter_horizontal_SW(const unsigned char * Input, unsigned char * Output);
 void Filter_horizontal_HW(const unsigned char * Input, unsigned char * Output);
 void Filter_vertical_SW(const unsigned char * Input, unsigned char * Output);
 void Filter_vertical_HW(const unsigned char * Input, unsigned char * Output);
-void Filter_HW(const unsigned char * Input, unsigned char * Output);
+__attribute__((sdx_kernel("Filter_HW", 0))) void Filter_HW(const unsigned char * Input, unsigned char * Output);
 
 }
 # 2 "Filter.cpp" 2
@@ -2815,15 +2815,11 @@ void Filter_horizontal_SW(const unsigned char * Input,
     }
 }
 
-__attribute__((sdx_kernel("Filter_horizontal_HW", 0))) void Filter_horizontal_HW(const unsigned char * Input,
+void Filter_horizontal_HW(const unsigned char * Input,
                         hls::stream<unsigned char>& outStream)
 {
-#pragma HLS TOP name=Filter_horizontal_HW
-# 26 "Filter.cpp"
-
   int X, Y, i;
   const char INPUT_BUFFER_LENGTH = 7;
-  int result;
 
 
 
@@ -2836,31 +2832,30 @@ __attribute__((sdx_kernel("Filter_horizontal_HW", 0))) void Filter_horizontal_HW
 #pragma HLS ARRAY_PARTITION variable=Coefficients_local complete
 #pragma HLS ARRAY_PARTITION variable=Input_local complete
 
- VITIS_LOOP_42_1: for (i = 0; i < (7); i++) {Coefficients_local[i] = Coefficients[i];}
+ VITIS_LOOP_41_1: for (i = 0; i < (7); i++) {Coefficients_local[i] = Coefficients[i];}
 
-  VITIS_LOOP_44_2: for (Y = 0; Y < ((540) / 2); Y++){
-    VITIS_LOOP_45_3: for (i = 1; i < INPUT_BUFFER_LENGTH; i++) {Input_local[i] = Input[(Y * ((960) / 2)) + i - 1];}
-    VITIS_LOOP_46_4: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
+  VITIS_LOOP_43_2: for (Y = 0; Y < ((540) / 2); Y++){
+    VITIS_LOOP_44_3: for (i = 1; i < INPUT_BUFFER_LENGTH; i++) {Input_local[i] = Input[(Y * ((960) / 2)) + i - 1];}
+    VITIS_LOOP_45_4: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
     {
 #pragma HLS PIPELINE
  unsigned int Sum = 0;
-      VITIS_LOOP_50_5: for (i = 0; i < (INPUT_BUFFER_LENGTH - 1); i++) {
+      VITIS_LOOP_49_5: for (i = 0; i < (INPUT_BUFFER_LENGTH - 1); i++) {
 #pragma HLS unroll
  Input_local[i] = Input_local[i+1];
-        }
+      }
 
       Input_local[INPUT_BUFFER_LENGTH - 1] = Input[(Y * ((960) / 2)) + X + (7) - 1];
-      VITIS_LOOP_56_6: for (i = 0; i < (7); i++){
+      VITIS_LOOP_55_6: for (i = 0; i < (7); i++){
 #pragma HLS unroll
 
  Sum += Coefficients_local[i] * Input_local[i];
       }
 
 
-      result = Sum >> 8;
       outStream.write(Sum >> 8);
     }
-    printf("Result, Y: %0x, %0d\n", result, Y);
+
   }
 }
 
@@ -2869,11 +2864,11 @@ void Filter_vertical_SW(const unsigned char * Input,
                       unsigned char * Output)
 {
   int X, Y, i;
-  VITIS_LOOP_75_1: for (Y = 0; Y < (((540) / 2) - ((7) - 1)); Y++)
-    VITIS_LOOP_76_2: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
+  VITIS_LOOP_73_1: for (Y = 0; Y < (((540) / 2) - ((7) - 1)); Y++)
+    VITIS_LOOP_74_2: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
     {
       unsigned int Sum = 0;
-      VITIS_LOOP_79_3: for (i = 0; i < (7); i++)
+      VITIS_LOOP_77_3: for (i = 0; i < (7); i++)
         Sum += Coefficients[i] * Input[(Y + i) * (((960) / 2) - ((7) - 1)) + X];
       Output[Y * (((960) / 2) - ((7) - 1)) + X] = Sum >> 8;
     }
@@ -2890,22 +2885,23 @@ void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
   unsigned char Input_local[(((960) / 2) - ((7) - 1))][INPUT_BUFFER_LENGTH];
 
 #pragma HLS ARRAY_PARTITION variable=Coefficients_local complete
-#pragma HLS ARRAY_PARTITION variable=Input_local complete
+#pragma HLS ARRAY_PARTITION variable=Input_local cyclic factor=7 dim=2
 
- VITIS_LOOP_98_1: for (i = 0; i < (7); i++) {Coefficients_local[i] = Coefficients[i];}
-  VITIS_LOOP_99_2: for (i = 0; i < INPUT_BUFFER_LENGTH; i++) {
-    VITIS_LOOP_100_3: for (j = 0; j < (((960) / 2) - ((7) - 1)); j++){
+ VITIS_LOOP_96_1: for (i = 0; i < (7); i++) {Coefficients_local[i] = Coefficients[i];}
+  VITIS_LOOP_97_2: for (j = 0; j < INPUT_BUFFER_LENGTH; j++) {
+#pragma HLS PIPELINE
+ VITIS_LOOP_99_3: for (i = 0; i < (((960) / 2) - ((7) - 1)); i++){
       Input_local[i][j] = inStream.read();
     }
   }
 
-  VITIS_LOOP_105_4: for (Y = 0; Y < (((960) / 2) - ((7) - 1)); Y++){
-    VITIS_LOOP_106_5: for (X = 0; X < (((540) / 2) - ((7) - 1)); X++)
+  VITIS_LOOP_104_4: for (Y = 0; Y < (((540) / 2) - ((7) - 1)); Y++){
+    VITIS_LOOP_105_5: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
     {
 #pragma HLS PIPELINE
  unsigned int Sum = 0;
 
-      VITIS_LOOP_111_6: for (i = 0; i < (7); i++){
+      VITIS_LOOP_110_6: for (i = 0; i < (7); i++){
 #pragma HLS unroll
 
  Sum += Coefficients_local[i] * Input_local[X][i];
@@ -2913,10 +2909,12 @@ void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
       Output[Y * (((960) / 2) - ((7) - 1)) + X] = Sum >> 8;
     }
 
-    if (Y == ((((960) / 2) - ((7) - 1)) - 1)) {return;}
-    VITIS_LOOP_120_7: for (i = 0; i < (((960) / 2) - ((7) - 1)); i++){
-      VITIS_LOOP_121_8: for (j = 0; j < INPUT_BUFFER_LENGTH - 1; j++){
-        Input_local[i][j] = Input_local[i][j+1];
+    if (Y == ((((540) / 2) - ((7) - 1)) - 1)) {return;}
+    VITIS_LOOP_119_7: for (i = 0; i < (((960) / 2) - ((7) - 1)); i++){
+#pragma HLS PIPELINE
+ VITIS_LOOP_121_8: for (j = 0; j < INPUT_BUFFER_LENGTH - 1; j++){
+#pragma HLS unroll
+ Input_local[i][j] = Input_local[i][j+1];
       }
       Input_local[i][INPUT_BUFFER_LENGTH - 1] = inStream.read();
     }
@@ -2933,13 +2931,17 @@ void Filter_SW(const unsigned char * Input,
   free(Temp);
 }
 
-void Filter_HW(const unsigned char * Input,
+__attribute__((sdx_kernel("Filter_HW", 0))) void Filter_HW(const unsigned char * Input,
             unsigned char * Output)
 {
+#pragma HLS TOP name=Filter_HW
+# 142 "Filter.cpp"
+
   static hls::stream<unsigned char> tempStream("Temp");
 #pragma HLS STREAM variable=tempStream
 #pragma HLS dataflow
-
+#pragma HLS INTERFACE m_axi port=Input bundle=aximm1
+#pragma HLS INTERFACE m_axi port=Output bundle=aximm2
  Filter_horizontal_HW(Input, tempStream);
   Filter_vertical_HW(tempStream, Output);
 

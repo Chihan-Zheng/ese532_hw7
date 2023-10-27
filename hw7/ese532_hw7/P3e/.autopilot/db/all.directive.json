@@ -1,29 +1,15 @@
 {"sourceFile": [{
       "name": "",
-      "directive": [
-        {
-          "functionName": "Filter_horizontal_HW",
+      "directive": [{
+          "functionName": "Filter_HW",
           "label": "",
           "functionLabel": "",
           "pragma": {
             "name": "TOP",
             "option": [{
                 "name": "name",
-                "value": "Filter_horizontal_HW"
+                "value": "Filter_HW"
               }]
           }
-        },
-        {
-          "functionName": "Filter_horizontal_HW",
-          "label": "",
-          "functionLabel": "",
-          "pragma": {
-            "name": "TOP",
-            "option": [{
-                "name": "name",
-                "value": "Filter_horizontal_HW"
-              }]
-          }
-        }
-      ]
+        }]
     }]}

@@ -5,8 +5,8 @@
 #include <unistd.h>
 #include <fstream>
 
-#define NUM_MAT (1)
-#define NUM_TESTS (1)
+#define NUM_MAT (5)
+#define NUM_TESTS (256)
 
 static void init_arrays(unsigned char *Input[NUM_MAT]) {
   for (int m = 0; m < NUM_MAT; m++) {

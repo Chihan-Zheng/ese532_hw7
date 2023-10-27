@@ -1,8 +1,8 @@
 <AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
     <sourceFile name="">
-        <directive functionName="Filter_horizontal_HW" label="" functionLabel="">
+        <directive functionName="Filter_HW" label="" functionLabel="">
             <pragma name="TOP">
-                <option name="name" value="Filter_horizontal_HW"/>
+                <option name="name" value="Filter_HW"/>
             </pragma>
         </directive>
     </sourceFile>

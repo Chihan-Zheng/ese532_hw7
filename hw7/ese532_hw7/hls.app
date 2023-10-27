@@ -13,7 +13,7 @@
         <solution name="P1" status="inactive"/>
         <solution name="P2" status="inactive"/>
         <solution name="P3" status="inactive"/>
-        <solution name="P3b" status="active"/>
+        <solution name="P3e" status="active"/>
     </solutions>
 </project>
 

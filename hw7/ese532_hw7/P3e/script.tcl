@@ -8,12 +8,12 @@ set_top Filter_HW
 add_files Filter.cpp
 add_files Pipeline.h
 add_files -tb testbench_Filter_HW.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
-open_solution "P3b" -flow_target vitis
+open_solution "P3e" -flow_target vitis
 set_part {xczu3eg-sbva484-1-i}
 create_clock -period 150MHz -name default
 config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave
 config_rtl -register_reset_num 3
-source "./ese532_hw7/P3b/directives.tcl"
+source "./ese532_hw7/P3e/directives.tcl"
 csim_design
 csynth_design
 cosim_design

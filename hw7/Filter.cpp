@@ -26,7 +26,6 @@ void Filter_horizontal_HW(const unsigned char * Input,
 {
   int X, Y, i;
   const char INPUT_BUFFER_LENGTH = 7;       
-  int result;
 
   #ifdef NO_SYNTH
     unsigned char *Coefficients_local = (unsigned char*) malloc(FILTER_LENGTH * sizeof(unsigned char));
@@ -50,7 +49,7 @@ void Filter_horizontal_HW(const unsigned char * Input,
       for (i = 0; i < (INPUT_BUFFER_LENGTH - 1); i++) {
         #pragma HLS unroll
         Input_local[i] = Input_local[i+1];
-        }
+      }
 
       Input_local[INPUT_BUFFER_LENGTH - 1] = Input[(Y * SCALED_FRAME_WIDTH) + X + FILTER_LENGTH - 1];
       for (i = 0; i < FILTER_LENGTH; i++){
@@ -60,10 +59,9 @@ void Filter_horizontal_HW(const unsigned char * Input,
       }
 
       // Output[Y * OUTPUT_FRAME_WIDTH + X] = Sum >> 8;   //original version
-      result = Sum >> 8;
       outStream.write(Sum >> 8);
     }
-    printf("Result, Y: %0x, %0d\n", result, Y);
+
   }
 }
 
@@ -93,7 +91,7 @@ void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
   unsigned char Input_local[OUTPUT_FRAME_WIDTH][INPUT_BUFFER_LENGTH];
 
   #pragma HLS ARRAY_PARTITION variable=Coefficients_local complete 
-  #pragma HLS ARRAY_PARTITION variable=Input_local complete 
+  #pragma HLS ARRAY_PARTITION variable=Input_local cyclic factor=7 dim=2 
 
   for (i = 0; i < FILTER_LENGTH; i++) {Coefficients_local[i] = Coefficients[i];}
   for (j = 0; j < INPUT_BUFFER_LENGTH; j++) {
@@ -102,8 +100,8 @@ void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
     }
   }
 
-  for (Y = 0; Y < OUTPUT_FRAME_WIDTH; Y++){
-    for (X = 0; X < OUTPUT_FRAME_HEIGHT; X++)
+  for (Y = 0; Y < OUTPUT_FRAME_HEIGHT; Y++){
+    for (X = 0; X < OUTPUT_FRAME_WIDTH; X++)
     {
       #pragma HLS PIPELINE
       unsigned int Sum = 0;
@@ -116,9 +114,11 @@ void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
       Output[Y * OUTPUT_FRAME_WIDTH + X] = Sum >> 8;
     }
 
-    if (Y == (OUTPUT_FRAME_WIDTH - 1)) {return;}
+    if (Y == (OUTPUT_FRAME_HEIGHT - 1)) {return;}
     for (i = 0; i < OUTPUT_FRAME_WIDTH; i++){
+      #pragma HLS PIPELINE
       for (j = 0; j < INPUT_BUFFER_LENGTH - 1; j++){
+        #pragma HLS unroll
         Input_local[i][j] = Input_local[i][j+1];
       } 
       Input_local[i][INPUT_BUFFER_LENGTH - 1] = inStream.read();
@@ -142,7 +142,8 @@ void Filter_HW(const unsigned char * Input,
   static hls::stream<unsigned char> tempStream("Temp");
   #pragma HLS STREAM variable=tempStream
   #pragma HLS dataflow
-
+  #pragma HLS INTERFACE m_axi port=Input bundle=aximm1
+  #pragma HLS INTERFACE m_axi port=Output bundle=aximm2
   Filter_horizontal_HW(Input, tempStream);
   Filter_vertical_HW(tempStream, Output);
 
