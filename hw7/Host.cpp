@@ -56,10 +56,11 @@ int main(int argc, char *argv[])
         Output_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, Output_buf_size, NULL, &err);
     }
 
-    unsigned char *Input_Scale[FRAMES], *Output_Scale[FRAMES], 
+    unsigned char *Input_Scale, *Output_Scale[FRAMES], 
                   *Input_Differentiate[FRAMES], *Output_Differentiate[FRAMES], 
                   *Input_Compress[FRAMES], *Output_Compress;
-    int Result_size[FRAMES];
+    int Result_size;
+    Input_Compress = Output_Differentiate;
 
     for(int i = 0; i < FRAMES; i++)
     {
@@ -67,7 +68,7 @@ int main(int argc, char *argv[])
         Input_Differentiate[i] = (unsigned char*)q.enqueueMapBuffer(Output_buf[i], CL_TRUE, CL_MAP_READ, 0, Output_buf_size);
     }
 
-    timer2.add("Populating buffer inputs");
+    timer2.add("Populating input for Scale");
     Load_data(Input_Scale);
 
     // ------------------------------------------------------------------------------------
@@ -84,7 +85,7 @@ int main(int argc, char *argv[])
 
     timer2.add("Running the computation");
     for (int i = 0; i < FRAMES; i++){  //start computation
-        Scale_SW(Input_Scale[i], Output_Scale[i]);
+        Scale_SW(Input_Scale + i * FRAME_SIZE, Output_Scale[i]);
         //--------------------------------kernel computation --------------------------------
         Filter_HW.setArg(0, Input_buf[i]);
         Filter_HW.setArg(1, Output_buf[i]);
@@ -116,7 +117,7 @@ int main(int argc, char *argv[])
     // Step 4: Compare Results
     // ------------------------------------------------------------------------------------
     timer2.add("Writing compressed results to output_fpga.bin");
-    Store_data("Output.bin", Output_Differentiate, Result_size);
+    Store_data("Output.bin", Output_Compress, Result_size);
 
     timer2.add("Check results with Golden.bin");
     Check_data(Output_Compress, Result_size);
