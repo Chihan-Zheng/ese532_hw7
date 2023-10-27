@@ -59,7 +59,9 @@ int main(int argc, char *argv[])
                   *Input_Differentiate[FRAMES], *Output_Differentiate[FRAMES], 
                   *Input_Compress[FRAMES], *Output_Compress;
     int Result_size;
-    Input_Compress = Output_Differentiate;
+    for (int i = 0; i < FRAMES; i++){
+        Input_Compress[i] = Output_Differentiate[i];
+    }
 
     for(int i = 0; i < FRAMES; i++)
     {
@@ -75,19 +77,19 @@ int main(int argc, char *argv[])
     // ------------------------------------------------------------------------------------
 
     //--- define flags for kernel
-    std::vector<cl::Event> write_done[FRAMES];
+    std::vector<cl::Event> write_done(FRAMES);
     std::vector<cl::Event> write_waitlist;
-    std::vector<std::vector<cl::Event>> execute_waitlist[FRAMES];
-    std::vector<cl::Event> execute_done[FRAMES];
-    std::vector<std::vector<cl::Event>> read_waitlist[FRAMES];
-    std::vector<cl::Event> read_done[FRAMES];
+    std::vector<std::vector<cl::Event>> execute_waitlist(FRAMES);
+    std::vector<cl::Event> execute_done(FRAMES);
+    std::vector<std::vector<cl::Event>> read_waitlist(FRAMES);
+    std::vector<cl::Event> read_done(FRAMES);
 
     timer2.add("Running the computation");
     for (int i = 0; i < FRAMES; i++){  //start computation
         Scale_SW(Input_Scale + i * FRAME_SIZE, Output_Scale[i]);
         //--------------------------------kernel computation --------------------------------
-        Filter_HW.setArg(0, Input_buf[i]);
-        Filter_HW.setArg(1, Output_buf[i]);
+        krnl_filter.setArg(0, Input_buf[i]);
+        krnl_filter.setArg(1, Output_buf[i]);
 
         if (i == 0){
             q.enqueueMigrateMemObjects({Input_buf[i]}, 0 /* 0 means from host*/, NULL, &write_done[i]);
