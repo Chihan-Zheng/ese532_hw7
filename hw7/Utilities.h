@@ -1,3 +1,7 @@
+#ifndef CA28A085_6E31_470F_A3D8_5A352ECD2FFC
+#define CA28A085_6E31_470F_A3D8_5A352ECD2FFC
+#ifndef F2995ADE_7DAE_4116_9B07_0B4B963D88DA
+#define F2995ADE_7DAE_4116_9B07_0B4B963D88DA
 #ifndef SRC_UTILITIES_
 #define SRC_UTILITIES_
 
@@ -17,11 +21,12 @@
   }
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
-#include <thread>
 #include <vector>
+#include <unistd.h>
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <CL/cl2.hpp>
 #include "Pipeline.h"
 #include "EventTimer.h"
 
@@ -33,3 +38,9 @@ std::vector<cl::Device> get_xilinx_devices();
 char* read_binary_file(const std::string &xclbin_file_name, unsigned &nb);
 
 #endif
+
+
+#endif /* F2995ADE_7DAE_4116_9B07_0B4B963D88DA */
+
+
+#endif /* CA28A085_6E31_470F_A3D8_5A352ECD2FFC */

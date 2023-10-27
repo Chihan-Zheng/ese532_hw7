@@ -55,10 +55,14 @@ int main(int argc, char *argv[])
         Output_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, Output_buf_size, NULL, &err);
     }
 
-    unsigned char *Input_Scale, *Output_Scale[FRAMES], 
+    unsigned char *Output_Scale[FRAMES], 
                   *Input_Differentiate[FRAMES], *Output_Differentiate[FRAMES], 
-                  *Input_Compress[FRAMES], *Output_Compress;
+                  *Input_Compress[FRAMES];
     int Result_size;
+
+    unsigned char *Input_Scale = (unsigned char*)malloc(INPUT_FRAME_WIDTH * INPUT_FRAME_HEIGHT * sizeof(unsigned char));
+    unsigned char *Output_Compress = (unsigned char*)malloc(OUTPUT_FRAME_WIDTH * OUTPUT_FRAME_HEIGHT * sizeof(unsigned char));
+
     for (int i = 0; i < FRAMES; i++){
         Input_Compress[i] = Output_Differentiate[i];
     }
@@ -135,5 +139,15 @@ int main(int argc, char *argv[])
     std::cout << "--------------- Total time ---------------"
     << std::endl;
     timer1.print();
+
+    for (int i = 0; i < FRAMES; i++){
+        free(Output_Scale[i]);
+        free(Input_Differentiate[i]);
+        free(Output_Differentiate[i]);
+        free(Input_Compress[i]);
+    }
+    free(Input_Scale);
+    free(Output_Compress);
+
     return 0;
 }

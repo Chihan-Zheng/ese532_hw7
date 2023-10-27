@@ -19,11 +19,12 @@
   }
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
-#include <thread>
 #include <vector>
+#include <unistd.h>
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <CL/cl2.hpp>
 #include "Pipeline.h"
 #include "EventTimer.h"
 
