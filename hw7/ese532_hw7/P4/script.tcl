@@ -5,8 +5,8 @@
 ############################################################
 open_project ese532_hw7
 set_top Filter_HW
-add_files Filter.cpp
 add_files Pipeline.h
+add_files Filter.cpp
 add_files -tb testbench_Filter_HW.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "P4" -flow_target vitis
 set_part {xczu3eg-sbva484-1-i}
@@ -17,4 +17,4 @@ source "./ese532_hw7/P4/directives.tcl"
 csim_design
 csynth_design
 cosim_design
-export_design -format ip_catalog
+export_design -rtl verilog -format xo -output /home1/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xo

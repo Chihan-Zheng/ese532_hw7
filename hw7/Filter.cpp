@@ -23,8 +23,10 @@ void Filter_horizontal_SW(const unsigned char * Input,
 void read_input(const unsigned char *Input, hls::stream<unsigned char>& inStream) {
   mem_rd:
     for (int i = 0; i < (SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH); i++){
-#pragma HLS LOOP_TRIPCOUNT min = (SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH) max = (SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH)
-#pragma HLS PIPELINE
+//#pragma HLS LOOP_TRIPCOUNT min = (SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH) max = (SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH)
+#pragma HLS LOOP_TRIPCOUNT min = (480*270) max = (480*270)
+
+    	#pragma HLS PIPELINE
 // #pragma HLS array_partition variable=A block factor=32 dim=0
 // #pragma HLS array_partition variable=B block factor=32 dim=0
     inStream << Input[i];
@@ -52,7 +54,10 @@ void Filter_horizontal_HW(hls::stream<unsigned char>& inStream,
   for (i = 0; i < FILTER_LENGTH; i++) {Coefficients_local[i] = Coefficients[i];}
 
   for (Y = 0; Y < SCALED_FRAME_HEIGHT; Y++){
-    for (i = 1; i < INPUT_BUFFER_LENGTH; i++) {Input_local[i] = inStream.read();}
+    for (i = 1; i < INPUT_BUFFER_LENGTH; i++) {
+      #pragma HLS UNROLL
+      Input_local[i] = inStream.read();
+    }
     for (X = 0; X < OUTPUT_FRAME_WIDTH; X++)
     {
       #pragma HLS PIPELINE
@@ -150,8 +155,9 @@ void compute_filter(hls::stream<unsigned char>& inStream,
 void write_result(unsigned char *Output, hls::stream<unsigned char>& outStream){
 mem_wr:
   for (int i = 0; i < (OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH); i++){
-    #pragma HLS LOOP_TRIPCOUNT min = (OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH) max = (OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH)
-    #pragma HLS PIPELINE
+//    #pragma HLS LOOP_TRIPCOUNT min = (OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH) max = (OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH)
+	#pragma HLS LOOP_TRIPCOUNT min = (474 * 264) max = (474 * 264)
+	#pragma HLS PIPELINE
     Output[i] = outStream.read();
   }
 }

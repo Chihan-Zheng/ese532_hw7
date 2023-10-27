@@ -7,6 +7,7 @@
 #include <thread>
 #include <vector>
 #include "Pipeline.h"
+#include "EventTimer.h"
 
 void Exit_with_error(const char *s);
 void Load_data(unsigned char *Data);

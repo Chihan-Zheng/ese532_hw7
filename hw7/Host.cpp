@@ -97,14 +97,15 @@ int main(int argc, char *argv[])
             write_waitlist.push_back(write_done[i]);
         }
 
-        execute_waitlists[i].push_back(write_done[i]);
-        q.enqueueTask(krnl_filter, &execute_waitlists[i], &execute_done[i]);
+        execute_waitlist[i].push_back(write_done[i]);
+        q.enqueueTask(krnl_filter, &execute_waitlist[i], &execute_done[i]);
 
-        read_waitlists[i].push_back(execute_done[i]);
-        q.enqueueMigrateMemObjects({Output_buf[i]}, CL_MIGRATE_MEM_OBJECT_HOST, &read_waitlists[i], &read_done[i]);
+        read_waitlist[i].push_back(execute_done[i]);
+        q.enqueueMigrateMemObjects({Output_buf[i]}, CL_MIGRATE_MEM_OBJECT_HOST, &read_waitlist[i], &read_done[i]);
         read_waitlist[i+1].push_back(read_done[i]);
         //--------------------------------kernel computation --------------------------------
-        if (read_done[i]){
+        cl_int read_status = read_done[i].getInfo<CL_EVENT_COMMAND_EXECUTION_STATUS>();
+        if (read_status == CL_COMPLETE) {
             Differentiate_SW(Input_Differentiate[i], Output_Differentiate[i]);
             Result_size = Compress_SW(Input_Compress[i], Output_Compress);
         }

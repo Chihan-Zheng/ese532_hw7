@@ -1,0 +1,49 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'Filter_HW'" level="0">
+<item name = "Date">Fri Oct 27 15:51:13 2023
+</item>
+<item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
+<item name = "Project">ese532_hw7</item>
+<item name = "Solution">P4 (Vitis Kernel Flow Target)</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu3eg-sbva484-1-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">6.67 ns, 4.867 ns, 1.80 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">134821, 386252, 0.899 ms, 2.575 ms, 130952, 255709, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_read_input_13_fu_112">read_input_13, 129673, 129673, 0.865 ms, 0.865 ms, 129673, 129673, none</column>
+<column name="grp_write_result_1_fu_123">write_result_1, 125207, 125207, 0.835 ms, 0.835 ms, 125207, 125207, none</column>
+<column name="grp_compute_filter_1_fu_132">compute_filter_1, 134747, 386178, 0.898 ms, 2.575 ms, 130952, 255709, dataflow</column>
+<column name="call_ln176_Filter_HW_entry3_fu_142">Filter_HW_entry3, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

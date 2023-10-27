@@ -350,7 +350,7 @@ class stream : public stream<__STREAM_T__, 0> {
 }
 # 62 "/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream.h" 2
 # 2 "./Pipeline.h" 2
-# 27 "./Pipeline.h"
+# 28 "./Pipeline.h"
 extern "C" {
 void Scale_SW(const unsigned char * Input, unsigned char * Output);
 void Filter_SW(const unsigned char * Input, unsigned char * Output);
@@ -2096,712 +2096,6 @@ using std::wcstombs;
 using std::wctomb;
 # 3 "Filter.cpp" 2
 
-# 1 "/usr/include/stdio.h" 1 3 4
-# 27 "/usr/include/stdio.h" 3 4
-# 1 "/usr/include/bits/libc-header-start.h" 1 3 4
-# 28 "/usr/include/stdio.h" 2 3 4
-
-extern "C" {
-
-
-
-
-# 1 "/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/lib/clang/7.0.0/include/stddef.h" 1 3 4
-# 34 "/usr/include/stdio.h" 2 3 4
-
-
-# 1 "/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/lib/clang/7.0.0/include/stdarg.h" 1 3 4
-# 30 "/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/lib/clang/7.0.0/include/stdarg.h" 3 4
-typedef __builtin_va_list va_list;
-# 48 "/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/lib/clang/7.0.0/include/stdarg.h" 3 4
-typedef __builtin_va_list __gnuc_va_list;
-# 37 "/usr/include/stdio.h" 2 3 4
-
-
-# 1 "/usr/include/bits/types/__fpos_t.h" 1 3 4
-
-
-
-
-# 1 "/usr/include/bits/types/__mbstate_t.h" 1 3 4
-# 13 "/usr/include/bits/types/__mbstate_t.h" 3 4
-typedef struct
-{
-  int __count;
-  union
-  {
-    unsigned int __wch;
-    char __wchb[4];
-  } __value;
-} __mbstate_t;
-# 6 "/usr/include/bits/types/__fpos_t.h" 2 3 4
-
-
-
-
-typedef struct _G_fpos_t
-{
-  __off_t __pos;
-  __mbstate_t __state;
-} __fpos_t;
-# 40 "/usr/include/stdio.h" 2 3 4
-# 1 "/usr/include/bits/types/__fpos64_t.h" 1 3 4
-# 10 "/usr/include/bits/types/__fpos64_t.h" 3 4
-typedef struct _G_fpos64_t
-{
-  __off64_t __pos;
-  __mbstate_t __state;
-} __fpos64_t;
-# 41 "/usr/include/stdio.h" 2 3 4
-# 1 "/usr/include/bits/types/__FILE.h" 1 3 4
-
-
-
-struct _IO_FILE;
-typedef struct _IO_FILE __FILE;
-# 42 "/usr/include/stdio.h" 2 3 4
-# 1 "/usr/include/bits/types/FILE.h" 1 3 4
-
-
-
-struct _IO_FILE;
-
-
-typedef struct _IO_FILE FILE;
-# 43 "/usr/include/stdio.h" 2 3 4
-# 1 "/usr/include/bits/types/struct_FILE.h" 1 3 4
-# 35 "/usr/include/bits/types/struct_FILE.h" 3 4
-struct _IO_FILE;
-struct _IO_marker;
-struct _IO_codecvt;
-struct _IO_wide_data;
-
-
-
-
-typedef void _IO_lock_t;
-
-
-
-
-
-struct _IO_FILE
-{
-  int _flags;
-
-
-  char *_IO_read_ptr;
-  char *_IO_read_end;
-  char *_IO_read_base;
-  char *_IO_write_base;
-  char *_IO_write_ptr;
-  char *_IO_write_end;
-  char *_IO_buf_base;
-  char *_IO_buf_end;
-
-
-  char *_IO_save_base;
-  char *_IO_backup_base;
-  char *_IO_save_end;
-
-  struct _IO_marker *_markers;
-
-  struct _IO_FILE *_chain;
-
-  int _fileno;
-  int _flags2;
-  __off_t _old_offset;
-
-
-  unsigned short _cur_column;
-  signed char _vtable_offset;
-  char _shortbuf[1];
-
-  _IO_lock_t *_lock;
-
-
-
-
-
-
-
-  __off64_t _offset;
-
-  struct _IO_codecvt *_codecvt;
-  struct _IO_wide_data *_wide_data;
-  struct _IO_FILE *_freeres_list;
-  void *_freeres_buf;
-  size_t __pad5;
-  int _mode;
-
-  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
-};
-# 44 "/usr/include/stdio.h" 2 3 4
-
-
-# 1 "/usr/include/bits/types/cookie_io_functions_t.h" 1 3 4
-# 27 "/usr/include/bits/types/cookie_io_functions_t.h" 3 4
-typedef __ssize_t cookie_read_function_t (void *__cookie, char *__buf,
-                                          size_t __nbytes);
-
-
-
-
-
-
-
-typedef __ssize_t cookie_write_function_t (void *__cookie, const char *__buf,
-                                           size_t __nbytes);
-
-
-
-
-
-
-
-typedef int cookie_seek_function_t (void *__cookie, __off64_t *__pos, int __w);
-
-
-typedef int cookie_close_function_t (void *__cookie);
-
-
-
-
-
-
-typedef struct _IO_cookie_io_functions_t
-{
-  cookie_read_function_t *read;
-  cookie_write_function_t *write;
-  cookie_seek_function_t *seek;
-  cookie_close_function_t *close;
-} cookie_io_functions_t;
-# 47 "/usr/include/stdio.h" 2 3 4
-
-
-
-
-
-typedef __gnuc_va_list va_list;
-# 84 "/usr/include/stdio.h" 3 4
-typedef __fpos_t fpos_t;
-
-
-
-
-typedef __fpos64_t fpos64_t;
-# 133 "/usr/include/stdio.h" 3 4
-# 1 "/usr/include/bits/stdio_lim.h" 1 3 4
-# 134 "/usr/include/stdio.h" 2 3 4
-
-
-
-extern FILE *stdin;
-extern FILE *stdout;
-extern FILE *stderr;
-
-
-
-
-
-
-extern int remove (const char *__filename) throw ();
-
-extern int rename (const char *__old, const char *__new) throw ();
-
-
-
-extern int renameat (int __oldfd, const char *__old, int __newfd,
-       const char *__new) throw ();
-# 164 "/usr/include/stdio.h" 3 4
-extern int renameat2 (int __oldfd, const char *__old, int __newfd,
-        const char *__new, unsigned int __flags) throw ();
-
-
-
-
-
-
-
-extern FILE *tmpfile (void) ;
-# 183 "/usr/include/stdio.h" 3 4
-extern FILE *tmpfile64 (void) ;
-
-
-
-extern char *tmpnam (char *__s) throw () ;
-
-
-
-
-extern char *tmpnam_r (char *__s) throw () ;
-# 204 "/usr/include/stdio.h" 3 4
-extern char *tempnam (const char *__dir, const char *__pfx)
-     throw () __attribute__ ((__malloc__)) ;
-
-
-
-
-
-
-
-extern int fclose (FILE *__stream);
-
-
-
-
-extern int fflush (FILE *__stream);
-# 227 "/usr/include/stdio.h" 3 4
-extern int fflush_unlocked (FILE *__stream);
-# 237 "/usr/include/stdio.h" 3 4
-extern int fcloseall (void);
-# 246 "/usr/include/stdio.h" 3 4
-extern FILE *fopen (const char *__restrict __filename,
-      const char *__restrict __modes) ;
-
-
-
-
-extern FILE *freopen (const char *__restrict __filename,
-        const char *__restrict __modes,
-        FILE *__restrict __stream) ;
-# 270 "/usr/include/stdio.h" 3 4
-extern FILE *fopen64 (const char *__restrict __filename,
-        const char *__restrict __modes) ;
-extern FILE *freopen64 (const char *__restrict __filename,
-   const char *__restrict __modes,
-   FILE *__restrict __stream) ;
-
-
-
-
-extern FILE *fdopen (int __fd, const char *__modes) throw () ;
-
-
-
-
-
-extern FILE *fopencookie (void *__restrict __magic_cookie,
-     const char *__restrict __modes,
-     cookie_io_functions_t __io_funcs) throw () ;
-
-
-
-
-extern FILE *fmemopen (void *__s, size_t __len, const char *__modes)
-  throw () ;
-
-
-
-
-extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) throw () ;
-
-
-
-
-
-extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) throw ();
-
-
-
-extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
-      int __modes, size_t __n) throw ();
-
-
-
-
-extern void setbuffer (FILE *__restrict __stream, char *__restrict __buf,
-         size_t __size) throw ();
-
-
-extern void setlinebuf (FILE *__stream) throw ();
-
-
-
-
-
-
-
-extern int fprintf (FILE *__restrict __stream,
-      const char *__restrict __format, ...);
-
-
-
-
-extern int printf (const char *__restrict __format, ...);
-
-extern int sprintf (char *__restrict __s,
-      const char *__restrict __format, ...) throw ();
-
-
-
-
-
-extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
-       __gnuc_va_list __arg);
-
-
-
-
-extern int vprintf (const char *__restrict __format, __gnuc_va_list __arg);
-
-extern int vsprintf (char *__restrict __s, const char *__restrict __format,
-       __gnuc_va_list __arg) throw ();
-
-
-
-extern int snprintf (char *__restrict __s, size_t __maxlen,
-       const char *__restrict __format, ...)
-     throw () __attribute__ ((__format__ (__printf__, 3, 4)));
-
-extern int vsnprintf (char *__restrict __s, size_t __maxlen,
-        const char *__restrict __format, __gnuc_va_list __arg)
-     throw () __attribute__ ((__format__ (__printf__, 3, 0)));
-
-
-
-
-
-extern int vasprintf (char **__restrict __ptr, const char *__restrict __f,
-        __gnuc_va_list __arg)
-     throw () __attribute__ ((__format__ (__printf__, 2, 0))) ;
-extern int __asprintf (char **__restrict __ptr,
-         const char *__restrict __fmt, ...)
-     throw () __attribute__ ((__format__ (__printf__, 2, 3))) ;
-extern int asprintf (char **__restrict __ptr,
-       const char *__restrict __fmt, ...)
-     throw () __attribute__ ((__format__ (__printf__, 2, 3))) ;
-
-
-
-
-extern int vdprintf (int __fd, const char *__restrict __fmt,
-       __gnuc_va_list __arg)
-     __attribute__ ((__format__ (__printf__, 2, 0)));
-extern int dprintf (int __fd, const char *__restrict __fmt, ...)
-     __attribute__ ((__format__ (__printf__, 2, 3)));
-
-
-
-
-
-
-
-extern int fscanf (FILE *__restrict __stream,
-     const char *__restrict __format, ...) ;
-
-
-
-
-extern int scanf (const char *__restrict __format, ...) ;
-
-extern int sscanf (const char *__restrict __s,
-     const char *__restrict __format, ...) throw ();
-
-
-
-
-
-
-extern int fscanf (FILE *__restrict __stream, const char *__restrict __format, ...) __asm__ ("" "__isoc99_fscanf") ;
-
-
-extern int scanf (const char *__restrict __format, ...) __asm__ ("" "__isoc99_scanf") ;
-
-extern int sscanf (const char *__restrict __s, const char *__restrict __format, ...) throw () __asm__ ("" "__isoc99_sscanf");
-# 432 "/usr/include/stdio.h" 3 4
-extern int vfscanf (FILE *__restrict __s, const char *__restrict __format,
-      __gnuc_va_list __arg)
-     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
-
-
-
-
-
-extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg)
-     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
-
-
-extern int vsscanf (const char *__restrict __s,
-      const char *__restrict __format, __gnuc_va_list __arg)
-     throw () __attribute__ ((__format__ (__scanf__, 2, 0)));
-
-
-
-
-extern int vfscanf (FILE *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vfscanf")
-
-
-
-     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
-extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vscanf")
-
-     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
-extern int vsscanf (const char *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) throw () __asm__ ("" "__isoc99_vsscanf")
-
-
-
-     __attribute__ ((__format__ (__scanf__, 2, 0)));
-# 485 "/usr/include/stdio.h" 3 4
-extern int fgetc (FILE *__stream);
-extern int getc (FILE *__stream);
-
-
-
-
-
-extern int getchar (void);
-
-
-
-
-
-
-extern int getc_unlocked (FILE *__stream);
-extern int getchar_unlocked (void);
-# 510 "/usr/include/stdio.h" 3 4
-extern int fgetc_unlocked (FILE *__stream);
-# 521 "/usr/include/stdio.h" 3 4
-extern int fputc (int __c, FILE *__stream);
-extern int putc (int __c, FILE *__stream);
-
-
-
-
-
-extern int putchar (int __c);
-# 537 "/usr/include/stdio.h" 3 4
-extern int fputc_unlocked (int __c, FILE *__stream);
-
-
-
-
-
-
-
-extern int putc_unlocked (int __c, FILE *__stream);
-extern int putchar_unlocked (int __c);
-
-
-
-
-
-
-extern int getw (FILE *__stream);
-
-
-extern int putw (int __w, FILE *__stream);
-
-
-
-
-
-
-
-extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
-          ;
-# 587 "/usr/include/stdio.h" 3 4
-extern char *fgets_unlocked (char *__restrict __s, int __n,
-        FILE *__restrict __stream) ;
-# 603 "/usr/include/stdio.h" 3 4
-extern __ssize_t __getdelim (char **__restrict __lineptr,
-                             size_t *__restrict __n, int __delimiter,
-                             FILE *__restrict __stream) ;
-extern __ssize_t getdelim (char **__restrict __lineptr,
-                           size_t *__restrict __n, int __delimiter,
-                           FILE *__restrict __stream) ;
-
-
-
-
-
-
-
-extern __ssize_t getline (char **__restrict __lineptr,
-                          size_t *__restrict __n,
-                          FILE *__restrict __stream) ;
-
-
-
-
-
-
-
-extern int fputs (const char *__restrict __s, FILE *__restrict __stream);
-
-
-
-
-
-extern int puts (const char *__s);
-
-
-
-
-
-
-extern int ungetc (int __c, FILE *__stream);
-
-
-
-
-
-
-extern size_t fread (void *__restrict __ptr, size_t __size,
-       size_t __n, FILE *__restrict __stream) ;
-
-
-
-
-extern size_t fwrite (const void *__restrict __ptr, size_t __size,
-        size_t __n, FILE *__restrict __s);
-# 662 "/usr/include/stdio.h" 3 4
-extern int fputs_unlocked (const char *__restrict __s,
-      FILE *__restrict __stream);
-# 673 "/usr/include/stdio.h" 3 4
-extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
-         size_t __n, FILE *__restrict __stream) ;
-extern size_t fwrite_unlocked (const void *__restrict __ptr, size_t __size,
-          size_t __n, FILE *__restrict __stream);
-
-
-
-
-
-
-
-extern int fseek (FILE *__stream, long int __off, int __whence);
-
-
-
-
-extern long int ftell (FILE *__stream) ;
-
-
-
-
-extern void rewind (FILE *__stream);
-# 707 "/usr/include/stdio.h" 3 4
-extern int fseeko (FILE *__stream, __off_t __off, int __whence);
-
-
-
-
-extern __off_t ftello (FILE *__stream) ;
-# 731 "/usr/include/stdio.h" 3 4
-extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
-
-
-
-
-extern int fsetpos (FILE *__stream, const fpos_t *__pos);
-# 750 "/usr/include/stdio.h" 3 4
-extern int fseeko64 (FILE *__stream, __off64_t __off, int __whence);
-extern __off64_t ftello64 (FILE *__stream) ;
-extern int fgetpos64 (FILE *__restrict __stream, fpos64_t *__restrict __pos);
-extern int fsetpos64 (FILE *__stream, const fpos64_t *__pos);
-
-
-
-extern void clearerr (FILE *__stream) throw ();
-
-extern int feof (FILE *__stream) throw () ;
-
-extern int ferror (FILE *__stream) throw () ;
-
-
-
-extern void clearerr_unlocked (FILE *__stream) throw ();
-extern int feof_unlocked (FILE *__stream) throw () ;
-extern int ferror_unlocked (FILE *__stream) throw () ;
-
-
-
-
-
-
-
-extern void perror (const char *__s);
-
-
-
-
-
-
-# 1 "/usr/include/bits/sys_errlist.h" 1 3 4
-# 26 "/usr/include/bits/sys_errlist.h" 3 4
-extern int sys_nerr;
-extern const char *const sys_errlist[];
-
-
-extern int _sys_nerr;
-extern const char *const _sys_errlist[];
-# 782 "/usr/include/stdio.h" 2 3 4
-
-
-
-
-extern int fileno (FILE *__stream) throw () ;
-
-
-
-
-extern int fileno_unlocked (FILE *__stream) throw () ;
-# 800 "/usr/include/stdio.h" 3 4
-extern FILE *popen (const char *__command, const char *__modes) ;
-
-
-
-
-
-extern int pclose (FILE *__stream);
-
-
-
-
-
-extern char *ctermid (char *__s) throw ();
-
-
-
-
-
-extern char *cuserid (char *__s);
-
-
-
-
-struct obstack;
-
-
-extern int obstack_printf (struct obstack *__restrict __obstack,
-      const char *__restrict __format, ...)
-     throw () __attribute__ ((__format__ (__printf__, 2, 3)));
-extern int obstack_vprintf (struct obstack *__restrict __obstack,
-       const char *__restrict __format,
-       __gnuc_va_list __args)
-     throw () __attribute__ ((__format__ (__printf__, 2, 0)));
-
-
-
-
-
-
-
-extern void flockfile (FILE *__stream) throw ();
-
-
-
-extern int ftrylockfile (FILE *__stream) throw () ;
-
-
-extern void funlockfile (FILE *__stream) throw ();
-# 858 "/usr/include/stdio.h" 3 4
-extern int __uflow (FILE *);
-extern int __overflow (FILE *, int);
-# 873 "/usr/include/stdio.h" 3 4
-}
-# 5 "Filter.cpp" 2
 
 
 
@@ -2811,11 +2105,11 @@ void Filter_horizontal_SW(const unsigned char * Input,
                         unsigned char * Output)
 {
   int X, Y, i;
-  VITIS_LOOP_14_1: for (Y = 0; Y < ((540) / 2); Y++)
-    VITIS_LOOP_15_2: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
+  VITIS_LOOP_13_1: for (Y = 0; Y < ((540) / 2); Y++)
+    VITIS_LOOP_14_2: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
     {
       unsigned int Sum = 0;
-      VITIS_LOOP_18_3: for (i = 0; i < (7); i++)
+      VITIS_LOOP_17_3: for (i = 0; i < (7); i++)
         Sum += Coefficients[i] * Input[Y * ((960) / 2) + X + i];
       Output[Y * (((960) / 2) - ((7) - 1)) + X] = Sum >> 8;
     }
@@ -2824,7 +2118,9 @@ void Filter_horizontal_SW(const unsigned char * Input,
 void read_input(const unsigned char *Input, hls::stream<unsigned char>& inStream) {
   mem_rd:
     for (int i = 0; i < (((540) / 2) * ((960) / 2)); i++){
-#pragma HLS LOOP_TRIPCOUNT min = (SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH) max = (SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH)
+
+#pragma HLS LOOP_TRIPCOUNT min = (480*270) max = (480*270)
+
 #pragma HLS PIPELINE
 
 
@@ -2850,21 +2146,24 @@ void Filter_horizontal_HW(hls::stream<unsigned char>& inStream,
 #pragma HLS ARRAY_PARTITION variable=Coefficients_local complete
 #pragma HLS ARRAY_PARTITION variable=Input_local complete
 
- VITIS_LOOP_53_1: for (i = 0; i < (7); i++) {Coefficients_local[i] = Coefficients[i];}
+ VITIS_LOOP_54_1: for (i = 0; i < (7); i++) {Coefficients_local[i] = Coefficients[i];}
 
-  VITIS_LOOP_55_2: for (Y = 0; Y < ((540) / 2); Y++){
-    VITIS_LOOP_56_3: for (i = 1; i < INPUT_BUFFER_LENGTH; i++) {Input_local[i] = inStream.read();}
-    VITIS_LOOP_57_4: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
+  VITIS_LOOP_56_2: for (Y = 0; Y < ((540) / 2); Y++){
+    VITIS_LOOP_57_3: for (i = 1; i < INPUT_BUFFER_LENGTH; i++) {
+#pragma HLS UNROLL
+ Input_local[i] = inStream.read();
+    }
+    VITIS_LOOP_61_4: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
     {
 #pragma HLS PIPELINE
  unsigned int Sum = 0;
-      VITIS_LOOP_61_5: for (i = 0; i < (INPUT_BUFFER_LENGTH - 1); i++) {
+      VITIS_LOOP_65_5: for (i = 0; i < (INPUT_BUFFER_LENGTH - 1); i++) {
 #pragma HLS unroll
  Input_local[i] = Input_local[i+1];
       }
 
       Input_local[INPUT_BUFFER_LENGTH - 1] = inStream.read();
-      VITIS_LOOP_67_6: for (i = 0; i < (7); i++){
+      VITIS_LOOP_71_6: for (i = 0; i < (7); i++){
 #pragma HLS unroll
 
  Sum += Coefficients_local[i] * Input_local[i];
@@ -2882,11 +2181,11 @@ void Filter_vertical_SW(const unsigned char * Input,
                       unsigned char * Output)
 {
   int X, Y, i;
-  VITIS_LOOP_85_1: for (Y = 0; Y < (((540) / 2) - ((7) - 1)); Y++)
-    VITIS_LOOP_86_2: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
+  VITIS_LOOP_89_1: for (Y = 0; Y < (((540) / 2) - ((7) - 1)); Y++)
+    VITIS_LOOP_90_2: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
     {
       unsigned int Sum = 0;
-      VITIS_LOOP_89_3: for (i = 0; i < (7); i++)
+      VITIS_LOOP_93_3: for (i = 0; i < (7); i++)
         Sum += Coefficients[i] * Input[(Y + i) * (((960) / 2) - ((7) - 1)) + X];
       Output[Y * (((960) / 2) - ((7) - 1)) + X] = Sum >> 8;
     }
@@ -2905,20 +2204,20 @@ void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
 #pragma HLS ARRAY_PARTITION variable=Coefficients_local complete
 #pragma HLS ARRAY_PARTITION variable=Input_local cyclic factor=7 dim=2
 
- VITIS_LOOP_108_1: for (i = 0; i < (7); i++) {Coefficients_local[i] = Coefficients[i];}
-  VITIS_LOOP_109_2: for (j = 0; j < INPUT_BUFFER_LENGTH; j++) {
-    VITIS_LOOP_110_3: for (i = 0; i < (((960) / 2) - ((7) - 1)); i++){
+ VITIS_LOOP_112_1: for (i = 0; i < (7); i++) {Coefficients_local[i] = Coefficients[i];}
+  VITIS_LOOP_113_2: for (j = 0; j < INPUT_BUFFER_LENGTH; j++) {
+    VITIS_LOOP_114_3: for (i = 0; i < (((960) / 2) - ((7) - 1)); i++){
       Input_local[i][j] = inStream.read();
     }
   }
 
-  VITIS_LOOP_115_4: for (Y = 0; Y < (((540) / 2) - ((7) - 1)); Y++){
-    VITIS_LOOP_116_5: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
+  VITIS_LOOP_119_4: for (Y = 0; Y < (((540) / 2) - ((7) - 1)); Y++){
+    VITIS_LOOP_120_5: for (X = 0; X < (((960) / 2) - ((7) - 1)); X++)
     {
 #pragma HLS PIPELINE
  unsigned int Sum = 0;
 
-      VITIS_LOOP_121_6: for (i = 0; i < (7); i++){
+      VITIS_LOOP_125_6: for (i = 0; i < (7); i++){
 #pragma HLS unroll
 
  Sum += Coefficients_local[i] * Input_local[X][i];
@@ -2927,9 +2226,9 @@ void Filter_vertical_HW(hls::stream<unsigned char>& inStream,
     }
 
     if (Y == ((((540) / 2) - ((7) - 1)) - 1)) {return;}
-    VITIS_LOOP_130_7: for (i = 0; i < (((960) / 2) - ((7) - 1)); i++){
+    VITIS_LOOP_134_7: for (i = 0; i < (((960) / 2) - ((7) - 1)); i++){
 #pragma HLS PIPELINE
- VITIS_LOOP_132_8: for (j = 0; j < INPUT_BUFFER_LENGTH - 1; j++){
+ VITIS_LOOP_136_8: for (j = 0; j < INPUT_BUFFER_LENGTH - 1; j++){
 #pragma HLS unroll
  Input_local[i][j] = Input_local[i][j+1];
       }
@@ -2951,7 +2250,8 @@ void compute_filter(hls::stream<unsigned char>& inStream,
 void write_result(unsigned char *Output, hls::stream<unsigned char>& outStream){
 mem_wr:
   for (int i = 0; i < ((((540) / 2) - ((7) - 1)) * (((960) / 2) - ((7) - 1))); i++){
-#pragma HLS LOOP_TRIPCOUNT min = (OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH) max = (OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH)
+
+#pragma HLS LOOP_TRIPCOUNT min = (474 * 264) max = (474 * 264)
 #pragma HLS PIPELINE
  Output[i] = outStream.read();
   }
@@ -2971,7 +2271,7 @@ __attribute__((sdx_kernel("Filter_HW", 0))) void Filter_HW(const unsigned char *
             unsigned char * Output)
 {
 #pragma HLS TOP name=Filter_HW
-# 172 "Filter.cpp"
+# 177 "Filter.cpp"
 
   static hls::stream<unsigned char> inStream("Input_stream");
   static hls::stream<unsigned char> outStream("Output_stream");
