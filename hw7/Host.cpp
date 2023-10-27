@@ -13,34 +13,15 @@
 #include <unistd.h>
 #include <vector>
 
-#include "MMult.h"
+#include "Pipeline.h"
 #include "Utilities.h"
-
-static void init_arrays(float *A[NUM_MAT], float *B[NUM_MAT])
-{
-    for (int m = 0; m < NUM_MAT; m++)
-    {
-        for (int c = 0; c < CHUNKS; c++)
-        {
-            for (int i = 0; i < N; i++)
-            {
-                for (int j = 0; j < N; j++)
-                {
-                    A[m][ c * N * N + i * N + j] = 1+i*N+j;
-                    B[m][ c * N * N + i * N + j] = rand() % (N * N);
-                }
-            }
-        }
-    }
-}
 
 int main(int argc, char *argv[])
 {
     EventTimer timer1, timer2;
     timer1.add("Main program");
 
-    std::cout << "Running " << CHUNKS << "x" <<NUM_TESTS << " iterations of " << N << "x" << N
-    << " task pipelined floating point mmult..." << std::endl;
+    std::cout << "Running " << FRAMES << " iterations of " << " task" << std::endl;
     // ------------------------------------------------------------------------------------
     // Step 1: Initialize the OpenCL environment
      // ------------------------------------------------------------------------------------
@@ -56,100 +37,93 @@ int main(int argc, char *argv[])
     cl::Program::Binaries bins{{fileBuf, fileBufSize}};
     cl::Program program(context, devices, bins, NULL, &err);
     cl::CommandQueue q(context, device, CL_QUEUE_PROFILING_ENABLE | CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE, &err);
-    cl::Kernel krnl_mmult(program, "mmult_fpga", &err);
+    cl::Kernel krnl_filter(program, "Filter_HW", &err);
 
     // ------------------------------------------------------------------------------------
     // Step 2: Create buffers and initialize test values
     // ------------------------------------------------------------------------------------
     timer2.add("Allocate contiguous OpenCL buffers");
 
-    size_t elements_per_iteration = CHUNKS * N * N;
-    size_t bytes_per_iteration = elements_per_iteration * sizeof(float);
+    size_t Input_buf_size = SCALED_FRAME_HEIGHT * SCALED_FRAME_WIDTH;
+    size_t Output_buf_size = OUTPUT_FRAME_HEIGHT * OUTPUT_FRAME_WIDTH;
 
-    cl::Buffer a_buf[NUM_MAT];
-    cl::Buffer b_buf[NUM_MAT];
-    cl::Buffer c_buf[NUM_MAT];
-    for(int i = 0; i < NUM_MAT; i++)
+    cl::Buffer Input_buf[FRAMES];
+    cl::Buffer Output_buf[FRAMES];
+ 
+    for(int i = 0; i < FRAMES; i++)
     {
-        a_buf[i] = cl::Buffer(context, CL_MEM_READ_ONLY, bytes_per_iteration, NULL, &err);
-        b_buf[i] = cl::Buffer(context, CL_MEM_READ_ONLY, bytes_per_iteration, NULL, &err);
-        c_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, bytes_per_iteration, NULL, &err);
+        Input_buf[i] = cl::Buffer(context, CL_MEM_READ_ONLY, Input_buf_size, NULL, &err);
+        Output_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, Output_buf_size, NULL, &err);
     }
 
-    float *a[NUM_MAT];
-    float *b[NUM_MAT];
-    float *c[NUM_MAT];
-    for(int i = 0; i < NUM_MAT; i++)
+    unsigned char *Input_Scale[FRAMES], *Output_Scale[FRAMES], 
+                  *Input_Differentiate[FRAMES], *Output_Differentiate[FRAMES], 
+                  *Input_Compress[FRAMES], *Output_Compress;
+    int Result_size[FRAMES];
+
+    for(int i = 0; i < FRAMES; i++)
     {
-        a[i] = (float*)q.enqueueMapBuffer(a_buf[i], CL_TRUE, CL_MAP_WRITE, 0, bytes_per_iteration);
-        b[i] = (float*)q.enqueueMapBuffer(b_buf[i], CL_TRUE, CL_MAP_WRITE, 0, bytes_per_iteration);
-        c[i] = (float*)q.enqueueMapBuffer(c_buf[i], CL_TRUE, CL_MAP_READ, 0, bytes_per_iteration);
+        Output_Scale[i] = (unsigned char*)q.enqueueMapBuffer(Input_buf[i], CL_TRUE, CL_MAP_WRITE, 0, Input_buf_size);
+        Input_Differentiate[i] = (unsigned char*)q.enqueueMapBuffer(Output_buf[i], CL_TRUE, CL_MAP_READ, 0, Output_buf_size);
     }
 
     timer2.add("Populating buffer inputs");
-    init_arrays(a, b);
+    Load_data(Input_Scale);
 
     // ------------------------------------------------------------------------------------
-    // Step 3: Run the kernel
+    // Step 3: Start computing
     // ------------------------------------------------------------------------------------
 
-    timer2.add("Running kernel");
-
-    std::vector<cl::Event> read_done(NUM_TESTS);    // host perspective 
-    std::vector<cl::Event> write_done(NUM_TESTS);
-    std::vector<cl::Event> execute_done(NUM_TESTS); // host perspective 
+    //--- define flags for kernel
+    std::vector<cl::Event> write_done[FRAMES];
     std::vector<cl::Event> write_waitlist;
-    std::vector<std::vector<cl::Event>> execute_waitlists(NUM_TESTS);
-    std::vector<std::vector<cl::Event>> read_waitlists(NUM_TESTS);
-    for (int i = 0; i < NUM_TESTS; i++)
-    {
+    std::vector<std::vector<cl::Event>> execute_waitlist[FRAMES];
+    std::vector<cl::Event> execute_done[FRAMES];
+    std::vector<std::vector<cl::Event>> read_waitlist[FRAMES];
+    std::vector<cl::Event> read_done[FRAMES];
 
-        if(i >= 4)
-        {
-            read_done[i-4].wait();
-        }
+    timer2.add("Running the computation");
+    for (int i = 0; i < FRAMES; i++){  //start computation
+        Scale_SW(Input_Scale[i], Output_Scale[i]);
+        //--------------------------------kernel computation --------------------------------
+        Filter_HW.setArg(0, Input_buf[i]);
+        Filter_HW.setArg(1, Output_buf[i]);
 
-        krnl_mmult.setArg(0, a_buf[i%NUM_MAT]);
-        krnl_mmult.setArg(1, b_buf[i%NUM_MAT]);
-        krnl_mmult.setArg(2, c_buf[i%NUM_MAT]);
-        if(i == 0)
-        {
-            q.enqueueMigrateMemObjects({a_buf[i%NUM_MAT], b_buf[i%NUM_MAT]}, 0 /* 0 means from host*/, NULL, &write_done[i]);
+        if (i == 0){
+            q.enqueueMigrateMemObjects({Input_buf[i]}, 0 /* 0 means from host*/, NULL, &write_done[i]);
             write_waitlist.push_back(write_done[i]);
-        }
-        else
-        {
-            q.enqueueMigrateMemObjects({a_buf[i%NUM_MAT], b_buf[i%NUM_MAT]}, 0 /* 0 means from host*/, &write_waitlist, &write_done[i]);
+        } else{
+            q.enqueueMigrateMemObjects({Input_buf[i]}, 0 /* 0 means from host*/, &write_waitlist, &write_done[i]);
             write_waitlist.push_back(write_done[i]);
         }
 
-        //std::vector<cl::Event> execute_waitlist;
         execute_waitlists[i].push_back(write_done[i]);
-        q.enqueueTask(krnl_mmult, &execute_waitlists[i], &execute_done[i]);
+        q.enqueueTask(krnl_filter, &execute_waitlists[i], &execute_done[i]);
 
-        //std::vector<cl::Event> read_waitlist;
         read_waitlists[i].push_back(execute_done[i]);
-        q.enqueueMigrateMemObjects({c_buf[i%NUM_MAT]}, CL_MIGRATE_MEM_OBJECT_HOST, &read_waitlists[i], &read_done[i]);
-    }
+        q.enqueueMigrateMemObjects({Output_buf[i]}, CL_MIGRATE_MEM_OBJECT_HOST, &read_waitlists[i], &read_done[i]);
+        read_waitlist[i+1].push_back(read_done[i]);
+        //--------------------------------kernel computation --------------------------------
+        if (read_done[i]){
+            Differentiate_SW(Input_Differentiate[i], Output_Differentiate[i]);
+            Result_size = Compress_SW(Input_Compress[i], Output_Compress);
+        }
+    } //end computation
 
     q.finish();
 
     // ------------------------------------------------------------------------------------
-    // Step 4: Release Allocated Resources
+    // Step 4: Compare Results
     // ------------------------------------------------------------------------------------
+    timer2.add("Writing compressed results to output_fpga.bin");
+    Store_data("Output.bin", Output_Differentiate, Result_size);
 
-    timer2.add("Writing output to output_fpga.bin");
-    FILE *file = fopen("output_fpga.bin", "wb");
-
-    for (int i = 0; i < NUM_MAT; i++)
-    {
-      fwrite(c[i], 1, bytes_per_iteration, file);
-    }
-    fclose(file);
-
-    delete[] fileBuf;
-
+    timer2.add("Check results with Golden.bin");
+    Check_data(Output_Compress, Result_size);
     timer2.finish();
+    // ------------------------------------------------------------------------------------
+    // Step 5: Release Allocated Resources
+    // ------------------------------------------------------------------------------------
     std::cout << "--------------- Key execution times ---------------"
     << std::endl;
     timer2.print();
