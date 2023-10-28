@@ -72,9 +72,9 @@
 			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Pipeline.h</location>
 		</link>
 		<link>
-			<name>testbench/testbench_Filter_HW.cpp</name>
+			<name>testbench/Testbench.cpp</name>
 			<type>1</type>
-			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/testbench_Filter_HW.cpp</location>
+			<location>/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Testbench.cpp</location>
 		</link>
 		<link>
 			<name>P1/constraints/.xml.directive</name>

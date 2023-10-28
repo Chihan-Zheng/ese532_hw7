@@ -58,14 +58,17 @@ int main(int argc, char *argv[])
                   *Input_Differentiate[FRAMES], *Output_Differentiate[FRAMES];
                 //   *Input_Compress[FRAMES];
     int Result_size;
-    unsigned char *Input_Scale = (unsigned char*)malloc(INPUT_FRAME_WIDTH * INPUT_FRAME_HEIGHT * FRAMES * sizeof(unsigned char));
-    unsigned char *Output_Compress = (unsigned char*)malloc(MAX_OUTPUT_SIZE * sizeof(unsigned char));
+    unsigned char *Input_Scale = (unsigned char*)malloc(INPUT_FRAME_WIDTH * INPUT_FRAME_HEIGHT * FRAMES);
+    unsigned char *Output_Compress = (unsigned char*)malloc(MAX_OUTPUT_SIZE);
 
 
     for (int i = 0; i < FRAMES; i++){
-        Output_Scale[i] = (unsigned char*)malloc(SCALED_FRAME_WIDTH * SCALED_FRAME_HEIGHT * sizeof(unsigned char));
-        Input_Differentiate[i] = (unsigned char*)malloc(OUTPUT_FRAME_WIDTH * OUTPUT_FRAME_HEIGHT * sizeof(unsigned char));
-        Output_Differentiate[i] = (unsigned char*)malloc(OUTPUT_FRAME_WIDTH * OUTPUT_FRAME_HEIGHT * sizeof(unsigned char));
+        Output_Scale[i] = (unsigned char*)malloc(SCALED_FRAME_WIDTH * SCALED_FRAME_HEIGHT);
+        Input_Differentiate[i] = (unsigned char*)malloc(OUTPUT_FRAME_WIDTH * OUTPUT_FRAME_HEIGHT);
+        Output_Differentiate[i] = (unsigned char*)malloc(OUTPUT_FRAME_WIDTH * OUTPUT_FRAME_HEIGHT);
+        if (Output_Scale[i] == NULL){Exit_with_error("malloc failed at main for Output_Scale[i]");}
+        if (Input_Differentiate[i] == NULL){Exit_with_error("malloc failed at main for Input_Differentiate[i]");}
+        if (Output_Differentiate[i] == NULL){Exit_with_error("malloc failed at main for Output_Differentiate[i]");}
     }
 
     // for(int i = 0; i < FRAMES; i++)
@@ -94,29 +97,28 @@ int main(int argc, char *argv[])
         printf("before scale: %d\n", i);
         Scale_SW(Input_Scale + i * FRAME_SIZE, Output_Scale[i]);
         printf("after scale: %d\n", i);
-        Filter_SW(Output_Scale[i], Input_Differentiate[i]);
         //--------------------------------kernel computation --------------------------------
-        // krnl_filter.setArg(0, Input_buf[i]);
-        // krnl_filter.setArg(1, Output_buf[i]);
-        // printf("before migrate input for filter: %d\n", i);
-        // if (i == 0){
-        //     q.enqueueMigrateMemObjects({Input_buf[i]}, 0 /* 0 means from host*/, NULL, &write_done[i]);
-        //     write_waitlist.push_back(write_done[i]);
-        // } else{
-        //     q.enqueueMigrateMemObjects({Input_buf[i]}, 0 /* 0 means from host*/, &write_waitlist, &write_done[i]);
-        //     write_waitlist.push_back(write_done[i]);
-        // }
-        // printf("after migrate input for filter: %d\n", i);
-        // printf("before execute kernel: %d\n", i);
-        // execute_waitlist[i].push_back(write_done[i]);
-        // q.enqueueTask(krnl_filter, &execute_waitlist[i], &execute_done[i]);
-        // printf("before after kernel: %d\n", i);
+        krnl_filter.setArg(0, Input_buf[i]);
+        krnl_filter.setArg(1, Output_buf[i]);
+        printf("before migrate input for filter: %d\n", i);
+        if (i == 0){
+            q.enqueueMigrateMemObjects({Input_buf[i]}, 0 /* 0 means from host*/, NULL, &write_done[i]);
+            write_waitlist.push_back(write_done[i]);
+        } else{
+            q.enqueueMigrateMemObjects({Input_buf[i]}, 0 /* 0 means from host*/, &write_waitlist, &write_done[i]);
+            write_waitlist.push_back(write_done[i]);
+        }
+        printf("after migrate input for filter: %d\n", i);
+        printf("before execute kernel: %d\n", i);
+        execute_waitlist[i].push_back(write_done[i]);
+        q.enqueueTask(krnl_filter, &execute_waitlist[i], &execute_done[i]);
+        printf("before after kernel: %d\n", i);
 
-        // printf("before migrate kernel output: %d\n", i);
-        // read_waitlist[i].push_back(execute_done[i]);
-        // q.enqueueMigrateMemObjects({Output_buf[i]}, CL_MIGRATE_MEM_OBJECT_HOST, &read_waitlist[i], &read_done[i]);
-        // read_waitlist[i+1].push_back(read_done[i]);
-        // printf("after migrate kernel output: %d\n", i);
+        printf("before migrate kernel output: %d\n", i);
+        read_waitlist[i].push_back(execute_done[i]);
+        q.enqueueMigrateMemObjects({Output_buf[i]}, CL_MIGRATE_MEM_OBJECT_HOST, &read_waitlist[i], &read_done[i]);
+        read_waitlist[i+1].push_back(read_done[i]);
+        printf("after migrate kernel output: %d\n", i);
         //--------------------------------kernel computation --------------------------------
         
 /*         cl_int read_status = read_done[i].getInfo<CL_EVENT_COMMAND_EXECUTION_STATUS>();
@@ -166,3 +168,7 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
+
+
+

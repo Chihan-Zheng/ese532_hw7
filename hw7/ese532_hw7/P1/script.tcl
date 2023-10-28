@@ -7,7 +7,7 @@ open_project ese532_hw7
 set_top Filter_HW
 add_files Filter.cpp
 add_files Pipeline.h
-add_files -tb testbench_Filter_HW.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
+add_files -tb Testbench.cpp
 open_solution "P1" -flow_target vitis
 set_part {xczu3eg-sbva484-1-i}
 create_clock -period 150MHz -name default

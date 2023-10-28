@@ -11,7 +11,7 @@
         <config_export format="xo" output="/home1/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xo" rtl="verilog"/>
     </config>
     <UIConfigurations>
-        <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
+        <UIAutosynConf hideTrivialOp="true" isBasedOnBoard="false" isSolutionDirty="true" isStopAskAgain="false" showDetailDesignViewer="false">
             <Platform>xilinx/zynquplus/zynquplus</Platform>
             <Platform>xilinx/zynquplus/zynquplus_fpv7</Platform>
             <customLibs/>

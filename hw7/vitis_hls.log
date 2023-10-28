@@ -1,0 +1,47 @@
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running '/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'chihan' on host 'knock.seas.upenn.edu' (Linux_x86_64 version 5.14.21-150500.55.31-default) on Sat Oct 28 17:39:52 EDT 2023
+INFO: [HLS 200-10] On os "openSUSE Leap 15.5"
+INFO: [HLS 200-10] In directory '/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7'
+Sourcing Tcl script '/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P4/csim.tcl'
+INFO: [HLS 200-1510] Running: open_project ese532_hw7 
+INFO: [HLS 200-10] Opening project '/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7'.
+INFO: [HLS 200-1510] Running: set_top Filter_HW 
+INFO: [HLS 200-1510] Running: add_files Filter.cpp 
+INFO: [HLS 200-10] Adding design file 'Filter.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files Pipeline.h 
+INFO: [HLS 200-10] Adding design file 'Pipeline.h' to the project
+INFO: [HLS 200-1510] Running: add_files -tb Testbench.cpp 
+INFO: [HLS 200-10] Adding test bench file 'Testbench.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution P4 -flow_target vitis 
+INFO: [HLS 200-10] Opening solution '/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/ese532_hw7/P4'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.667ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_interface -default_interface=kernel
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_offset=slave
+INFO: [HLS 200-1464] Running solution command: config_rtl -register_reset_num=3
+INFO: [HLS 200-1464] Running solution command: config_export -format=xo
+INFO: [HLS 200-1464] Running solution command: config_export -output=/home1/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xo
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 150MHz -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave 
+INFO: [HLS 200-1510] Running: config_rtl -register_reset_num 3 
+INFO: [HLS 200-1510] Running: config_export -format xo -output /home1/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xo -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_top -name Filter_HW Filter_HW 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../Testbench.cpp in debug mode
+   Compiling ../../../../Filter.cpp in debug mode
+   Generating csim.exe
+TEST PASSED!
+The maximum depth reached by any of the 3 hls::stream() instances in the design is 129600
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0.69 seconds. CPU system time: 0.25 seconds. Elapsed time: 2.35 seconds; current allocated memory: 208.504 MB.
