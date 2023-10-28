@@ -44,9 +44,17 @@ void Check_data(unsigned char *Data, unsigned int Size)
 
     if (Size == 0)
         Exit_with_error("fclose for Check_data failed, Size==0");
-
-    if (fread(Data_golden, 1, Size, File) != Size)
+    //----------------------------------------test code-------------------------------  
+    unsigned int golden_size;
+    golden_size = fread(Data_golden, 1, Size, File);
+    if (golden_size != Size){
+        printf("size of Data_gold: %0ld, size of Output data: %0ld\n", golden_size, Size);
         Exit_with_error("fread for Check_data failed, Different Size");
+    }
+    //----------------------------------------test code-------------------------------  
+
+/*     if (fread(Data_golden, 1, Size, File) != Size)
+        Exit_with_error("fread for Check_data failed, Different Size"); */
 
     if (fclose(File) != 0)
         Exit_with_error("fclose for Check_data failed");

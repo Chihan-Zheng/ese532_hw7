@@ -12,10 +12,11 @@
 #include <iostream>
 #include <unistd.h>
 #include <vector>
+#include <string.h>
 
 #include "Pipeline.h"
 #include "Utilities.h"
-#include "Stopwatch.h"
+#include "stopwatch.h"
 #include "EventTimer.h"
 
 int main(int argc, char *argv[])
@@ -64,7 +65,7 @@ int main(int argc, char *argv[])
     Temp_data[1] = (unsigned char*)q.enqueueMapBuffer(Temp_1_buf, CL_TRUE, CL_MAP_READ, 0, bytes_per_iteration);
 
     // Step 3: Run the compression flow on host + kernel
-    td::cout << "Compressing " << FRAMES << " frames" << std::endl;
+    std::cout << "Compressing " << FRAMES << " frames" << std::endl;
     std::vector<cl::Event> write_events, exec_events, read_events;
     cl::Event write_ev, exec_ev, read_ev;
     for (int Frame = 0; Frame < FRAMES; Frame++){
@@ -72,6 +73,8 @@ int main(int argc, char *argv[])
         //Scale on host
         time_scale.start();
         Scale_SW(Input_data + Frame * FRAME_SIZE, Temp_data[0]);
+        printf("size of Input_data: %zu\n", strlen(Input_data));
+        printf("size of Scale Output: %zu\n", strlen(Temp_data[0]));
         time_scale.stop();
         //Filter on FPGA kernel
         time_filter.start();
@@ -91,10 +94,12 @@ int main(int argc, char *argv[])
         //Differentiate on host
         time_differentiate.start();
         Differentiate_SW(Temp_data[1], Temp_data[2]);
+        printf("size of Differentiate Output: %0ld\n", strlen(Temp_data[2]));
         time_differentiate.stop();
         //Compression on host
         time_compress.start();
         Size = Compress_SW(Temp_data[2], Output_data);
+        printf("size of Compress Output: %zu\n", strlen(Output_data));
         time_compress.stop();
         total_time.stop();
     }
