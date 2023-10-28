@@ -24,7 +24,7 @@ XCLBIN := Filter_HW.xclbin
 #
 # host files
 #
-HOST_SOURCES = ./Host.cpp ./fpga/Utilities.cpp ./fpga/EventTimer.cpp ./fpga/Scale.cpp ./fpga/Differentiate.cpp ./fpga/Compress.cpp
+HOST_SOURCES = ./Host.cpp ./fpga/Utilities.cpp ./fpga/EventTimer.cpp ./fpga/Scale.cpp ./fpga/Differentiate.cpp ./fpga/Compress.cpp ./fpga/Filter.cpp
 HOST_OBJECTS =$(HOST_SOURCES:.cpp=.o)
 HOST_EXE = host
 
