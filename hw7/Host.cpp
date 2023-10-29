@@ -63,19 +63,15 @@ int main(int argc, char *argv[])
 
 
     for (int i = 0; i < FRAMES; i++){
-        Output_Scale[i] = (unsigned char*)malloc(SCALED_FRAME_WIDTH * SCALED_FRAME_HEIGHT);
-        Input_Differentiate[i] = (unsigned char*)malloc(OUTPUT_FRAME_WIDTH * OUTPUT_FRAME_HEIGHT);
         Output_Differentiate[i] = (unsigned char*)malloc(OUTPUT_FRAME_WIDTH * OUTPUT_FRAME_HEIGHT);
-        if (Output_Scale[i] == NULL){Exit_with_error("malloc failed at main for Output_Scale[i]");}
-        if (Input_Differentiate[i] == NULL){Exit_with_error("malloc failed at main for Input_Differentiate[i]");}
         if (Output_Differentiate[i] == NULL){Exit_with_error("malloc failed at main for Output_Differentiate[i]");}
     }
 
-    // for(int i = 0; i < FRAMES; i++)
-    // {
-    //     Output_Scale[i] = (unsigned char*)q.enqueueMapBuffer(Input_buf[i], CL_TRUE, CL_MAP_WRITE, 0, Input_buf_size);
-    //     Input_Differentiate[i] = (unsigned char*)q.enqueueMapBuffer(Output_buf[i], CL_TRUE, CL_MAP_READ, 0, Output_buf_size);
-    // }
+    for(int i = 0; i < FRAMES; i++)
+    {
+        Output_Scale[i] = (unsigned char*)q.enqueueMapBuffer(Input_buf[i], CL_TRUE, CL_MAP_WRITE, 0, Input_buf_size);
+        Input_Differentiate[i] = (unsigned char*)q.enqueueMapBuffer(Output_buf[i], CL_TRUE, CL_MAP_READ, 0, Output_buf_size);
+    }
 
     timer2.add("Populating input for Scale");
     Load_data(Input_Scale);
@@ -94,13 +90,10 @@ int main(int argc, char *argv[])
 
     timer2.add("Running the computation");
     for (int i = 0; i < FRAMES; i++){  //start computation
-        printf("before scale: %d\n", i);
         Scale_SW(Input_Scale + i * FRAME_SIZE, Output_Scale[i]);
-        printf("after scale: %d\n", i);
         //--------------------------------kernel computation --------------------------------
         krnl_filter.setArg(0, Input_buf[i]);
         krnl_filter.setArg(1, Output_buf[i]);
-        printf("before migrate input for filter: %d\n", i);
         if (i == 0){
             q.enqueueMigrateMemObjects({Input_buf[i]}, 0 /* 0 means from host*/, NULL, &write_done[i]);
             write_waitlist.push_back(write_done[i]);
@@ -108,31 +101,26 @@ int main(int argc, char *argv[])
             q.enqueueMigrateMemObjects({Input_buf[i]}, 0 /* 0 means from host*/, &write_waitlist, &write_done[i]);
             write_waitlist.push_back(write_done[i]);
         }
-        printf("after migrate input for filter: %d\n", i);
-        printf("before execute kernel: %d\n", i);
+
         execute_waitlist[i].push_back(write_done[i]);
         q.enqueueTask(krnl_filter, &execute_waitlist[i], &execute_done[i]);
-        printf("before after kernel: %d\n", i);
 
-        printf("before migrate kernel output: %d\n", i);
         read_waitlist[i].push_back(execute_done[i]);
         q.enqueueMigrateMemObjects({Output_buf[i]}, CL_MIGRATE_MEM_OBJECT_HOST, &read_waitlist[i], &read_done[i]);
         read_waitlist[i+1].push_back(read_done[i]);
-        printf("after migrate kernel output: %d\n", i);
         //--------------------------------kernel computation --------------------------------
         
-/*         cl_int read_status = read_done[i].getInfo<CL_EVENT_COMMAND_EXECUTION_STATUS>();
-        printf("Read status: %d\n", read_status);
-        if (read_status == CL_COMPLETE) {
-            Differentiate_SW(Input_Differentiate[i], Output_Differentiate[i]);
-            Result_size = Compress_SW(Output_Differentiate[i], Output_Compress);
-        } */
+        // std::vector<std::vector<cl_int>> read_status(FRAMES, std::vector<cl_int>(1));
+        // read_status[i][0] = read_done[i].getInfo<CL_EVENT_COMMAND_EXECUTION_STATUS>();
+        // // printf("Read status: %d\n", read_status);
+        // if (read_status[i][0] == CL_COMPLETE) {
+        //     Differentiate_SW(Input_Differentiate[i], Output_Differentiate[i]);
+        //     Result_size = Compress_SW(Output_Differentiate[i], Output_Compress);
+        // }
 
-        printf("before doing diff and compress: %d\n", i);
         // read_done[i].wait();
         Differentiate_SW(Input_Differentiate[i], Output_Differentiate[i]);
         Result_size = Compress_SW(Output_Differentiate[i], Output_Compress);
-        printf("after doing diff and compress: %d\n", i);
     } //end computation
 
     q.finish();
@@ -159,16 +147,11 @@ int main(int argc, char *argv[])
     timer1.print();
 
     for (int i = 0; i < FRAMES; i++){
-        free(Output_Scale[i]);
-        free(Input_Differentiate[i]);
         free(Output_Differentiate[i]);
+        q.enqueueUnmapMemObject(Input_buf[i], Output_Scale[i]);
+        q.enqueueUnmapMemObject(Output_buf[i], Input_Differentiate[i]);
     }
     free(Input_Scale);
     free(Output_Compress);
-
     return 0;
 }
-
-
-
-

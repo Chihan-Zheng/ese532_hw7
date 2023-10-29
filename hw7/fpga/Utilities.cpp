@@ -37,7 +37,7 @@ void Store_data(const char *Filename, unsigned char *Data, unsigned int Size)
 void Check_data(unsigned char *Data, unsigned int Size)
 {
     int error_code = 0;
-    unsigned char *Data_golden = (unsigned char *)malloc(MAX_OUTPUT_SIZE*100);
+    unsigned char *Data_golden = (unsigned char *)malloc(MAX_OUTPUT_SIZE);
     FILE *File = fopen("../data/Golden.bin", "rb");
     
     if (File == NULL)
@@ -65,7 +65,7 @@ void Check_data(unsigned char *Data, unsigned int Size)
         }
         // printf("after compare: %d\n", i);
     }
-    printf("after compare\n");
+    // printf("after compare\n");
     free(Data_golden);
 
     if (error_code != 0)
