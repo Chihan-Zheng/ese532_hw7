@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<cf:model cf:cpu="cortex_a53" cf:partition="0" cf:prefix="p_0_" cf:name="dr" xd:type="design" xmlns:xd="http://www.xilinx.com/xd" xmlns:cf="http://www.xilinx.com/connections">
+  <cf:block cf:name="hwblk_Filter_HW">
+    <cf:port cf:name="s_axi_control" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="Input" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="Output" cf:portType="stream" cf:direction="in"/>
+  </cf:block>
+  <cf:block cf:name="swblk_Filter_HW">
+    <cf:port cf:name="s_axi_control" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="Input" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="Output" cf:portType="stream" cf:direction="out"/>
+  </cf:block>
+  <cf:comp cf:name="u96v2_sbc_base" xd:componentRef="u96v2_sbc_base" xd:clockId="0"/>
+  <cf:comp cf:name="Filter_HW_1" xd:componentRef="Filter_HW" xd:clockId="0"/>
+  <cf:instance cf:name="hwinst_Filter_HW_1" cf:blockName="hwblk_Filter_HW" cf:compName="Filter_HW_1">
+    <cf:portMap cf:blockPort="s_axi_control" cf:compPort="s_axi_control" xd:register="0x0"/>
+    <cf:portMap cf:blockPort="Input" cf:compPort="m_axi_gmem" cf:ctrlPort="s_axi_control" xd:register="0x10"/>
+    <cf:portMap cf:blockPort="Output" cf:compPort="m_axi_gmem" cf:ctrlPort="s_axi_control" xd:register="0x1C"/>
+  </cf:instance>
+  <cf:instance cf:name="swinst_Filter_HW_1" cf:blockName="swblk_Filter_HW" cf:compName="u96v2_sbc_base">
+    <cf:portMap cf:blockPort="s_axi_control" cf:compPort="zynq_ultra_ps_e_0_M_AXI_HPM1_FPD"/>
+    <cf:portMap cf:blockPort="Input" cf:compPort="zynq_ultra_ps_e_0_S_AXI_HP0_FPD" cf:ctrlPort="zynq_ultra_ps_e_0_M_AXI_HPM1_FPD" cf:sptag="HP0"/>
+    <cf:portMap cf:blockPort="Output" cf:compPort="zynq_ultra_ps_e_0_S_AXI_HP0_FPD" cf:ctrlPort="zynq_ultra_ps_e_0_M_AXI_HPM1_FPD" cf:sptag="HP0"/>
+  </cf:instance>
+  <cf:connection cf:srcInst="swinst_Filter_HW_1" cf:srcPort="s_axi_control" cf:dstInst="hwinst_Filter_HW_1" cf:dstPort="s_axi_control">
+    <cf:dataMover cf:compName="u96v2_sbc_base" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_Filter_HW_1" cf:srcPort="Input" cf:dstInst="hwinst_Filter_HW_1" cf:dstPort="Input">
+    <cf:dataMover cf:compName="Filter_HW_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_Filter_HW_1" cf:srcPort="Output" cf:dstInst="hwinst_Filter_HW_1" cf:dstPort="Output">
+    <cf:dataMover cf:compName="Filter_HW_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+</cf:model>

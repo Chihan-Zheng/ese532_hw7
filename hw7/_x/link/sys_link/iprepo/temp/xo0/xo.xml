@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root VersionMajor="6" VersionMinor="0" SoftwareVersionMajor="2020" SoftwareVersionMinor="2" IpCache="no">
+  <IpCaches/>
+  <Kernels>
+    <Kernel Name="Filter_HW" Dir="Filter_HW" IP="ip_repo/xilinx_com_hls_Filter_HW_1_0" TopIpDir="." ProjectID="373e94ae2fed4b7da4b773ad53d6179f" Debug="yes" Hls="yes" Pdi="no" ShimSoln="no" SwEmu="no">
+      <SupportedFlows>
+        <SupportedFlow>CPU_EMU</SupportedFlow>
+        <SupportedFlow>HW_EMU</SupportedFlow>
+        <SupportedFlow>SYSTEM</SupportedFlow>
+      </SupportedFlows>
+    </Kernel>
+  </Kernels>
+</Root>

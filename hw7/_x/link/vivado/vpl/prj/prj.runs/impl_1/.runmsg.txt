@@ -1,0 +1,2 @@
+Compiling (bitstream) accelerator binary: Filter_HW
+Log file: /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/vivado/vpl/prj/prj.runs/impl_1/runme.log

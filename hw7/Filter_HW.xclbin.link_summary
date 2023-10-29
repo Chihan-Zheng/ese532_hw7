@@ -1,0 +1,1129 @@
+<ENTRY>
+{
+ "thisFile": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xclbin.link_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Sun Oct 29 12:55:19 2023",
+ "timestampMillis": "1698598519831",
+ "buildStep": {
+  "cmdId": "6a27f031-b8c5-4894-b8a9-dbeeda6524b7",
+  "name": "v++",
+  "logFile": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/link.steps.log",
+  "commandLine": "/mnt/pollux/software/xilinx/2020.2/Vitis/2020.2/bin/unwrapped/lnx64.o/v++  --xp \"vivado_prop:run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --xp \"misc:report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --xp \"misc:report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" --target hw --link --config ./u96_v2.cfg -oFilter_HW.xclbin Filter_HW.xo ",
+  "args": [
+   "--target",
+   "hw",
+   "--link",
+   "--config",
+   "./u96_v2.cfg",
+   "-oFilter_HW.xclbin",
+   "Filter_HW.xo"
+  ],
+  "iniFiles": [
+   {
+    "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/u96_v2.cfg",
+    "content": "platform=u96v2_sbc_base\ndebug=1\nsave-temps=1\n\n#[profile]\n#data=all:all:all\n"
+   }
+  ],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 12:55:19 2023",
+ "timestampMillis": "1698598519834",
+ "status": {
+  "cmdId": "6a27f031-b8c5-4894-b8a9-dbeeda6524b7",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Sun Oct 29 12:55:24 2023",
+ "timestampMillis": "1698598524302",
+ "buildSummary": {
+  "hardwarePlatform": "u96v2_sbc_base.xpfm",
+  "hardwareDsa": "u96v2_sbc_base.xsa",
+  "platformDirectory": "/home1/e/ese5320/u96v2_sbc_base",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_LINK",
+  "target": "TT_HW",
+  "binaryContainer": {
+   "base": {
+    "type": "BT_UKNOWN",
+    "name": "Filter_HW",
+    "file": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xclbin",
+    "reports": [],
+    "uuid": ""
+   },
+   "kernels": []
+  },
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "Filter_HW",
+     "file": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/xo/Filter_HW/Filter_HW/cpu_sources/Filter.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [
+     "Filter_HW_1"
+    ],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2020.2. SW Build (by xbuild) on 2020-11-18-05:13:29"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 12:55:24 2023",
+ "timestampMillis": "1698598524594",
+ "buildStep": {
+  "cmdId": "6a87e81f-a01a-4c70-ad07-7aa1d6362444",
+  "name": "system_link",
+  "logFile": "",
+  "commandLine": "system_link --xo /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xo -keep --xpfm /home1/e/ese5320/u96v2_sbc_base/u96v2_sbc_base.xpfm --target hw --output_dir /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int --temp_dir /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/sys_link",
+  "args": [
+   "--xo",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xo",
+   "-keep",
+   "--xpfm",
+   "/home1/e/ese5320/u96v2_sbc_base/u96v2_sbc_base.xpfm",
+   "--target",
+   "hw",
+   "--output_dir",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int",
+   "--temp_dir",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/sys_link"
+  ],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 12:55:24 2023",
+ "timestampMillis": "1698598524595",
+ "status": {
+  "cmdId": "6a87e81f-a01a-4c70-ad07-7aa1d6362444",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 12:55:36 2023",
+ "timestampMillis": "1698598536096",
+ "status": {
+  "cmdId": "6a87e81f-a01a-4c70-ad07-7aa1d6362444",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 12:55:36 2023",
+ "timestampMillis": "1698598536116",
+ "buildStep": {
+  "cmdId": "8b612d37-1ca4-4e7f-960f-23c00c95859b",
+  "name": "cf2sw",
+  "logFile": "",
+  "commandLine": "cf2sw -sdsl /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/sdsl.dat -rtd /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/cf2sw.rtd -nofilter /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/cf2sw_full.rtd -xclbin /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/xclbin_orig.xml -o /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/xclbin_orig.1.xml",
+  "args": [
+   "-sdsl",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/sdsl.dat",
+   "-rtd",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/cf2sw.rtd",
+   "-nofilter",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/cf2sw_full.rtd",
+   "-xclbin",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/xclbin_orig.xml",
+   "-o",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/xclbin_orig.1.xml"
+  ],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 12:55:36 2023",
+ "timestampMillis": "1698598536118",
+ "status": {
+  "cmdId": "8b612d37-1ca4-4e7f-960f-23c00c95859b",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 12:55:37 2023",
+ "timestampMillis": "1698598537710",
+ "status": {
+  "cmdId": "8b612d37-1ca4-4e7f-960f-23c00c95859b",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 12:55:37 2023",
+ "timestampMillis": "1698598537729",
+ "buildStep": {
+  "cmdId": "0b1da08e-1ab7-4c9b-a96d-78faf1cb47e8",
+  "name": "rtd2_system_diagram",
+  "logFile": "",
+  "commandLine": "rtd2SystemDiagram",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 12:55:37 2023",
+ "timestampMillis": "1698598537730",
+ "status": {
+  "cmdId": "0b1da08e-1ab7-4c9b-a96d-78faf1cb47e8",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 12:55:41 2023",
+ "timestampMillis": "1698598541633",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/systemDiagramModel.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 12:55:41 2023",
+ "timestampMillis": "1698598541637",
+ "status": {
+  "cmdId": "0b1da08e-1ab7-4c9b-a96d-78faf1cb47e8",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 12:55:41 2023",
+ "timestampMillis": "1698598541657",
+ "buildStep": {
+  "cmdId": "ba4ba69c-dfbd-4674-819c-e40dc5305c1f",
+  "name": "vpl",
+  "logFile": "",
+  "commandLine": "vpl -t hw -f u96v2_sbc_base -g --remote_ip_cache /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/.ipcache -s --output_dir /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int --log_dir /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/logs/link --report_dir /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link --config /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/vplConfig.ini -k /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link --no-info --iprepo /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/xo/ip_repo/xilinx_com_hls_Filter_HW_1_0 --messageDb /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/run_link/vpl.pb /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/dr.bd.tcl",
+  "args": [
+   "-t",
+   "hw",
+   "-f",
+   "u96v2_sbc_base",
+   "-g",
+   "--remote_ip_cache",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/.ipcache",
+   "-s",
+   "--output_dir",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int",
+   "--log_dir",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/logs/link",
+   "--report_dir",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link",
+   "--config",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/vplConfig.ini",
+   "-k",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/kernel_info.dat",
+   "--webtalk_flag",
+   "Vitis",
+   "--temp_dir",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link",
+   "--no-info",
+   "--iprepo",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/xo/ip_repo/xilinx_com_hls_Filter_HW_1_0",
+   "--messageDb",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/run_link/vpl.pb",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/dr.bd.tcl"
+  ],
+  "iniFiles": [
+   {
+    "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/vplConfig.ini",
+    "content": "[advanced]\nmisc=report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\nmisc=report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\nparam=compiler.enablePerformanceTrace=1\nparam=hw_emu.enableDebugWaveform=1\nparam=hw_emu.enableProfiling=1\nparam=compiler.vppCurrentWorkingDir=/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7\nmisc=BinaryName=Filter_HW\n\n[connectivity]\nnk=Filter_HW:1:Filter_HW_1\n\n[vivado]\nprop=run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\n\n"
+   }
+  ],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 12:55:41 2023",
+ "timestampMillis": "1698598541658",
+ "status": {
+  "cmdId": "ba4ba69c-dfbd-4674-819c-e40dc5305c1f",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Sun Oct 29 12:55:43 2023",
+ "timestampMillis": "1698598543228",
+ "buildStep": {
+  "cmdId": "97936867-e411-4983-a383-8b300fb60d30",
+  "name": "vpl",
+  "logFile": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/link.steps.log",
+  "commandLine": "/mnt/pollux/software/xilinx/2020.2/Vitis/2020.2/bin/unwrapped/lnx64.o/vpl -t hw -f u96v2_sbc_base -g --remote_ip_cache /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/.ipcache -s --output_dir /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int --log_dir /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/logs/link --report_dir /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link --config /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/vplConfig.ini -k /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link --no-info --iprepo /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/xo/ip_repo/xilinx_com_hls_Filter_HW_1_0 --messageDb /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/run_link/vpl.pb /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/dr.bd.tcl ",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/run_link"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 12:55:43 2023",
+ "timestampMillis": "1698598543229",
+ "status": {
+  "cmdId": "97936867-e411-4983-a383-8b300fb60d30",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_VivadoProject",
+ "dateTimestamp": "Sun Oct 29 12:55:56 2023",
+ "timestampMillis": "1698598556126",
+ "vivadoProject": {
+  "openDir": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/vivado/vpl",
+  "openScript": "openprj.tcl",
+  "relativeProject": "prj/prj.xpr"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 12:55:56 2023",
+ "timestampMillis": "1698598556134",
+ "buildStep": {
+  "cmdId": "3bd49582-3603-4256-917e-79cdd98cc536",
+  "name": "vivado",
+  "logFile": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/vivado/vpl/vivado.log",
+  "commandLine": "vivado -log vivado.log -applog -m64 -messageDb vivado.pb -mode batch -source vpl.tcl -notrace",
+  "args": [
+   "-log",
+   "vivado.log",
+   "-applog",
+   " -m64",
+   "-messageDb",
+   "vivado.pb",
+   "-mode",
+   "batch",
+   "-source",
+   "vpl.tcl",
+   "-notrace"
+  ],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/run_link"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 12:55:56 2023",
+ "timestampMillis": "1698598556138",
+ "status": {
+  "cmdId": "3bd49582-3603-4256-917e-79cdd98cc536",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:17:53 2023",
+ "timestampMillis": "1698599873905",
+ "status": {
+  "cmdId": "3bd49582-3603-4256-917e-79cdd98cc536",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875023",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_kernel_util_synthed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_SYNTHESIS"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875051",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_kernel_util_synthed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_SYNTHESIS"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875059",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_full_util_synthed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875066",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_full_util_synthed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875079",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_kernel_util_placed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_PLACEMENT"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875085",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_kernel_util_placed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_PLACEMENT"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875092",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_slr_util_placed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SLR_UTIL_PLACED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875098",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_slr_util_placed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_SLR_UTIL_PLACED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875116",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_kernel_util_routed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_ROUTE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875122",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_kernel_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_ROUTE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875129",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_slr_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SLR_UTIL_ROUTED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875135",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_slr_util_routed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_SLR_UTIL_ROUTED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875143",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_full_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_UTILIZATION_ROUTE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875151",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_full_util_routed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_UTILIZATION_ROUTE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875179",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_xbar_0_synth_1_u96v2_sbc_base_xbar_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875188",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_Filter_HW_1_0_synth_1_u96v2_sbc_base_Filter_HW_1_0_utilization_synth.rpt",
+  "name": "Filter_HW",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875196",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_auto_pc_3_synth_1_u96v2_sbc_base_auto_pc_3_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875204",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_auto_ds_4_synth_1_u96v2_sbc_base_auto_ds_4_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875213",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_auto_ds_7_synth_1_u96v2_sbc_base_auto_ds_7_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875221",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_auto_pc_7_synth_1_u96v2_sbc_base_auto_pc_7_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875228",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_auto_ds_9_synth_1_u96v2_sbc_base_auto_ds_9_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875237",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_auto_pc_9_synth_1_u96v2_sbc_base_auto_pc_9_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875244",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_auto_ds_10_synth_1_u96v2_sbc_base_auto_ds_10_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875254",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_zynq_ultra_ps_e_0_0_synth_1_u96v2_sbc_base_zynq_ultra_ps_e_0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875262",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/syn/u96v2_sbc_base_axi_intc_0_0_synth_1_u96v2_sbc_base_axi_intc_0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875276",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_u96v2_sbc_base_wrapper_timing_summary_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875305",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/imp/impl_1_u96v2_sbc_base_wrapper_timing_summary_routed.rpx",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:17:55 2023",
+ "timestampMillis": "1698599875488",
+ "status": {
+  "cmdId": "97936867-e411-4983-a383-8b300fb60d30",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:17:56 2023",
+ "timestampMillis": "1698599876974",
+ "status": {
+  "cmdId": "ba4ba69c-dfbd-4674-819c-e40dc5305c1f",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 13:17:57 2023",
+ "timestampMillis": "1698599877008",
+ "buildStep": {
+  "cmdId": "9cf11cc1-b724-4e9d-8fa1-a3cf0744e4e0",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "rtdgen",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:17:57 2023",
+ "timestampMillis": "1698599877011",
+ "status": {
+  "cmdId": "9cf11cc1-b724-4e9d-8fa1-a3cf0744e4e0",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:17:57 2023",
+ "timestampMillis": "1698599877023",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW_xml.rtd",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "XCLBIN_INFO"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 13:17:57 2023",
+ "timestampMillis": "1698599877036",
+ "buildStep": {
+  "cmdId": "1436742c-73b8-4a00-b7e4-779c93138f85",
+  "name": "cf2sw",
+  "logFile": "",
+  "commandLine": "cf2sw -a /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/address_map.xml -sdsl /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/sdsl.dat -xclbin /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/xclbin_orig.xml -rtd /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW.rtd -o /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW.xml",
+  "args": [
+   "-a",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/address_map.xml",
+   "-sdsl",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/sdsl.dat",
+   "-xclbin",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/xclbin_orig.xml",
+   "-rtd",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW.rtd",
+   "-o",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW.xml"
+  ],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:17:57 2023",
+ "timestampMillis": "1698599877039",
+ "status": {
+  "cmdId": "1436742c-73b8-4a00-b7e4-779c93138f85",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:00 2023",
+ "timestampMillis": "1698599880142",
+ "status": {
+  "cmdId": "1436742c-73b8-4a00-b7e4-779c93138f85",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:18:00 2023",
+ "timestampMillis": "1698599880159",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/systemDiagramModelSlrBaseAddress.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 13:18:00 2023",
+ "timestampMillis": "1698599880160",
+ "buildStep": {
+  "cmdId": "cd58d59a-14a1-4a5e-ad1f-83f6cf3ee819",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "writeSystemDiagram",
+  "args": [
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW.rtd",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/systemDiagramModelSlrBaseAddress.json"
+  ],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:00 2023",
+ "timestampMillis": "1698599880161",
+ "status": {
+  "cmdId": "cd58d59a-14a1-4a5e-ad1f-83f6cf3ee819",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:00 2023",
+ "timestampMillis": "1698599880167",
+ "status": {
+  "cmdId": "cd58d59a-14a1-4a5e-ad1f-83f6cf3ee819",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:00 2023",
+ "timestampMillis": "1698599880171",
+ "status": {
+  "cmdId": "9cf11cc1-b724-4e9d-8fa1-a3cf0744e4e0",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 13:18:00 2023",
+ "timestampMillis": "1698599880195",
+ "buildStep": {
+  "cmdId": "299f4f3e-248e-4ddf-9fef-2ce6b8ff8d0b",
+  "name": "xclbinutil",
+  "logFile": "",
+  "commandLine": "xclbinutil --add-section BITSTREAM:RAW:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/system.bit --force --target hw --key-value SYS:dfx_enable:false --add-section :JSON:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW_xml.rtd --add-section BUILD_METADATA:JSON:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW_build.rtd --add-section EMBEDDED_METADATA:RAW:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW.xml --add-section SYSTEM_METADATA:RAW:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/systemDiagramModelSlrBaseAddress.json --key-value SYS:PlatformVBNV:avnet.com_u96v2_sbc_base_u96v2_sbc_base_1_0 --output /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xclbin",
+  "args": [
+   "--add-section",
+   "BITSTREAM:RAW:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/system.bit",
+   "--force",
+   "--target",
+   "hw",
+   "--key-value",
+   "SYS:dfx_enable:false",
+   "--add-section",
+   ":JSON:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW.rtd",
+   "--add-section",
+   "CLOCK_FREQ_TOPOLOGY:JSON:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW_xml.rtd",
+   "--add-section",
+   "BUILD_METADATA:JSON:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW_build.rtd",
+   "--add-section",
+   "EMBEDDED_METADATA:RAW:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/Filter_HW.xml",
+   "--add-section",
+   "SYSTEM_METADATA:RAW:/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/link/int/systemDiagramModelSlrBaseAddress.json",
+   "--key-value",
+   "SYS:PlatformVBNV:avnet.com_u96v2_sbc_base_u96v2_sbc_base_1_0",
+   "--output",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:00 2023",
+ "timestampMillis": "1698599880198",
+ "status": {
+  "cmdId": "299f4f3e-248e-4ddf-9fef-2ce6b8ff8d0b",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:02 2023",
+ "timestampMillis": "1698599882076",
+ "status": {
+  "cmdId": "299f4f3e-248e-4ddf-9fef-2ce6b8ff8d0b",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 13:18:02 2023",
+ "timestampMillis": "1698599882091",
+ "buildStep": {
+  "cmdId": "32a55f42-5119-41c1-81da-2d69c1cad74a",
+  "name": "xclbinutilinfo",
+  "logFile": "",
+  "commandLine": "xclbinutil --quiet --force --info /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xclbin.info --input /mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xclbin",
+  "args": [
+   "--quiet",
+   "--force",
+   "--info",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xclbin.info",
+   "--input",
+   "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/Filter_HW.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:02 2023",
+ "timestampMillis": "1698599882092",
+ "status": {
+  "cmdId": "32a55f42-5119-41c1-81da-2d69c1cad74a",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:03 2023",
+ "timestampMillis": "1698599883095",
+ "status": {
+  "cmdId": "32a55f42-5119-41c1-81da-2d69c1cad74a",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Sun Oct 29 13:18:03 2023",
+ "timestampMillis": "1698599883103",
+ "buildStep": {
+  "cmdId": "0e4fcff5-99d4-4fae-997c-bdbbcfbec47d",
+  "name": "generate_sc_driver",
+  "logFile": "",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:03 2023",
+ "timestampMillis": "1698599883104",
+ "status": {
+  "cmdId": "0e4fcff5-99d4-4fae-997c-bdbbcfbec47d",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:03 2023",
+ "timestampMillis": "1698599883108",
+ "status": {
+  "cmdId": "0e4fcff5-99d4-4fae-997c-bdbbcfbec47d",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:18:03 2023",
+ "timestampMillis": "1698599883138",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/system_estimate_Filter_HW.xtxt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SYSTEM_ESTIMATE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:18:03 2023",
+ "timestampMillis": "1698599883543",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/reports/link/v++_link_Filter_HW_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:18:03 2023",
+ "timestampMillis": "1698599883544",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/v++_link_Filter_HW_guidance.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Sun Oct 29 13:18:03 2023",
+ "timestampMillis": "1698599883589",
+ "report": {
+  "path": "/mnt/castor/seas_home/c/chihan/chihan/ese532_hw7/hw7/_x/logs/optraceViewer.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "OPERATION_TRACE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Sun Oct 29 13:18:03 2023",
+ "timestampMillis": "1698599883613",
+ "status": {
+  "cmdId": "6a27f031-b8c5-4894-b8a9-dbeeda6524b7",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>

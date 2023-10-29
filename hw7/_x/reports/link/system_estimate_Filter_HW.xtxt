@@ -1,0 +1,57 @@
+===============================================================================
+Version:    v++ v2020.2 (64-bit)
+Build:      SW Build (by xbuild) on 2020-11-18-05:13:29
+Copyright:  Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+Created:    Sun Oct 29 13:18:03 2023
+===============================================================================
+
+-------------------------------------------------------------------------------
+Design Name:             Filter_HW
+Target Device:           avnet.com:u96v2_sbc_base:u96v2_sbc_base:1.0
+Target Clock:            150.000000MHz
+Total number of kernels: 1
+-------------------------------------------------------------------------------
+
+Kernel Summary
+Kernel Name  Type  Target              OpenCL Library  Compute Units
+-----------  ----  ------------------  --------------  -------------
+Filter_HW    c     fpga0:OCL_REGION_0  Filter_HW       1
+
+
+-------------------------------------------------------------------------------
+OpenCL Binary:     Filter_HW
+Kernels mapped to: clc_region
+
+Timing Information (MHz)
+Compute Unit  Kernel Name  Module Name             Target Frequency  Estimated Frequency
+------------  -----------  ----------------------  ----------------  -------------------
+Filter_HW_1   Filter_HW    Filter_HW_entry3        149.925034        461.467468
+Filter_HW_1   Filter_HW    read_input_13           149.925034        205.465378
+Filter_HW_1   Filter_HW    Filter_horizontal_HW_1  149.925034        246.123535
+Filter_HW_1   Filter_HW    Filter_vertical_HW_1    149.925034        236.798477
+Filter_HW_1   Filter_HW    compute_filter_1        149.925034        236.798477
+Filter_HW_1   Filter_HW    write_result_1          149.925034        205.465378
+Filter_HW_1   Filter_HW    Filter_HW               149.925034        205.465378
+
+Latency Information
+Compute Unit  Kernel Name  Module Name             Start Interval   Best (cycles)  Avg (cycles)  Worst (cycles)  Best (absolute)  Avg (absolute)  Worst (absolute)
+------------  -----------  ----------------------  ---------------  -------------  ------------  --------------  ---------------  --------------  ----------------
+Filter_HW_1   Filter_HW    Filter_HW_entry3        0                0              0             0               0 ns             0 ns            0 ns
+Filter_HW_1   Filter_HW    read_input_13           129673           129673         129673        129673          0.865 ms         0.865 ms        0.865 ms
+Filter_HW_1   Filter_HW    Filter_horizontal_HW_1  130951           130951         130951        130951          0.873 ms         0.873 ms        0.873 ms
+Filter_HW_1   Filter_HW    Filter_vertical_HW_1    4277 ~ 255708    4277           129515        255708          28.515 us        0.863 ms        1.705 ms
+Filter_HW_1   Filter_HW    compute_filter_1        130952 ~ 255709  134747         259985        386178          0.898 ms         1.733 ms        2.575 ms
+Filter_HW_1   Filter_HW    write_result_1          125207           125207         125207        125207          0.835 ms         0.835 ms        0.835 ms
+Filter_HW_1   Filter_HW    Filter_HW               130952 ~ 255709  134821         260059        386252          0.899 ms         1.734 ms        2.575 ms
+
+Area Information
+Compute Unit  Kernel Name  Module Name             FF    LUT   DSP  BRAM  URAM
+------------  -----------  ----------------------  ----  ----  ---  ----  ----
+Filter_HW_1   Filter_HW    Filter_HW_entry3        2     29    0    0     0
+Filter_HW_1   Filter_HW    read_input_13           1173  575   0    0     0
+Filter_HW_1   Filter_HW    Filter_horizontal_HW_1  301   501   0    0     0
+Filter_HW_1   Filter_HW    Filter_vertical_HW_1    254   775   0    7     0
+Filter_HW_1   Filter_HW    compute_filter_1        654   1345  0    7     0
+Filter_HW_1   Filter_HW    write_result_1          984   2757  0    0     0
+Filter_HW_1   Filter_HW    Filter_HW               4904  6954  0    37    0
+-------------------------------------------------------------------------------

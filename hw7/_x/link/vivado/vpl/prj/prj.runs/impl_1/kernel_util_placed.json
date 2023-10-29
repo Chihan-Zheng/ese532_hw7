@@ -1,0 +1,42 @@
+{
+    "schema_version": {
+        "major": "1",
+        "minor": "0",
+        "patch": "0"
+    },
+    "design_state": "Fully Placed",
+    "user_budget": {
+        "actual_resources": {
+            "LUT": "5099",
+            "LUTAsMem": "1270",
+            "REG": "8554",
+            "BRAM": "15",
+            "DSP": "2"
+        },
+        "supply_resources": {
+            "LUT": "55630",
+            "LUTAsMem": "27783",
+            "REG": "124536",
+            "BRAM": "212",
+            "DSP": "360"
+        }
+    },
+    "kernels": [
+        {
+            "name": "Filter_HW",
+            "compute_unit_count": "1",
+            "compute_units": [
+                {
+                    "cu_name": "Filter_HW_1",
+                    "actual_resources": {
+                        "LUT": "5099",
+                        "LUTAsMem": "1270",
+                        "REG": "8554",
+                        "BRAM": "15",
+                        "DSP": "2"
+                    }
+                }
+            ]
+        }
+    ]
+}
