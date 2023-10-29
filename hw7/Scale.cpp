@@ -5,6 +5,5 @@ void Scale_SW(const unsigned char * Input,
 {
   for (int Y = 0; Y < INPUT_FRAME_HEIGHT; Y += 2)
     for (int X = 0; X < INPUT_FRAME_WIDTH; X += 2)
-      Output[(Y / 2) * SCALED_FRAME_WIDTH + (X / 2)] = Input[Y * INPUT_FRAME_WIDTH + X];
+      Output[(Y / 2) * INPUT_FRAME_WIDTH / 2 + (X / 2)] = Input[Y * INPUT_FRAME_WIDTH + X];
 }
-

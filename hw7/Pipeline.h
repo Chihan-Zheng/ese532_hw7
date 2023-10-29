@@ -23,7 +23,7 @@
 
 #define STAGES (4)
 
-#define MAX_OUTPUT_SIZE (500 * 1024)
+#define MAX_OUTPUT_SIZE (5000 * 1024 * 10)
 
 extern "C" {
 void Scale_SW(const unsigned char * Input, unsigned char * Output);
